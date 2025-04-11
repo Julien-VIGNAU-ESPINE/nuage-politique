@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cartographie politique française</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #111;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        svg {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+
+        .link {
+            stroke: #aaa;
+            stroke-width: 1.5px;
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+
+        .link.highlighted {
+            stroke: #fff;
+            stroke-width: 2.5px;
+            opacity: 0.9;
+        }
+
+        .node text {
+            fill: white;
+            font-size: 12px;
+            pointer-events: none;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            transition: font-size 0.3s;
+        }
+
+        .legend {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .legend div {
+            margin-bottom: 6px;
+        }
+
+        .legend span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        .node circle,
+        .node rect {
+            stroke: white;
+            stroke-width: 1.5px;
+            transition: all 0.3s;
+        }
+
+        .node.highlighted circle,
+        .node.highlighted rect,
+        .node:hover circle,
+        .node:hover rect {
+            stroke: gold;
+            stroke-width: 2px;
+        }
+
+        .node:hover text {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .tooltip {
+            position: absolute;
+            text-align: left;
+            width: 250px;
+            padding: 15px;
+            font: 14px sans-serif;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            pointer-events: none;
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            z-index: 200;
+        }
+
+        .tooltip h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 100;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .search-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+            display: flex;
+            gap: 5px;
+        }
+
+        .search-container input {
+            padding: 8px 10px;
+            border-radius: 4px;
+            border: none;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 200px;
+        }
+
+        .filter-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        button.active {
+            background: #ffb703;
+            color: black;
+        }
+
+        .node.faded,
+        .link.faded {
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="legend">
+        <h3 style="margin-top: 0;">Tendances Politiques</h3>
+        <div><span style="background:#e63946"></span> Gauche</div>
+        <div><span style="background:#f1fa8c"></span> Centre-Gauche</div>
+        <div><span style="background:#2a9d8f"></span> Écologie</div>
+        <div><span style="background:#8ecae6"></span> Coalition</div>
+        <div><span style="background:#ffb703"></span> Centre</div>
+        <div><span style="background:#219ebc"></span> Droite</div>
+        <div><span style="background:#9b5de5"></span> Extrême-droite</div>
+        <div><span style="background:white; border:1px solid white;"></span> Personnalité</div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Rechercher...">
+        <button id="search-button">Rechercher</button>
+    </div>
+
+    <div class="filter-container">
+        <button class="filter-button active" data-filter="all">Tous</button>
+        <button class="filter-button" data-filter="parti">Partis</button>
+        <button class="filter-button" data-filter="personnalité">Personnalités</button>
+        <button class="filter-button" data-filter="coalition">Coalitions</button>
+    </div>
+
+    <div class="controls">
+        <button id="reset-zoom">Réinitialiser la vue</button>
+    </div>
+
+    <svg></svg>
+
+    <script>
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const colors = {
+            "gauche": "#e63946",
+            "centre-gauche": "#f1fa8c",
+            "écologie": "#2a9d8f",
+            "coalition": "#8ecae6",
+            "centre": "#ffb703",
+            "droite": "#219ebc",
+            "extrême-droite": "#9b5de5"
+        };
+
+        // Positionnement politique horizontal (x) approximatif
+        const politicalPositions = {
+            "PCF": 0.1,       // Gauche
+            "LFI": 0.15,      // Gauche
+            "Génération.s": 0.2, // Gauche
+            "EELV": 0.3,      // Centre-gauche/écologie
+            "PS": 0.35,       // Centre-gauche
+            "NUPES": 0.25,    // Coalition gauche
+            "NFP": 0.2,       // Coalition gauche
+            "MoDem": 0.55,    // Centre
+            "Renaissance": 0.6, // Centre
+            "Horizons": 0.65,  // Centre-droit
+            "LR": 0.75,       // Droite
+            "Reconquête": 0.85, // Extrême-droite
+            "RN": 0.9         // Extrême-droite
+        };
+
+        const placeholderImage = "/api/placeholder/80/80";
+
+        const nodes = [
+            // Partis de gauche à droite
+            { id: "PCF", group: "gauche", type: "parti", description: "Parti Communiste Français", details: "Parti historique de la gauche fondé en 1920" },
+            { id: "LFI", group: "gauche", type: "parti", description: "La France Insoumise", details: "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie" },
+            { id: "Génération.s", group: "gauche", type: "parti", description: "Génération.s", details: "Mouvement fondé par Benoît Hamon en 2017" },
+            { id: "EELV", group: "écologie", type: "parti", description: "Europe Écologie Les Verts", details: "Principal parti écologiste français fondé en 2010" },
+            { id: "PS", group: "centre-gauche", type: "parti", description: "Parti Socialiste", details: "Parti historique de la gauche française fondé en 1969" },
+            { id: "NUPES", group: "coalition", type: "coalition", description: "Nouvelle Union Populaire écologique et sociale", details: "Coalition de gauche formée en 2022 pour les élections législatives" },
+            { id: "NFP", group: "coalition", type: "coalition", description: "Nouveau Front Populaire", details: "Coalition de gauche formée en 2024" },
+            { id: "MoDem", group: "centre", type: "parti", description: "Mouvement Démocrate", details: "Parti centriste fondé en 2007 par François Bayrou" },
+            { id: "Renaissance", group: "centre", type: "parti", description: "Renaissance", details: "Parti présidentiel fondé en 2016 sous le nom d'En Marche !" },
+            { id: "Horizons", group: "centre", type: "parti", description: "Horizons", details: "Parti fondé par Édouard Philippe en 2021" },
+            { id: "LR", group: "droite", type: "parti", description: "Les Républicains", details: "Principal parti de la droite républicaine fondé en 2015" },
+            { id: "Reconquête", group: "extrême-droite", type: "parti", description: "Reconquête !", details: "Parti d'extrême-droite fondé par Éric Zemmour en 2021" },
+            { id: "RN", group: "extrême-droite", type: "parti", description: "Rassemblement National", details: "Parti d'extrême-droite fondé en 1972 sous le nom de Front National" },
+
+            // Personnalités de gauche à droite
+            { id: "Roussel", group: "gauche", type: "personnalité", description: "Fabien Roussel", details: "Secrétaire national du PCF depuis 2018", imageUrl: placeholderImage },
+            { id: "Mélenchon", group: "gauche", type: "personnalité", description: "Jean-Luc Mélenchon", details: "Fondateur de La France Insoumise, ancien candidat à l'élection présidentielle", imageUrl: placeholderImage },
+            { id: "Autain", group: "gauche", type: "personnalité", description: "Clémentine Autain", details: "Députée LFI-NUPES", imageUrl: placeholderImage },
+            { id: "Hamon", group: "gauche", type: "personnalité", description: "Benoît Hamon", details: "Fondateur de Génération.s, ancien candidat PS à la présidentielle", imageUrl: placeholderImage },
+            { id: "Tondelier", group: "écologie", type: "personnalité", description: "Marine Tondelier", details: "Secrétaire nationale d'EELV depuis 2022", imageUrl: placeholderImage },
+            { id: "Faure", group: "centre-gauche", type: "personnalité", description: "Olivier Faure", details: "Premier secrétaire du PS depuis 2018", imageUrl: placeholderImage },
+            { id: "Bayrou", group: "centre", type: "personnalité", description: "François Bayrou", details: "Président du MoDem, Haut-Commissaire au Plan", imageUrl: placeholderImage },
+            { id: "Macron", group: "centre", type: "personnalité", description: "Emmanuel Macron", details: "Fondateur de Renaissance, Président de la République (2017-2027)", imageUrl: placeholderImage },
+            { id: "Philippe", group: "centre", type: "personnalité", description: "Édouard Philippe", details: "Fondateur d'Horizons, ancien Premier ministre (2017-2020)", imageUrl: placeholderImage },
+            { id: "Retailleau", group: "droite", type: "personnalité", description: "Bruno Retailleau", details: "Président du groupe LR au Sénat", imageUrl: placeholderImage },
+            { id: "Ciotti", group: "droite", type: "personnalité", description: "Éric Ciotti", details: "Président de LR (2022-2024)", imageUrl: placeholderImage },
+            { id: "Zemmour", group: "extrême-droite", type: "personnalité", description: "Éric Zemmour", details: "Fondateur de Reconquête !", imageUrl: placeholderImage },
+            { id: "Maréchal", group: "extrême-droite", type: "personnalité", description: "Marion Maréchal", details: "Vice-présidente de Reconquête !", imageUrl: placeholderImage },
+            { id: "Bardella", group: "extrême-droite", type: "personnalité", description: "Jordan Bardella", details: "Président du RN depuis 2022", imageUrl: placeholderImage },
+            { id: "Le Pen", group: "extrême-droite", type: "personnalité", description: "Marine Le Pen", details: "Présidente du groupe RN à l'Assemblée nationale", imageUrl: placeholderImage }
+        ];
+
+        const links = [
+            // Relations entre partis et personnalités
+            { source: "Roussel", target: "PCF", strength: 1 },
+            { source: "Mélenchon", target: "LFI", strength: 1 },
+            { source: "Autain", target: "LFI", strength: 0.8 },
+            { source: "Hamon", target: "Génération.s", strength: 1 },
+            { source: "Tondelier", target: "EELV", strength: 1 },
+            { source: "Faure", target: "PS", strength: 1 },
+            { source: "Bayrou", target: "MoDem", strength: 1 },
+            { source: "Macron", target: "Renaissance", strength: 1 },
+            { source: "Philippe", target: "Horizons", strength: 1 },
+            { source: "Ciotti", target: "LR", strength: 0.8 },
+            { source: "Retailleau", target: "LR", strength: 0.9 },
+            { source: "Zemmour", target: "Reconquête", strength: 1 },
+            { source: "Maréchal", target: "Reconquête", strength: 0.9 },
+            { source: "Bardella", target: "RN", strength: 1 },
+            { source: "Le Pen", target: "RN", strength: 0.9 },
+
+            // Liens coalitions
+            { source: "LFI", target: "NUPES", strength: 0.9 },
+            { source: "PS", target: "NUPES", strength: 0.9 },
+            { source: "EELV", target: "NUPES", strength: 0.9 },
+            { source: "PCF", target: "NUPES", strength: 0.9 },
+            { source: "Génération.s", target: "NUPES", strength: 0.8 },
+            { source: "LFI", target: "NFP", strength: 0.9 },
+            { source: "PS", target: "NFP", strength: 0.9 },
+            { source: "EELV", target: "NFP", strength: 0.9 },
+            { source: "PCF", target: "NFP", strength: 0.9 },
+
+            // Alliances et relations
+            { source: "Renaissance", target: "MoDem", strength: 0.8 },
+            { source: "Renaissance", target: "Horizons", strength: 0.8 },
+            { source: "RN", target: "Reconquête", strength: 0.3, type: "rivalry" },
+
+            // Relations entre personnalités
+            { source: "Philippe", target: "Macron", strength: 0.7 },
+            { source: "Bayrou", target: "Macron", strength: 0.7 },
+            { source: "Le Pen", target: "Bardella", strength: 0.9 },
+            { source: "Zemmour", target: "Maréchal", strength: 0.8 },
+            { source: "Mélenchon", target: "Autain", strength: 0.8 }
+        ];
+
+        // Initialisation des éléments
+        const svg = d3.select("svg");
+        const g = svg.append("g");
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        // Configuration du zoom
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on("zoom", (event) => g.attr("transform", event.transform));
+        svg.call(zoom);
+
+        // Initialisation de la simulation
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(d => 100 / (d.strength || 0.5)).strength(d => d.strength || 0.5))
+            .force("charge", d3.forceManyBody().strength(-500))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("x", d3.forceX(d => width * (politicalPositions[d.id] || 0.5)).strength(0.2)) // Positionnement politique
+            .force("y", d3.forceY(height / 2).strength(0.1))
+            .force("collision", d3.forceCollide().radius(50));
+
+        // Création des liens
+        const link = g.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("class", "link")
+            .attr("stroke-width", d => Math.max(1, d.strength * 3));
+
+        // Création des nœuds
+        const node = g.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .attr("class", d => `node ${d.type}`)
+            .on("mouseover", function (event, d) {
+                highlightConnections(d);
+                tooltip.transition().duration(200).style("opacity", .9);
+                tooltip.html(`
+                    <h3>${d.description}</h3>
+                    <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
+                    <p><strong>Tendance:</strong> ${d.group.charAt(0).toUpperCase() + d.group.slice(1)}</p>
+                    <p>${d.details}</p>
+                `)
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function () {
+                resetHighlight();
+                tooltip.transition().duration(500).style("opacity", 0);
+            })
+            .on("click", function (event, d) {
+                focusNode(d);
+                event.stopPropagation();
+            });
+
+        // Ajout des formes aux nœuds
+        node.append(d => {
+            if (d.type === "personnalité" && d.imageUrl) {
+                const image = document.createElementNS(d3.namespaces.svg, "image");
+                image.setAttribute("href", d.imageUrl);
+                image.setAttribute("width", 40);
+                image.setAttribute("height", 40);
+                image.setAttribute("x", -20);
+                image.setAttribute("y", -20);
+                return image;
+            } else if (d.type === "personnalité") {
+                const rect = document.createElementNS(d3.namespaces.svg, "rect");
+                rect.setAttribute("width", 22);
+                rect.setAttribute("height", 22);
+                rect.setAttribute("x", -11);
+                rect.setAttribute("y", -11);
+                return rect;
+            } else if (d.type === "coalition") {
+                const polygon = document.createElementNS(d3.namespaces.svg, "polygon");
+                polygon.setAttribute("points", "-15,0 0,-15 15,0 0,15");
+                return polygon;
+            } else {
+                const circle = document.createElementNS(d3.namespaces.svg, "circle");
+                circle.setAttribute("r", 15);
+                return circle;
+            }
+        }).attr("fill", d => colors[d.group] || "#ccc");
+
+        // Ajout des étiquettes
+        node.append("text")
+            .text(d => d.id)
+            .attr("x", d => d.type === "personnalité" ? 22 : 18)
+            .attr("y", 5);
+
+        // Animation de la simulation
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node.attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+
+        // Fonctions utilitaires
+        function highlightConnections(d) {
+            const connectedNodes = new Set([d.id]);
+            links.forEach(link => {
+                const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                if (sourceId === d.id) connectedNodes.add(targetId);
+                if (targetId === d.id) connectedNodes.add(sourceId);
+            });
+
+            node.classed("faded", n => !connectedNodes.has(n.id));
+            node.classed("highlighted", n => n.id === d.id);
+
+            link.classed("faded", l => {
+                const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                return !(connectedNodes.has(sourceId) && connectedNodes.has(targetId));
+            });
+
+            link.classed("highlighted", l => {
+                const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                return (sourceId === d.id || targetId === d.id);
+            });
+        }
+
+        function resetHighlight() {
+            node.classed("faded highlighted", false);
+            link.classed("faded highlighted", false);
+        }
+
+        function focusNode(d) {
+            svg.transition().duration(750)
+                .call(zoom.transform, d3.zoomIdentity
+                    .translate(width / 2, height / 2)
+                    .scale(1.5)
+                    .translate(-d.x, -d.y));
+            highlightConnections(d);
+        }
+
+        // Gestion des événements
+        d3.select("#reset-zoom").on("click", () => {
+            svg.transition().duration(750)
+                .call(zoom.transform, d3.zoomIdentity);
+            resetHighlight();
+        });
+
+        function search() {
+            const searchTerm = d3.select("#search-input").property("value").toLowerCase();
+            if (searchTerm.length < 2) {
+                resetHighlight();
+                return;
+            }
+
+            const foundNode = nodes.find(node =>
+                node.id.toLowerCase().includes(searchTerm) ||
+                node.description.toLowerCase().includes(searchTerm)
+            );
+
+            if (foundNode) focusNode(foundNode);
+        }
+
+        d3.select("#search-button").on("click", search);
+        d3.select("#search-input").on("keyup", event => {
+            if (event.key === "Enter") search();
+        });
+
+        d3.selectAll(".filter-button").on("click", function () {
+            const filterValue = this.getAttribute("data-filter");
+            d3.selectAll(".filter-button").classed("active", false);
+            d3.select(this).classed("active", true);
+
+            if (filterValue === "all") {
+                node.style("display", null);
+                link.style("display", null);
+            } else {
+                node.style("display", d => d.type === filterValue ? null : "none");
+                link.style("display", l => {
+                    const sourceNode = nodes.find(n => n.id === (typeof l.source === 'object' ? l.source.id : l.source));
+                    const targetNode = nodes.find(n => n.id === (typeof l.target === 'object' ? l.target.id : l.target));
+                    return (sourceNode && targetNode && (sourceNode.type === filterValue || targetNode.type === filterValue)) ? null : "none";
+                });
+            }
+        });
+
+        svg.on("click", event => {
+            if (event.target.tagName === "svg") resetHighlight();
+        });
+
+        window.addEventListener("resize", () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2))
+                .force("x", d3.forceX(d => newWidth * (politicalPositions[d.id] || 0.5)).strength(0.2))
+                .force("y", d3.forceY(newHeight / 2).strength(0.1))
+                .alpha(0.3).restart();
+        });
+    </script>
+</body>
+
+</html>
