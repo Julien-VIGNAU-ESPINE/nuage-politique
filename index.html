@@ -240,6 +240,7 @@
             "UDR": 0.75,       // Droite
             "RN": 0.85,   // Extrême-droite
             "Reconquête": 0.90, // Extrême-droite
+            "FN": 1.2,        // Extrème-droite
         };
 
         const nodes = [
@@ -259,6 +260,8 @@
         { id: "UDR", group: "droite", type: "parti", description: "Les Républicains", details: "L'Union des droites pour la République est un parti politique français d'extrême droite fondé par Éric Ciotti en 2012. Il a pris son nom actuel en 2024", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxu1FAm8jXB-hg9MBqWvTJX8wnz0BKhw8qg&s" },
         { id: "RN", group: "extrême-droite", type: "parti", description: "Rassemblement National", details: "Parti d'extrême-droite fondé en 1972 sous le nom de Front National", imageUrl: "https://focus.huffingtonpost.fr/2022/07/24/0/0/630/548/385/334/75/0/66d6ccd_1658701693772-5c92b12b3b0000a6076ddfc3.jpeg" },
         { id: "Reconquête", group: "extrême-droite", type: "parti", description: "Reconquête !", details: "Parti d'extrême-droite fondé par Éric Zemmour en 2021", imageUrl: "https://yannickmasse.com/68-large_default/pochoir-reconquete-zemmour-lepen.jpg" },
+        { id: "FN", group: "extrême-droite", type: "parti", description: "Front National", details: "Parti d'extrême-droite fondé par Jean-Marie Le Pen en 1972", imageUrl: "https://pbs.twimg.com/profile_images/1002613717564100609/Qp8ToZ3b_400x400.jpg" },
+
 
 
 
@@ -268,6 +271,7 @@
         { id: "Deffontaines", group: "PCF", type: "personnalité", description: "Léon Deffontaines", details: "Tête de liste pour les élections européennes 2022", imageUrl: "https://www.francetvinfo.fr/pictures/dtHlfzjwmzrPajbz3iygIKuTrsw/1200x900/2023/09/15/leon-deffontaines-6504bcbcefb56991049719.jpg" },
 
         { id: "Poutou", group: "NPA", type: "personnalité", description: "Philippe Poutou", details: "Philippe Poutou est un ancien candidat du Nouveau Parti Anticapitaliste", imageUrl: "https://s1.qwant.com/thumbr/474x543/1/b/daed9a6689e3b3cf1c37f52a362faf6ecd7d2430f34c8dee89d37698bb72de/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.9scF831T0cMoQGPGxIXqmwHaIf%26pid%3DApi&q=0&b=1&p=0&a=0" },
+        { id: "Besancenot", group: "NPA", type: "personnalité", description: "Oliver Besancenot", details: "Ancien facteur, il a été le porte-parole de la Ligue communiste révolutionnaire (LCR), l'organisation qui a précédé le NPA. Il reste une figure influente au sein du parti.", imageUrl: "https://www.radiofrance.fr/s3/cruiser-production-eu3/2017/09/260ec564-0046-4606-956e-5141e780717e/640x340_besancenot.jpg" },
 
         { id: "Rousseau", group: "EELV", type: "personnalité", description: "Sandrine Rousseau", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795076.jpg" },
         { id: "Tondelier", group: "EELV", type: "personnalité", description: "Marine Tondelier", details: "Secrétaire nationale d'Europe Écologie Les Verts (EÉLV) depuis 2022.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/20210819_tondelier.m-cr3.jpg/640px-20210819_tondelier.m-cr3.jpg" },
@@ -287,6 +291,9 @@
 
         { id: "Hollande", group: "PS", type: "personnalité", description: "François Hollande", details: "Ancien président de la République française (2012-2017).", imageUrl: "https://datan.fr/assets/imgs/deputes_original/depute_1654.png" },
         { id: "Faure", group: "PS", type: "personnalité", description: "Olivier Faure", details: "Premier secrétaire du Parti socialiste depuis 2018.", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/609332.jpg" },
+        { id: "Hidalgo", group: "PS", type: "personnalité", description: "Anne Hidalgo", details: "Maire de Paris.", imageUrl: "https://img.zeit.de/politik/ausland/2020-06/anne-hidalgo-paris-buergermeisterin/wide__1000x562" },
+        { id: "Vallaud", group: "PS", type: "personnalité", description: "Boris Vallaud", details: "Président du groupe socialiste à l'Assemblée nationale.", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719930.jpg" },
+        { id: "Glucksmann", group: "PS", type: "personnalité", description: "Raphaël Glucksmann", details: "Député européen (Place Publique, Groupe S&D).", imageUrl: "https://media0.faz.net/ppmedia/aktuell/politik/3471220137/1.9818898/default-retina/raphael-glucksmann.jpg.webp" },
 
         { id: "Bayrou", group: "MoDem", type: "personnalité", description: "François Bayrou", details: "Président du Mouvement démocrate (MoDem) et maire de Pau, Premier ministre depuis décembre 2024.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg/250px-Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg" },
 
@@ -295,10 +302,13 @@
         { id: "Macron", group: "Renaissance", type: "personnalité", description: "Emmanuel Macron", details: "Emmanuel Macron : Président de la République française depuis 2017.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emmanuel_Macron_2022.png/640px-Emmanuel_Macron_2022.png" },
         { id: "Attal", group: "Renaissance", type: "personnalité", description: "Gabriel Attal", details: "Premier ministre de janvier à juillet 2024.", imageUrl: "https://www.gavroche-thailande.com/wp-content/uploads/2025/04/Gabriel-Attal.jpg" },
         { id: "Borne", group: "Renaissance", type: "personnalité", description: "Elisabeth Borne", details: "Ancienne Première ministre (2022-2024), Ministre d'État, ministre de l'Éducation nationale, de l'Enseignement supérieur et de la Recherche depuis décembre 2024.", imageUrl: "https://images.ladepeche.fr/api/v1/images/view/67f67ab94ef26b6ef40626b0/large/image.jpg?v=1" },
+        { id: "Braun-Pivet", group: "Renaissance", type: "personnalité", description: "Yaël Braun-Pivet", details: "Présidente de l'Assemblée nationale.", imageUrl: "https://challenges.fr/static/s3fs-public/2022-06/yael-braun-pivet-elue-presidente-de-l-assemblee.jpg?VersionId=4F_.5WSh9NBfOIDfHTPAlzwl1EE26pNj" },
 
         { id: "Le Pen", group: "RN", type: "personnalité", description: "Marine Le Pen", details: "Figure emblématique du Rassemblement national, députée du Pas-de-Calais et candidate à la présidentielle en 2022.", imageUrl: "https://focus.courrierinternational.com/2025/03/31/0/0/2673/1782/1280/0/60/0/8686bd1_ftp-import-images-1-ywtjpsmcmi33-2025-03-31t181218z-1000200403-rc2ioda9krz1-rtrmadp-3-france-politics-lepen.JPG" },
         { id: "Bardella", group: "RN", type: "personnalité", description: "Jordan Bardella", details: "Président du Rassemblement national depuis 2022 et député européen.", imageUrl: "https://static.euronews.com/articles/stories/08/49/10/76/1440x810_cmsv2_8606eacc-35ea-57d5-96e1-95a750f09d69-8491076.jpg" },
         { id: "Odoul", group: "RN", type: "personnalité", description: "Julien Odoul", details: "Député de l'Yonne et figure montante du Rassemblement national.", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795552.jpg" },
+        
+        { id: "JM Le Pen", group: "FN", type: "personnalité", description: "Jean-Marie Le Pen", details: "Fondateur du Front national (devenu Rassemblement national).", imageUrl: "https://cdn.prod.www.spiegel.de/images/528bdcc4-4670-4682-8329-9f1b7fa0e089_w960_r1.778_fpx53.98_fpy44.99.jpg" },
 
         { id: "Pecresse", group: "LR", type: "personnalité", description: "Valérie Pécresse", details: "Présidente du conseil régional d'Île-de-France depuis 2016 et figure du parti Les Républicains.", imageUrl: "https://www.iledefrance.fr/sites/default/files/2024-10/valerie-pecresse_edito-blanc_web.jpg" },
         { id: "Ciotti", group: "LR", type: "personnalité", description: "Eric Ciotti", details: "Président du parti Les Républicains et député des Alpes-Maritimes.", imageUrl: "https://www.challenges.fr/_ipx/f_webp&enlarge_true&fit_cover&s_680x420/cha/static/s3fs-public/2022-09/02317438f5a88e4be416e86844ea149228c1a270-jpg.jpg%3FVersionId=5OZ0OBVg7kiDKAMRI8Rhj0oOmKzEscgo" },
@@ -307,6 +317,8 @@
         { id: "Marechal", group: "Reconquete", type: "personnalité", description: "Marion Maréchal", details: "Députée européenne et membre du parti Reconquête !.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg/640px-Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg" },
 
         { id: "Wauquiez", group: "DR", type: "personnalité", description: "Laurent Wauquiez", details: "Président du groupe La Droite républicaine à l'Assemblée nationale.", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/267285.jpg" },
+        { id: "Bellamy", group: "DR", type: "personnalité", description: "François-Xavier Bellamy", details: "Député européen et figure du parti Les Républicains.", imageUrl: "https://media.letelegramme.fr/api/v1/images/view/637d68026c9dfe0c0c57ccaa/web_golden_xl/637d68026c9dfe0c0c57ccaa.1" },
+        { id: "Retailleau", group: "DR", type: "personnalité", description: "Bruno Retailleau", details: "Ministre de L'intérieur", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAPfk-qQeuy6okcHstdxE7iLydliQ8jpKwg&s" },
 
 ];
 
@@ -316,6 +328,7 @@
             { source: "Deffontaines", target: "PCF", strength: 1},
 
             { source: "Poutou", target: "NPA", strength: 1 },
+            { source: "Besancenot", target: "NPA", strength: 1 },
 
             { source: "Rousseau", target: "EELV", strength: 1 },
             { source: "Tondelier", target: "EELV", strength: 1 },
@@ -335,6 +348,10 @@
             { source: "Hollande", target: "PS", strength: 1 },
             { source: "Faure", target: "PS", strength: 1 },
             { source: "Borne", target: "PS", strength: 1 },
+            { source: "Vallaud", target: "PS", strength: 1 },
+            { source: "Glucksmann", target: "PS", strength: 1 },
+            { source: "Hidalgo", target: "PS", strength: 1 },
+
 
             { source: "Bayrou", target: "MoDem", strength: 1 },
             { source: "Bayrou", target: "Renaissance", strength: 1 },
@@ -346,10 +363,14 @@
             { source: "Macron", target: "Hollande", strength: 1 },
             { source: "Attal", target: "Renaissance", strength: 1 },
             { source: "Borne", target: "Renaissance", strength: 1 },
+            { source: "Braun-Pivet", target: "Renaissance", strength: 1 },
 
             { source: "Le Pen", target: "RN", strength: 1 },
             { source: "Bardella", target: "RN", strength: 1 },
             { source: "Odoul", target: "RN", strength: 1 },
+
+            { source: "JM Le Pen", target: "FN", strength: 1 },
+            { source: "JM Le Pen", target: "Le Pen", strength: 1 },
 
             { source: "Pecresse", target: "LR", strength: 1 },
             { source: "Ciotti", target: "LR", strength: 1 },
@@ -361,6 +382,11 @@
             { source: "Marechal", target: "RN", strength: 1 },
 
             { source: "Wauquiez", target: "DR", strength: 1 },
+            { source: "Bellamy", target: "Bayrou", strength: 1 },
+            { source: "Bellamy", target: "DR", strength: 1 },
+            { source: "Retailleau", target: "Bayrou", strength: 1 },
+            { source: "Retailleau", target: "DR", strength: 1 },
+
 
 ];
 
