@@ -66,7 +66,8 @@
         }
 
         .node circle,
-        .node rect {
+        .node rect,
+        .node polygon {
             stroke: white;
             stroke-width: 1.5px;
             transition: all 0.3s;
@@ -74,8 +75,10 @@
 
         .node.highlighted circle,
         .node.highlighted rect,
+        .node.highlighted polygon,
         .node:hover circle,
-        .node:hover rect {
+        .node:hover rect,
+        .node:hover polygon {
             stroke: gold;
             stroke-width: 2px;
         }
@@ -171,22 +174,23 @@
         .link.faded {
             opacity: 0.3;
         }
+
+        /* Style pour la bordure des images */
+        .node image {
+            stroke: white;
+            stroke-width: 1.5px;
+            transition: all 0.3s;
+        }
+
+        .node.highlighted image,
+        .node:hover image {
+            stroke: gold;
+            stroke-width: 2px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="legend">
-        <h3 style="margin-top: 0;">Tendances Politiques</h3>
-        <div><span style="background:#e63946"></span> Gauche</div>
-        <div><span style="background:#f1fa8c"></span> Centre-Gauche</div>
-        <div><span style="background:#2a9d8f"></span> Écologie</div>
-        <div><span style="background:#8ecae6"></span> Coalition</div>
-        <div><span style="background:#ffb703"></span> Centre</div>
-        <div><span style="background:#219ebc"></span> Droite</div>
-        <div><span style="background:#9b5de5"></span> Extrême-droite</div>
-        <div><span style="background:white; border:1px solid white;"></span> Personnalité</div>
-    </div>
-
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Rechercher...">
         <button id="search-button">Rechercher</button>
@@ -209,13 +213,13 @@
         const width = window.innerWidth;
         const height = window.innerHeight;
         const colors = {
-            "gauche": "#e63946",
-            "centre-gauche": "#f1fa8c",
-            "écologie": "#2a9d8f",
-            "coalition": "#8ecae6",
-            "centre": "#ffb703",
-            "droite": "#219ebc",
-            "extrême-droite": "#9b5de5"
+            "gauche": "#000",
+            "centre-gauche": "#000",
+            "écologie": "#000",
+            "coalition": "#000",
+            "centre": "#000",
+            "droite": "#000",
+            "extrême-droite": "#000"
         };
 
         // Positionnement politique horizontal (x) approximatif
@@ -235,25 +239,22 @@
             "RN": 0.9         // Extrême-droite
         };
 
-        const placeholderImage = "/api/placeholder/80/80";
-
         const nodes = [
             // Partis de gauche à droite
-            { id: "PCF", group: "gauche", type: "parti", description: "Parti Communiste Français", details: "Parti historique de la gauche fondé en 1920" },
-            { id: "LFI", group: "gauche", type: "parti", description: "La France Insoumise", details: "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie" },
-            { id: "Génération.s", group: "gauche", type: "parti", description: "Génération.s", details: "Mouvement fondé par Benoît Hamon en 2017" },
-            { id: "EELV", group: "écologie", type: "parti", description: "Europe Écologie Les Verts", details: "Principal parti écologiste français fondé en 2010" },
-            { id: "PS", group: "centre-gauche", type: "parti", description: "Parti Socialiste", details: "Parti historique de la gauche française fondé en 1969" },
-            { id: "NUPES", group: "coalition", type: "coalition", description: "Nouvelle Union Populaire écologique et sociale", details: "Coalition de gauche formée en 2022 pour les élections législatives" },
-            { id: "NFP", group: "coalition", type: "coalition", description: "Nouveau Front Populaire", details: "Coalition de gauche formée en 2024" },
-            { id: "MoDem", group: "centre", type: "parti", description: "Mouvement Démocrate", details: "Parti centriste fondé en 2007 par François Bayrou" },
-            { id: "Renaissance", group: "centre", type: "parti", description: "Renaissance", details: "Parti présidentiel fondé en 2016 sous le nom d'En Marche !" },
-            { id: "Horizons", group: "centre", type: "parti", description: "Horizons", details: "Parti fondé par Édouard Philippe en 2021" },
-            { id: "LR", group: "droite", type: "parti", description: "Les Républicains", details: "Principal parti de la droite républicaine fondé en 2015" },
-            { id: "Reconquête", group: "extrême-droite", type: "parti", description: "Reconquête !", details: "Parti d'extrême-droite fondé par Éric Zemmour en 2021" },
-            { id: "RN", group: "extrême-droite", type: "parti", description: "Rassemblement National", details: "Parti d'extrême-droite fondé en 1972 sous le nom de Front National" },
+            { id: "PCF", group: "gauche", type: "parti", description: "Parti Communiste Français", details: "Parti historique de la gauche fondé en 1920", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPkDQ3Kd5U4xUxNkWKo48yT5XXn4CuItIG-g&s" },
+            { id: "LFI", group: "gauche", type: "parti", description: "La France Insoumise", details: "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie", imageUrl: "https://pbs.twimg.com/profile_images/1892318031235239936/MnBiwA46_400x400.jpg" },
+            { id: "Génération.s", group: "gauche", type: "parti", description: "Génération.s", details: "Mouvement fondé par Benoît Hamon en 2017", imageUrl: "https://pbs.twimg.com/profile_images/1729130731543101440/OqoB9FRG_400x400.jpg" },
+            { id: "EELV", group: "écologie", type: "parti", description: "Europe Écologie Les Verts", details: "Principal parti écologiste français fondé en 2010", imageUrl: "https://cf.eelv.fr/files/2020/03/LOGO_EELV_BLANC-1024x547.jpg" },
+            { id: "PS", group: "centre-gauche", type: "parti", description: "Parti Socialiste", details: "Parti historique de la gauche française fondé en 1969", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Logotipo_del_PS.png" },
+            { id: "NUPES", group: "coalition", type: "coalition", description: "Nouvelle Union Populaire écologique et sociale", details: "Coalition de gauche formée en 2022 pour les élections législatives", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvDZExuNzXXDr3dJbgDJyP9F4xi0wozqFJQQ&s" },
+            { id: "NFP", group: "coalition", type: "coalition", description: "Nouveau Front Populaire", details: "Coalition de gauche formée en 2024", imageUrl: "https://ensemble-mouvement.com/wp-content/uploads/2024/06/Logo-NFP-800x600-1.jpg" },
+            { id: "MoDem", group: "centre", type: "parti", description: "Mouvement Démocrate", details: "Parti centriste fondé en 2007 par François Bayrou", imageUrl: "https://logowik.com/content/uploads/images/modem-20197646.logowik.com.webp" },
+            { id: "Renaissance", group: "centre", type: "parti", description: "Renaissance", details: "Parti présidentiel fondé en 2016 sous le nom d'En Marche !", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/Renaissance-logotype-officiel.jpg" },
+            { id: "Horizons", group: "centre", type: "parti", description: "Horizons", details: "Parti fondé par Édouard Philippe en 2021", imageUrl: "https://horizonsleparti.fr/wp-content/uploads/2021/11/banniere_1200x675.png" },
+            { id: "LR", group: "droite", type: "parti", description: "Les Républicains", details: "Principal parti de la droite républicaine fondé en 2015", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo-Les-R%C3%A9publicains-2024.jpg/1280px-Logo-Les-R%C3%A9publicains-2024.jpg" },
+            { id: "Reconquête", group: "extrême-droite", type: "parti", description: "Reconquête !", details: "Parti d'extrême-droite fondé par Éric Zemmour en 2021", imageUrl: "https://yannickmasse.com/68-large_default/pochoir-reconquete-zemmour-lepen.jpg" },
+            { id: "RN", group: "extrême-droite", type: "parti", description: "Rassemblement National", details: "Parti d'extrême-droite fondé en 1972 sous le nom de Front National", imageUrl: "https://focus.huffingtonpost.fr/2022/07/24/0/0/630/548/385/334/75/0/66d6ccd_1658701693772-5c92b12b3b0000a6076ddfc3.jpeg" },
 
-            // Personnalités de gauche à droite
             { id: "Roussel", group: "gauche", type: "personnalité", description: "Fabien Roussel", details: "Secrétaire national du PCF depuis 2018", imageUrl: "https://s2.qwant.com/thumbr/474x315/d/f/cdd5a23707e5fa3dbde4828865f496e7cd3d5189b0fefa9403f8d3b0da8659/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.1nZP7DpaYux5ci02RQ8xugHaE7%26pid%3DApi&q=0&b=1&p=0&a=0" },
             { id: "Mélenchon", group: "gauche", type: "personnalité", description: "Jean-Luc Mélenchon", details: "Fondateur de La France Insoumise, ancien candidat à l'élection présidentielle", imageUrl: "https://s2.qwant.com/thumbr/474x356/e/b/cc7435a64fd256e9197d096c55b3ee708b3d0c234b8e7841ea71fea6fb1e9a/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.8lUviuVCPV1ASIOHS5OpcwHaFk%26pid%3DApi&q=0&b=1&p=0&a=0" },
             { id: "Autain", group: "gauche", type: "personnalité", description: "Clémentine Autain", details: "Députée LFI-NUPES", imageUrl: "https://s2.qwant.com/thumbr/474x344/e/0/deb3fe11bfed7112b950e3be4d2b2791c06a48948d866799c9778374bc4d2d/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.-1OUI7ARi42_7U5xq5SZMwHaFY%26pid%3DApi&q=0&b=1&p=0&a=0" },
@@ -317,10 +318,11 @@
         const svg = d3.select("svg");
         const g = svg.append("g");
         svg.append("defs")
-                .append("clipPath")
-                .attr("id", "circle-clip")
-                .append("circle")
-                .attr("r", 15);
+            .append("clipPath")
+            .attr("id", "circle-clip")
+            .append("circle")
+            .attr("r", 20);
+
         const tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
@@ -375,39 +377,68 @@
                 event.stopPropagation();
             });
 
-        // Ajout des formes aux nœuds
-        node.append(d => {
-                if (d.type === "personnalité" && d.imageUrl) {
-                    const image = document.createElementNS(d3.namespaces.svg, "image");
-                    image.setAttribute("href", d.imageUrl);
-                    image.setAttribute("width", 40);
-                    image.setAttribute("height", 40);
-                    image.setAttribute("x", -20);
-                    image.setAttribute("y", -20);
-                    image.setAttribute("clip-path", "url(#circle-clip)"); // Ajoutez cette ligne
-                    return image;
-                } else if (d.type === "personnalité") {
-                    const rect = document.createElementNS(d3.namespaces.svg, "rect");
-                    rect.setAttribute("width", 22);
-                    rect.setAttribute("height", 22);
-                    rect.setAttribute("x", -11);
-                    rect.setAttribute("y", -11);
-                    return rect;
+        // Ajout des formes ou images aux nœuds
+        node.each(function (d) {
+            const element = d3.select(this);
+
+            // Utiliser des images pour tous les types de nœuds
+            if (d.imageUrl) {
+                const imageSize = 40;
+                element.append("image")
+                    .attr("href", d.imageUrl)
+                    .attr("width", imageSize)
+                    .attr("height", imageSize)
+                    .attr("x", -imageSize / 2)
+                    .attr("y", -imageSize / 2)
+                    .attr("clip-path", "url(#circle-clip)")
+                    .style("stroke", "white")
+                    .style("stroke-width", "1.5px");
+
+                // Ajouter une forme derrière l'image pour montrer le type de nœud
+                if (d.type === "parti") {
+                    element.insert("circle", "image")
+                        .attr("r", 20)
+                        .attr("fill", colors[d.group])
+                        .attr("opacity", 0.7);
                 } else if (d.type === "coalition") {
-                    const polygon = document.createElementNS(d3.namespaces.svg, "polygon");
-                    polygon.setAttribute("points", "-15,0 0,-15 15,0 0,15");
-                    return polygon;
-                } else {
-                    const circle = document.createElementNS(d3.namespaces.svg, "circle");
-                    circle.setAttribute("r", 15);
-                    return circle;
+                    element.insert("polygon", "image")
+                        .attr("points", "-20,0 0,-20 20,0 0,20")
+                        .attr("fill", colors[d.group])
+                        .attr("opacity", 0.7);
+                } else if (d.type === "personnalité") {
+                    element.insert("image")
+                        .attr("width", 30)
+                        .attr("height", 30)
+                        .attr("x", -15)
+                        .attr("y", -15)
+                        .attr("fill", colors[d.group])
+                        .attr("opacity", 0.5);
                 }
-            }).attr("fill", d => colors[d.group] || "#ccc");
+            } else {
+                // Fallback pour les nœuds sans image
+                if (d.type === "parti") {
+                    element.append("circle")
+                        .attr("r", 20)
+                        .attr("fill", colors[d.group]);
+                } else if (d.type === "coalition") {
+                    element.append("polygon")
+                        .attr("points", "-20,0 0,-20 20,0 0,20")
+                        .attr("fill", colors[d.group]);
+                } else if (d.type === "personnalité") {
+                    element.append("rect")
+                        .attr("width", 30)
+                        .attr("height", 30)
+                        .attr("x", -15)
+                        .attr("y", -15)
+                        .attr("fill", colors[d.group]);
+                }
+            }
+        });
 
         // Ajout des étiquettes
         node.append("text")
             .text(d => d.id)
-            .attr("x", d => d.type === "personnalité" ? 22 : 18)
+            .attr("x", 22)
             .attr("y", 5);
 
         // Animation de la simulation
