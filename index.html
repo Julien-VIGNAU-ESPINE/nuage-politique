@@ -224,222 +224,266 @@
 
         // Positionnement politique horizontal (x) approximatif
         const politicalPositions = {
-            "PCF": 0.1,       // Gauche
+            "PCF": 0.01,       // Gauche
+            "NPA": 0.01,       // Gauche
             "LFI": 0.15,      // Gauche
             "Génération.s": 0.2, // Gauche
             "EELV": 0.3,      // Centre-gauche/écologie
             "PS": 0.35,       // Centre-gauche
             "NUPES": 0.25,    // Coalition gauche
             "NFP": 0.2,       // Coalition gauche
-            "MoDem": 0.55,    // Centre
-            "Renaissance": 0.6, // Centre
+            "MoDem": 0.50,    // Centre
+            "Renaissance": 0.55, // Centre
             "Horizons": 0.65,  // Centre-droit
-            "LR": 0.75,       // Droite
-            "Reconquête": 0.85, // Extrême-droite
-            "RN": 0.9         // Extrême-droite
+            "LR": 0.7,        // Centre-droit
+            "DR": 0.7,        // Centre-droit
+            "UDR": 0.75,       // Droite
+            "RN": 0.85,   // Extrême-droite
+            "Reconquête": 0.90, // Extrême-droite
         };
 
         const nodes = [
             // Partis de gauche à droite
-            { id: "PCF", group: "gauche", type: "parti", description: "Parti Communiste Français", details: "Parti historique de la gauche fondé en 1920", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPkDQ3Kd5U4xUxNkWKo48yT5XXn4CuItIG-g&s" },
-            { id: "LFI", group: "gauche", type: "parti", description: "La France Insoumise", details: "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie", imageUrl: "https://pbs.twimg.com/profile_images/1892318031235239936/MnBiwA46_400x400.jpg" },
-            { id: "Génération.s", group: "gauche", type: "parti", description: "Génération.s", details: "Mouvement fondé par Benoît Hamon en 2017", imageUrl: "https://pbs.twimg.com/profile_images/1729130731543101440/OqoB9FRG_400x400.jpg" },
-            { id: "EELV", group: "écologie", type: "parti", description: "Europe Écologie Les Verts", details: "Principal parti écologiste français fondé en 2010", imageUrl: "https://cf.eelv.fr/files/2020/03/LOGO_EELV_BLANC-1024x547.jpg" },
-            { id: "PS", group: "centre-gauche", type: "parti", description: "Parti Socialiste", details: "Parti historique de la gauche française fondé en 1969", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Logotipo_del_PS.png" },
-            { id: "NUPES", group: "coalition", type: "coalition", description: "Nouvelle Union Populaire écologique et sociale", details: "Coalition de gauche formée en 2022 pour les élections législatives", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvDZExuNzXXDr3dJbgDJyP9F4xi0wozqFJQQ&s" },
-            { id: "NFP", group: "coalition", type: "coalition", description: "Nouveau Front Populaire", details: "Coalition de gauche formée en 2024", imageUrl: "https://ensemble-mouvement.com/wp-content/uploads/2024/06/Logo-NFP-800x600-1.jpg" },
-            { id: "MoDem", group: "centre", type: "parti", description: "Mouvement Démocrate", details: "Parti centriste fondé en 2007 par François Bayrou", imageUrl: "https://logowik.com/content/uploads/images/modem-20197646.logowik.com.webp" },
-            { id: "Renaissance", group: "centre", type: "parti", description: "Renaissance", details: "Parti présidentiel fondé en 2016 sous le nom d'En Marche !", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/Renaissance-logotype-officiel.jpg" },
-            { id: "Horizons", group: "centre", type: "parti", description: "Horizons", details: "Parti fondé par Édouard Philippe en 2021", imageUrl: "https://horizonsleparti.fr/wp-content/uploads/2021/11/banniere_1200x675.png" },
-            { id: "LR", group: "droite", type: "parti", description: "Les Républicains", details: "Principal parti de la droite républicaine fondé en 2015", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo-Les-R%C3%A9publicains-2024.jpg/1280px-Logo-Les-R%C3%A9publicains-2024.jpg" },
-            { id: "Reconquête", group: "extrême-droite", type: "parti", description: "Reconquête !", details: "Parti d'extrême-droite fondé par Éric Zemmour en 2021", imageUrl: "https://yannickmasse.com/68-large_default/pochoir-reconquete-zemmour-lepen.jpg" },
-            { id: "RN", group: "extrême-droite", type: "parti", description: "Rassemblement National", details: "Parti d'extrême-droite fondé en 1972 sous le nom de Front National", imageUrl: "https://focus.huffingtonpost.fr/2022/07/24/0/0/630/548/385/334/75/0/66d6ccd_1658701693772-5c92b12b3b0000a6076ddfc3.jpeg" },
 
-            { id: "Roussel", group: "gauche", type: "personnalité", description: "Fabien Roussel", details: "Secrétaire national du PCF depuis 2018", imageUrl: "https://s2.qwant.com/thumbr/474x315/d/f/cdd5a23707e5fa3dbde4828865f496e7cd3d5189b0fefa9403f8d3b0da8659/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.1nZP7DpaYux5ci02RQ8xugHaE7%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Mélenchon", group: "gauche", type: "personnalité", description: "Jean-Luc Mélenchon", details: "Fondateur de La France Insoumise, ancien candidat à l'élection présidentielle", imageUrl: "https://s2.qwant.com/thumbr/474x356/e/b/cc7435a64fd256e9197d096c55b3ee708b3d0c234b8e7841ea71fea6fb1e9a/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.8lUviuVCPV1ASIOHS5OpcwHaFk%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Autain", group: "gauche", type: "personnalité", description: "Clémentine Autain", details: "Députée LFI-NUPES", imageUrl: "https://s2.qwant.com/thumbr/474x344/e/0/deb3fe11bfed7112b950e3be4d2b2791c06a48948d866799c9778374bc4d2d/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.-1OUI7ARi42_7U5xq5SZMwHaFY%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Hamon", group: "gauche", type: "personnalité", description: "Benoît Hamon", details: "Fondateur de Génération.s, ancien candidat PS à la présidentielle", imageUrl: "https://s1.qwant.com/thumbr/474x316/9/6/66b803455180b981ebd8fe68fecc7f6af8d9f451cbe82d2d425ee588431da5/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.SIJDX5Kla5v-YC5QgOoxCgHaE8%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Tondelier", group: "écologie", type: "personnalité", description: "Marine Tondelier", details: "Secrétaire nationale d'EELV depuis 2022", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/20210819_tondelier.m-cr3.jpg/640px-20210819_tondelier.m-cr3.jpg" },
-            { id: "Faure", group: "centre-gauche", type: "personnalité", description: "Olivier Faure", details: "Premier secrétaire du PS depuis 2018", imageUrl: "https://s2.qwant.com/thumbr/474x474/c/2/3fb2ddc13721f7c59b28541f2719095856e5f73a375b684f9610306baf1cc0/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.rm0RR7Vk07DixZYckOFrpQHaHa%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Bayrou", group: "centre", type: "personnalité", description: "François Bayrou", details: "Président du MoDem, Haut-Commissaire au Plan", imageUrl: "https://s1.qwant.com/thumbr/474x632/1/7/d4355afc7c878fde7c3f72035dce9d3dc8a3e916ad504a9be95eb8a9d88a90/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.qbuLT4xSnCIm6u2KudRXZAHaJ4%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Macron", group: "centre", type: "personnalité", description: "Emmanuel Macron", details: "Fondateur de Renaissance, Président de la République (2017-2027)", imageUrl: "https://s2.qwant.com/thumbr/474x365/4/e/02743c80f0cb063c81c5cc659a36a4e18a33d0f533f452d67d252b9f6349b7/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.Z1Z0j-nMXVe6DKsM-48ICgHaFt%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Philippe", group: "centre", type: "personnalité", description: "Édouard Philippe", details: "Fondateur d'Horizons, ancien Premier ministre (2017-2020)", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/%C3%89douard_Philippe_%C3%A0_Ch%C3%A2lons-en-Champagne_en_2023._%28cropped%29.jpg/1200px-%C3%89douard_Philippe_%C3%A0_Ch%C3%A2lons-en-Champagne_en_2023._%28cropped%29.jpg" },
-            { id: "Retailleau", group: "droite", type: "personnalité", description: "Bruno Retailleau", details: "Président du groupe LR au Sénat", imageUrl: "https://s1.qwant.com/thumbr/474x474/8/3/36b3095f9c84eb18517f2ecf9054c50c10d218abd538fb85743aff3b858eef/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.iI_fB2YPS1QfChKvVqgyfAHaHa%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Ciotti", group: "droite", type: "personnalité", description: "Éric Ciotti", details: "Président de LR (2022-2024)", imageUrl: "https://www.challenges.fr/_ipx/f_webp&enlarge_true&fit_cover&s_680x420/cha/static/s3fs-public/2022-09/02317438f5a88e4be416e86844ea149228c1a270-jpg.jpg%3FVersionId=5OZ0OBVg7kiDKAMRI8Rhj0oOmKzEscgo" },
-            { id: "Zemmour", group: "extrême-droite", type: "personnalité", description: "Éric Zemmour", details: "Fondateur de Reconquête !", imageUrl: "https://s1.qwant.com/thumbr/474x474/0/3/4914aee8f4d8707568b58da8622da1b205418c3e5aa1791db30a3f6925d72d/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.W5CLRcE5LXSuptYKXbq7_AHaHa%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Maréchal", group: "extrême-droite", type: "personnalité", description: "Marion Maréchal", details: "Vice-présidente de Reconquête !", imageUrl: "https://s1.qwant.com/thumbr/474x303/a/b/a62bcb0af389c745af5b9348ba8eb996b2ce805656dcd1d79544b750d99d10/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.EEiY0Eq642jvdWHNQ9Ba4QHaEv%26pid%3DApi&q=0&b=1&p=0&a=0" },
-            { id: "Bardella", group: "extrême-droite", type: "personnalité", description: "Jordan Bardella", details: "Président du RN depuis 2022", imageUrl: "https://pbs.twimg.com/profile_images/1903460984326402048/xnGwPwen_400x400.jpg" },
-            { id: "Le Pen", group: "extrême-droite", type: "personnalité", description: "Marine Le Pen", details: "Présidente du groupe RN à l'Assemblée nationale", imageUrl: "https://images.rtl.fr/~c/770v513/rtl/www/1747414-marine-le-pen-apres-son-meeting-du-6-avril-2025.jpg" }
-        ];
+
+        { id: "PCF", group: "extrême-gauche", type: "parti", description: "Parti Communiste Français", details: "Parti historique de la gauche fondé en 1920", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPkDQ3Kd5U4xUxNkWKo48yT5XXn4CuItIG-g&s" },
+        { id: "NPA", group: "extrême-gauche", type: "parti", description: "Nouveau Parti Anticapitaliste", details: "Le Nouveau Parti anticapitaliste est un parti politique français d'extrême gauche créé en février 2009", imageUrl: "https://lanticapitaliste.org/sites/default/files/styles/pour_facebook/public/nouveau-logo-npa_carre_rouge.png?itok=VqJFTrMz" },
+        { id: "LFI", group: "gauche", type: "parti", description: "La France Insoumise", details: "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie", imageUrl: "https://pbs.twimg.com/profile_images/1892318031235239936/MnBiwA46_400x400.jpg" },
+        { id: "EELV", group: "écologie", type: "parti", description: "Europe Écologie Les Verts", details: "Principal parti écologiste français fondé en 2010", imageUrl: "https://cf.eelv.fr/files/2020/03/LOGO_EELV_BLANC-1024x547.jpg" },
+        { id: "PS", group: "centre-gauche", type: "parti", description: "Parti Socialiste", details: "Parti historique de la gauche française fondé en 1969", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Logotipo_del_PS.png" },
+        { id: "MoDem", group: "centre", type: "parti", description: "Mouvement Démocrate", details: "Parti centriste fondé en 2007 par François Bayrou", imageUrl: "https://logowik.com/content/uploads/images/modem-20197646.logowik.com.webp" },
+        { id: "Renaissance", group: "centre", type: "parti", description: "Renaissance", details: "Parti présidentiel fondé en 2016 sous le nom d'En Marche !", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/78/Renaissance-logotype-officiel.jpg" },
+        { id: "Horizons", group: "centre", type: "parti", description: "Horizons", details: "Parti fondé par Édouard Philippe en 2021", imageUrl: "https://horizonsleparti.fr/wp-content/uploads/2021/11/banniere_1200x675.png" },
+        { id: "LR", group: "droite", type: "parti", description: "Les Républicains", details: "Principal parti de la droite républicaine fondé en 2015", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo-Les-R%C3%A9publicains-2024.jpg/1280px-Logo-Les-R%C3%A9publicains-2024.jpg" },
+        { id: "DR", group: "droite", type: "parti", description: "Droite Républicaine", details: "La Droite Républicaine est un groupe majoritairement composé d'ancients membres des Républicains", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjiJxOad_ifvXqVYiP08yo6iMx6GsSHsFigA&s" },
+        { id: "UDR", group: "droite", type: "parti", description: "Les Républicains", details: "L'Union des droites pour la République est un parti politique français d'extrême droite fondé par Éric Ciotti en 2012. Il a pris son nom actuel en 2024", imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxu1FAm8jXB-hg9MBqWvTJX8wnz0BKhw8qg&s" },
+        { id: "RN", group: "extrême-droite", type: "parti", description: "Rassemblement National", details: "Parti d'extrême-droite fondé en 1972 sous le nom de Front National", imageUrl: "https://focus.huffingtonpost.fr/2022/07/24/0/0/630/548/385/334/75/0/66d6ccd_1658701693772-5c92b12b3b0000a6076ddfc3.jpeg" },
+        { id: "Reconquête", group: "extrême-droite", type: "parti", description: "Reconquête !", details: "Parti d'extrême-droite fondé par Éric Zemmour en 2021", imageUrl: "https://yannickmasse.com/68-large_default/pochoir-reconquete-zemmour-lepen.jpg" },
+
+
+
+
+
+        { id: "Roussel", group: "extrême-gauche", type: "personnalité", description: "Fabien Roussel", details: "Secrétaire national du PCF depuis 2018", imageUrl: "https://s2.qwant.com/thumbr/474x315/d/f/cdd5a23707e5fa3dbde4828865f496e7cd3d5189b0fefa9403f8d3b0da8659/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.1nZP7DpaYux5ci02RQ8xugHaE7%26pid%3DApi&q=0&b=1&p=0&a=0" },
+        { id: "Deffontaines", group: "extrême-gauche", type: "personnalité", description: "Léon Deffontaines", details: "Tête de liste pour les élections européennes 2022", imageUrl: "https://www.francetvinfo.fr/pictures/dtHlfzjwmzrPajbz3iygIKuTrsw/1200x900/2023/09/15/leon-deffontaines-6504bcbcefb56991049719.jpg" },
+
+        { id: "Poutou", group: "extrême-gauche", type: "personnalité", description: "Philippe Poutou", details: "Philippe Poutou est un ancien candidat du Nouveau Parti Anticapitaliste", imageUrl: "https://s1.qwant.com/thumbr/474x543/1/b/daed9a6689e3b3cf1c37f52a362faf6ecd7d2430f34c8dee89d37698bb72de/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.9scF831T0cMoQGPGxIXqmwHaIf%26pid%3DApi&q=0&b=1&p=0&a=0" },
+
+        { id: "Rousseau", group: "gauche", type: "NPA", description: "Sandrine Rousseau", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795076.jpg" },
+        { id: "Tondelier", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/20210819_tondelier.m-cr3.jpg/640px-20210819_tondelier.m-cr3.jpg" },
+        { id: "Jadot", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://images.rtl.fr/~c/770v513/rtl/www/1482921-yannick-jadot-le-7-janvier-2022.jpg" },
+
+        { id: "Melanchon", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://lafranceinsoumise.fr/wp-content/uploads/2020/09/Jean_Luc_MELENCHON_in_the_European_Parliament_in_Strasbourg_2016_cropped-scaled-e1599038504130-1024x1024.jpg" },
+        { id: "Pannot", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/720892.jpg" },
+        { id: "Bompart", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793444.jpg" },
+        { id: "Delogu", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793464.jpg" },
+        { id: "Aubry", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://yt3.googleusercontent.com/KS32MjHWQ3IaKpbi6GAFplarScvjbXVT0zax4hTFkjQirUlGzRM-B13Xr8p_yviOL6J5OKIOow=s900-c-k-c0x00ffffff-no-rj" },
+
+        { id: "Hollande", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://datan.fr/assets/imgs/deputes_original/depute_1654.png" },
+        { id: "Faure", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/609332.jpg" },
+
+        { id: "Bayrou", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg/250px-Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg" },
+
+        { id: "Philippe", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://lehavre.fr/sites/default/files/styles/original_xxl/public/image/m-le-maire-2024-c-lou-benoist-2.jpg.webp?itok=rI2mQ_o-" },
+
+        { id: "Macron", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emmanuel_Macron_2022.png/640px-Emmanuel_Macron_2022.png" },
+        { id: "Atal", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.gavroche-thailande.com/wp-content/uploads/2025/04/Gabriel-Attal.jpg" },
+        { id: "Borne", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://images.ladepeche.fr/api/v1/images/view/67f67ab94ef26b6ef40626b0/large/image.jpg?v=1" },
+
+        { id: "Le Pen", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://focus.courrierinternational.com/2025/03/31/0/0/2673/1782/1280/0/60/0/8686bd1_ftp-import-images-1-ywtjpsmcmi33-2025-03-31t181218z-1000200403-rc2ioda9krz1-rtrmadp-3-france-politics-lepen.JPG" },
+        { id: "Bardella", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://static.euronews.com/articles/stories/08/49/10/76/1440x810_cmsv2_8606eacc-35ea-57d5-96e1-95a750f09d69-8491076.jpg" },
+        { id: "Odoul", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795552.jpg" },
+
+        { id: "Pecresse", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.iledefrance.fr/sites/default/files/2024-10/valerie-pecresse_edito-blanc_web.jpg" },
+        { id: "Ciotti", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.challenges.fr/_ipx/f_webp&enlarge_true&fit_cover&s_680x420/cha/static/s3fs-public/2022-09/02317438f5a88e4be416e86844ea149228c1a270-jpg.jpg%3FVersionId=5OZ0OBVg7kiDKAMRI8Rhj0oOmKzEscgo" },
+
+        { id: "Zemmour", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.francebleu.fr/s3/cruiser-production/2022/03/4f302eee-a5f3-47d0-b18e-7422482cabc0/1200x680_000_9xr4nm.jpg" },
+        { id: "Marechal", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg/640px-Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg" },
+
+        { id: "Wauquiez", group: "gauche", type: "NPA", description: "name", details: "placeholder", imageUrl: "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/267285.jpg" },
+
+];
 
         const links = [
             // Relations entre partis et personnalités
             { source: "Roussel", target: "PCF", strength: 1 },
-            { source: "Mélenchon", target: "LFI", strength: 1 },
-            { source: "Autain", target: "LFI", strength: 0.8 },
-            { source: "Hamon", target: "Génération.s", strength: 1 },
+            { source: "Deffontaines", target: "PCF", strength: 1},
+
+            { source: "Poutou", target: "NPA", strength: 1 },
+
+            { source: "Rousseau", target: "EELV", strength: 1 },
             { source: "Tondelier", target: "EELV", strength: 1 },
+            { source: "Jadot", target: "EELV", strength: 1 },
+
+            { source: "Melanchon", target: "LFI", strength: 1 },
+            { source: "Pannot", target: "LFI", strength: 1 },
+            { source: "Bompart", target: "LFI", strength: 1 },
+            { source: "Delogu", target: "LFI", strength: 1 },
+            { source: "Aubry", target: "LFI", strength: 1 },
+
+            { source: "Hollande", target: "PS", strength: 1 },
             { source: "Faure", target: "PS", strength: 1 },
+            { source: "Borne", target: "PS", strength: 1 },
+
             { source: "Bayrou", target: "MoDem", strength: 1 },
-            { source: "Macron", target: "Renaissance", strength: 1 },
+
             { source: "Philippe", target: "Horizons", strength: 1 },
-            { source: "Ciotti", target: "LR", strength: 0.8 },
-            { source: "Retailleau", target: "LR", strength: 0.9 },
-            { source: "Zemmour", target: "Reconquête", strength: 1 },
-            { source: "Maréchal", target: "Reconquête", strength: 0.9 },
+
+            { source: "Macron", target: "Renaissance", strength: 1 },
+            { source: "Atal", target: "Renaissance", strength: 1 },
+            { source: "Borne", target: "Renaissance", strength: 1 },
+
+            { source: "Le Pen", target: "RN", strength: 1 },
             { source: "Bardella", target: "RN", strength: 1 },
-            { source: "Le Pen", target: "RN", strength: 0.9 },
+            { source: "Odoul", target: "RN", strength: 1 },
 
-            // Liens coalitions
-            { source: "LFI", target: "NUPES", strength: 0.9 },
-            { source: "PS", target: "NUPES", strength: 0.9 },
-            { source: "EELV", target: "NUPES", strength: 0.9 },
-            { source: "PCF", target: "NUPES", strength: 0.9 },
-            { source: "Génération.s", target: "NUPES", strength: 0.8 },
-            { source: "LFI", target: "NFP", strength: 0.9 },
-            { source: "PS", target: "NFP", strength: 0.9 },
-            { source: "EELV", target: "NFP", strength: 0.9 },
-            { source: "PCF", target: "NFP", strength: 0.9 },
+            { source: "Pecresse", target: "LR", strength: 1 },
+            { source: "Ciotti", target: "LR", strength: 1 },
+            { source: "Ciotti", target: "UDR", strength: 1 },
 
-            // Alliances et relations
-            { source: "Renaissance", target: "MoDem", strength: 0.8 },
-            { source: "Renaissance", target: "Horizons", strength: 0.8 },
-            { source: "RN", target: "Reconquête", strength: 0.3, type: "rivalry" },
 
-            // Relations entre personnalités
-            { source: "Philippe", target: "Macron", strength: 0.7 },
-            { source: "Bayrou", target: "Macron", strength: 0.7 },
-            { source: "Le Pen", target: "Bardella", strength: 0.9 },
-            { source: "Zemmour", target: "Maréchal", strength: 0.8 },
-            { source: "Mélenchon", target: "Autain", strength: 0.8 }
-        ];
+            { source: "Zemmour", target: "Reconquête", strength: 1 },
+            { source: "Marechal", target: "Reconquête", strength: 1 },
+
+            { source: "Wauquiez", target: "DR", strength: 1 },
+
+];
 
         // Initialisation des éléments
         const svg = d3.select("svg");
-        const g = svg.append("g");
-        svg.append("defs")
-            .append("clipPath")
-            .attr("id", "circle-clip")
-            .append("circle")
-            .attr("r", 20);
+            const g = svg.append("g");
 
-        const tooltip = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
+            // Clip path pour les partis et coalitions (taille 60)
+            svg.append("defs")
+                .append("clipPath")
+                .attr("id", "circle-clip-parti")
+                .append("circle")
+                .attr("r", 30);
 
-        // Configuration du zoom
-        const zoom = d3.zoom()
-            .scaleExtent([0.1, 4])
-            .on("zoom", (event) => g.attr("transform", event.transform));
-        svg.call(zoom);
+            // Clip path pour les personnalités (taille 30)
+            svg.append("defs")
+                .append("clipPath")
+                .attr("id", "circle-clip-personnalite")
+                .append("circle")
+                .attr("r", 15);
 
-        // Initialisation de la simulation
-        const simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(d => d.id).distance(d => 100 / (d.strength || 0.5)).strength(d => d.strength || 0.5))
-            .force("charge", d3.forceManyBody().strength(-500))
-            .force("center", d3.forceCenter(width / 2, height / 2))
-            .force("x", d3.forceX(d => width * (politicalPositions[d.id] || 0.5)).strength(0.2)) // Positionnement politique
-            .force("y", d3.forceY(height / 2).strength(0.1))
-            .force("collision", d3.forceCollide().radius(50));
+            const tooltip = d3.select("body").append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
 
-        // Création des liens
-        const link = g.append("g")
-            .selectAll("line")
-            .data(links)
-            .join("line")
-            .attr("class", "link")
-            .attr("stroke-width", d => Math.max(1, d.strength * 3));
+            // Configuration du zoom
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on("zoom", (event) => g.attr("transform", event.transform));
+            svg.call(zoom);
 
-        // Création des nœuds
-        const node = g.append("g")
-            .selectAll("g")
-            .data(nodes)
-            .join("g")
-            .attr("class", d => `node ${d.type}`)
-            .on("mouseover", function (event, d) {
-                highlightConnections(d);
-                tooltip.transition().duration(200).style("opacity", .9);
-                tooltip.html(`
-                    <h3>${d.description}</h3>
-                    <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
-                    <p><strong>Tendance:</strong> ${d.group.charAt(0).toUpperCase() + d.group.slice(1)}</p>
-                    <p>${d.details}</p>
-                `)
-                    .style("left", (event.pageX + 10) + "px")
-                    .style("top", (event.pageY - 28) + "px");
-            })
-            .on("mouseout", function () {
-                resetHighlight();
-                tooltip.transition().duration(500).style("opacity", 0);
-            })
-            .on("click", function (event, d) {
-                focusNode(d);
-                event.stopPropagation();
+            const simulation = d3.forceSimulation(nodes)
+                    .force("link", d3.forceLink(links).id(d => d.id).distance(d => 100 / (d.strength || 0.5)).strength(d => d.strength || 0.5))
+                    .force("charge", d3.forceManyBody().strength(-500))
+                    .force("center", d3.forceCenter(width / 2, height / 2))
+                    .force("x", d3.forceX(d => width * (politicalPositions[d.id] || 0.5)).strength(0.2)) // Positionnement politique
+                    .force("y", d3.forceY(height / 2).strength(0.1))
+                    .force("collision", d3.forceCollide().radius(50));
+
+
+            // Création des liens
+            const link = g.append("g")
+                .selectAll("line")
+                .data(links)
+                .join("line")
+                .attr("class", "link")
+                .attr("stroke-width", d => Math.max(1, d.strength * 3));
+
+            // Création des nœuds
+            const node = g.append("g")
+                .selectAll("g")
+                .data(nodes)
+                .join("g")
+                .attr("class", d => `node ${d.type}`)
+                .on("mouseover", function (event, d) {
+                    highlightConnections(d);
+                    tooltip.transition().duration(200).style("opacity", .9);
+                    tooltip.html(`
+            <h3>${d.description}</h3>
+            <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
+            <p><strong>Tendance:</strong> ${d.group.charAt(0).toUpperCase() + d.group.slice(1)}</p>
+            <p>${d.details}</p>
+        `)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", function () {
+                    resetHighlight();
+                    tooltip.transition().duration(500).style("opacity", 0);
+                })
+                .on("click", function (event, d) {
+                    focusNode(d);
+                    event.stopPropagation();
+                });
+
+            // Ajout des formes ou images aux nœuds
+            node.each(function (d) {
+                const element = d3.select(this);
+
+                // Utiliser des images pour tous les types de nœuds
+                if (d.imageUrl) {
+                    let imageSize = 30; // Taille par défaut pour les personnalités
+                    let clipPathId = "url(#circle-clip-personnalite)"; // Clip path par défaut pour les personnalités
+
+                    if (d.type === "parti" || d.type === "coalition") {
+                        imageSize = 60; // Taille pour les partis et coalitions
+                        clipPathId = "url(#circle-clip-parti)"; // Clip path pour les partis et coalitions
+                        if (d.type === "parti") {
+                            element.insert("circle", "image")
+                                .attr("r", 30) // Rayon pour les partis
+                                .attr("fill", colors[d.group])
+                                .attr("opacity", 0.7);
+                        } else {
+                            element.insert("polygon", "image")
+                                .attr("points", "-30,0 0,-30 30,0 0,30") // Points pour les coalitions
+                                .attr("fill", colors[d.group])
+                                .attr("opacity", 0.7);
+                        }
+                    }
+
+                    // Modification du code pour l'ajout des images aux nœuds
+                    element.append("image")
+                        .attr("href", d.imageUrl)
+                        .attr("width", imageSize)
+                        .attr("height", imageSize)
+                        .attr("x", -imageSize / 2)
+                        .attr("y", -imageSize / 2)
+                        .attr("clip-path", clipPathId)
+                        .style("stroke", "white")
+                        .style("stroke-width", "1.5px")
+                        // Ajout de l'attribut preserveAspectRatio pour remplir le cercle
+                        .attr("preserveAspectRatio", "xMidYMid slice");
+                } else {
+                    // Fallback pour les nœuds sans image
+                    if (d.type === "parti") {
+                        element.append("circle")
+                            .attr("r", 30) // Taille pour les partis
+                            .attr("fill", colors[d.group]);
+                    } else if (d.type === "coalition") {
+                        element.append("polygon")
+                            .attr("points", "-30,0 0,-30 30,0 0,30") // Taille pour les coalitions
+                            .attr("fill", colors[d.group]);
+                    } else if (d.type === "personnalité") {
+                        element.append("rect")
+                            .attr("width", 20) // Taille pour les personnalités
+                            .attr("height", 20)
+                            .attr("x", -10)
+                            .attr("y", -10)
+                            .attr("fill", colors[d.group]);
+                    }
+                }
             });
-
-        // Ajout des formes ou images aux nœuds
-        node.each(function (d) {
-            const element = d3.select(this);
-
-            // Utiliser des images pour tous les types de nœuds
-            if (d.imageUrl) {
-                const imageSize = 40;
-                element.append("image")
-                    .attr("href", d.imageUrl)
-                    .attr("width", imageSize)
-                    .attr("height", imageSize)
-                    .attr("x", -imageSize / 2)
-                    .attr("y", -imageSize / 2)
-                    .attr("clip-path", "url(#circle-clip)")
-                    .style("stroke", "white")
-                    .style("stroke-width", "1.5px");
-
-                // Ajouter une forme derrière l'image pour montrer le type de nœud
-                if (d.type === "parti") {
-                    element.insert("circle", "image")
-                        .attr("r", 20)
-                        .attr("fill", colors[d.group])
-                        .attr("opacity", 0.7);
-                } else if (d.type === "coalition") {
-                    element.insert("polygon", "image")
-                        .attr("points", "-20,0 0,-20 20,0 0,20")
-                        .attr("fill", colors[d.group])
-                        .attr("opacity", 0.7);
-                } else if (d.type === "personnalité") {
-                    element.insert("image")
-                        .attr("width", 30)
-                        .attr("height", 30)
-                        .attr("x", -15)
-                        .attr("y", -15)
-                        .attr("fill", colors[d.group])
-                        .attr("opacity", 0.5);
-                }
-            } else {
-                // Fallback pour les nœuds sans image
-                if (d.type === "parti") {
-                    element.append("circle")
-                        .attr("r", 20)
-                        .attr("fill", colors[d.group]);
-                } else if (d.type === "coalition") {
-                    element.append("polygon")
-                        .attr("points", "-20,0 0,-20 20,0 0,20")
-                        .attr("fill", colors[d.group]);
-                } else if (d.type === "personnalité") {
-                    element.append("rect")
-                        .attr("width", 30)
-                        .attr("height", 30)
-                        .attr("x", -15)
-                        .attr("y", -15)
-                        .attr("fill", colors[d.group]);
-                }
-            }
-        });
 
         // Ajout des étiquettes
         node.append("text")
             .text(d => d.id)
-            .attr("x", 22)
-            .attr("y", 5);
+            .attr("x", 0)
+            .attr("y", 30);
 
         // Animation de la simulation
         simulation.on("tick", () => {
