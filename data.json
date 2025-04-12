@@ -1,0 +1,185 @@
+{
+  "nodes": [
+    { "id": "PCF", "group": "extrême-gauche", "type": "parti", "description": "Parti Communiste Français", "details": "Parti historique de la gauche fondé en 1920", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPkDQ3Kd5U4xUxNkWKo48yT5XXn4CuItIG-g&s" },
+    { "id": "NPA", "group": "extrême-gauche", "type": "parti", "description": "Nouveau Parti Anticapitaliste", "details": "Le Nouveau Parti anticapitaliste est un parti politique français d'extrême gauche créé en février 2009", "imageUrl": "https://lanticapitaliste.org/sites/default/files/styles/pour_facebook/public/nouveau-logo-npa_carre_rouge.png?itok=VqJFTrMz" },
+    { "id": "LFI", "group": "gauche", "type": "parti", "description": "La France Insoumise", "details": "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie", "imageUrl": "https://pbs.twimg.com/profile_images/1892318031235239936/MnBiwA46_400x400.jpg" },
+    { "id": "EELV", "group": "écologie", "type": "parti", "description": "Europe Écologie Les Verts", "details": "Principal parti écologiste français fondé en 2010", "imageUrl": "https://cf.eelv.fr/files/2020/03/LOGO_EELV_BLANC-1024x547.jpg" },
+    { "id": "PS", "group": "centre-gauche", "type": "parti", "description": "Parti Socialiste", "details": "Parti historique de la gauche française fondé en 1969", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Logotipo_del_PS.png" },
+    { "id": "MoDem", "group": "centre", "type": "parti", "description": "Mouvement Démocrate", "details": "Parti centriste fondé en 2007 par François Bayrou", "imageUrl": "https://logowik.com/content/uploads/images/modem-20197646.logowik.com.webp" },
+    { "id": "Renaissance", "group": "centre", "type": "parti", "description": "Renaissance", "details": "Parti présidentiel fondé en 2016 sous le nom d'En Marche !", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Renaissance-logotype-officiel.jpg" },
+    { "id": "Horizons", "group": "centre", "type": "parti", "description": "Horizons", "details": "Parti fondé par Édouard Philippe en 2021", "imageUrl": "https://horizonsleparti.fr/wp-content/uploads/2021/11/banniere_1200x675.png" },
+    { "id": "LR", "group": "droite", "type": "parti", "description": "Les Républicains", "details": "Principal parti de la droite républicaine fondé en 2015", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo-Les-R%C3%A9publicains-2024.jpg/1280px-Logo-Les-R%C3%A9publicains-2024.jpg" },
+    { "id": "DR", "group": "droite", "type": "parti", "description": "Droite Républicaine", "details": "La Droite Républicaine est un groupe majoritairement composé d'ancients membres des Républicains", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjiJxOad_ifvXqVYiP08yo6iMx6GsSHsFigA&s" },
+    { "id": "UDR", "group": "droite", "type": "parti", "description": "Les Républicains", "details": "L'Union des droites pour la République est un parti politique français d'extrême droite fondé par Éric Ciotti en 2012. Il a pris son nom actuel en 2024", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxu1FAm8jXB-hg9MBqWvTJX8wnz0BKhw8qg&s" },
+    { "id": "RN", "group": "extrême-droite", "type": "parti", "description": "Rassemblement National", "details": "Parti d'extrême-droite fondé en 1972 sous le nom de Front National", "imageUrl": "https://focus.huffingtonpost.fr/2022/07/24/0/0/630/548/385/334/75/0/66d6ccd_1658701693772-5c92b12b3b0000a6076ddfc3.jpeg" },
+    { "id": "Reconquête", "group": "extrême-droite", "type": "parti", "description": "Reconquête !", "details": "Parti d'extrême-droite fondé par Éric Zemmour en 2021", "imageUrl": "https://yannickmasse.com/68-large_default/pochoir-reconquete-zemmour-lepen.jpg" },
+    { "id": "FN", "group": "extrême-droite", "type": "parti", "description": "Front National", "details": "Parti d'extrême-droite fondé par Jean-Marie Le Pen en 1972", "imageUrl": "https://pbs.twimg.com/profile_images/1002613717564100609/Qp8ToZ3b_400x400.jpg" },
+    { "id": "NFP", "group": "gauche", "type": "coalition", "description": "Nouveau Front populaire", "details": "Nouveau Front populaire (NFP) est une alliance de partis politiques de gauche en France, formée en juin 2024 en vue des élections législatives anticipées.", "imageUrl": "https://ensemble-mouvement.com/wp-content/uploads/2024/06/Logo-NFP-800x600-1.jpg" },
+    { "id": "Roussel", "group": "PCF", "type": "personnalité", "description": "Fabien Roussel", "details": "Secrétaire national du PCF depuis 2018", "imageUrl": "https://s2.qwant.com/thumbr/474x315/d/f/cdd5a23707e5fa3dbde4828865f496e7cd3d5189b0fefa9403f8d3b0da8659/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.1nZP7DpaYux5ci02RQ8xugHaE7%26pid%3DApi&q=0&b=1&p=0&a=0" },
+    { "id": "Deffontaines", "group": "PCF", "type": "personnalité", "description": "Léon Deffontaines", "details": "Tête de liste pour les élections européennes 2022", "imageUrl": "https://www.francetvinfo.fr/pictures/dtHlfzjwmzrPajbz3iygIKuTrsw/1200x900/2023/09/15/leon-deffontaines-6504bcbcefb56991049719.jpg" },
+    { "id": "Poutou", "group": "NPA", "type": "personnalité", "description": "Philippe Poutou", "details": "Philippe Poutou est un ancien candidat du Nouveau Parti Anticapitaliste", "imageUrl": "https://s1.qwant.com/thumbr/474x543/1/b/daed9a6689e3b3cf1c37f52a362faf6ecd7d2430f34c8dee89d37698bb72de/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.9scF831T0cMoQGPGxIXqmwHaIf%26pid%3DApi&q=0&b=1&p=0&a=0" },
+    { "id": "Besancenot", "group": "NPA", "type": "personnalité", "description": "Oliver Besancenot", "details": "Ancien facteur, il a été le porte-parole de la Ligue communiste révolutionnaire (LCR), l'organisation qui a précédé le NPA. Il reste une figure influente au sein du parti.", "imageUrl": "https://www.radiofrance.fr/s3/cruiser-production-eu3/2017/09/260ec564-0046-4606-956e-5141e780717e/640x340_besancenot.jpg" },
+    { "id": "Rousseau", "group": "EELV", "type": "personnalité", "description": "Sandrine Rousseau", "details": "placeholder", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795076.jpg" },
+    { "id": "Tondelier", "group": "EELV", "type": "personnalité", "description": "Marine Tondelier", "details": "Secrétaire nationale d'Europe Écologie Les Verts (EÉLV) depuis 2022.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/20210819_tondelier.m-cr3.jpg/640px-20210819_tondelier.m-cr3.jpg" },
+    { "id": "Jadot", "group": "EELV", "type": "personnalité", "description": "Yannick Jadot", "details": "Député européen et figure d'Europe Écologie Les Verts (EÉLV), candidat à la présidentielle en 2022.", "imageUrl": "https://images.rtl.fr/~c/770v513/rtl/www/1482921-yannick-jadot-le-7-janvier-2022.jpg" },
+    { "id": "Melanchon", "group": "LFI", "type": "personnalité", "description": "Jean-Luc Melenchon", "details": "Fondateur de La France insoumise (LFI)", "imageUrl": "https://lafranceinsoumise.fr/wp-content/uploads/2020/09/Jean_Luc_MELENCHON_in_the_European_Parliament_in_Strasbourg_2016_cropped-scaled-e1599038504130-1024x1024.jpg" },
+    { "id": "Panot", "group": "LFI", "type": "personnalité", "description": "Mathilde Panot", "details": "Présidente du groupe La France insoumise à l'Assemblée nationale depuis 2021", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/720892.jpg" },
+    { "id": "Bompard", "group": "LFI", "type": "personnalité", "description": "Manuel Bompard", "details": "Coordinateur de La France insoumise (LFI) et député des Bouches-du-Rhône", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793444.jpg" },
+    { "id": "Delogu", "group": "LFI", "type": "personnalité", "description": "Sébastien Delogu", "details": "Député de la France insoumise des Bouches-du-Rhône depuis 2022", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793464.jpg" },
+    { "id": "Aubry", "group": "LFI", "type": "personnalité", "description": "Manon Aubry", "details": "Députée européenne La France insoumise (LFI), co-présidente du groupe de la Gauche au Parlement européen.", "imageUrl": "https://yt3.googleusercontent.com/KS32MjHWQ3IaKpbi6GAFplarScvjbXVT0zax4hTFkjQirUlGzRM-B13Xr8p_yviOL6J5OKIOow=s900-c-k-c0x00ffffff-no-rj" },
+    { "id": "Quatennens", "group": "LFI", "type": "personnalité", "description": "Adrien Quatennens", "details": "Député du Nord, il est connu pour ses interventions à l'Assemblée nationale sur les questions économiques et sociales.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/16/photos/carre/720422.jpg" },
+    { "id": "Autain", "group": "LFI", "type": "personnalité", "description": "Clémentine Autain", "details": "Députée de Seine-Saint-Denis, elle est engagée sur les questions féministes et sociales.", "imageUrl": "https://static.actu.fr/uploads/2021/06/clementine-autain-01.jpg" },
+    { "id": "Ruffin", "group": "LFI", "type": "personnalité", "description": "François Ruffin", "details": "Député de la Somme, il est connu pour ses interventions percutantes et ses reportages documentaires.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/722142.jpg" },
+    { "id": "Corbière", "group": "LFI", "type": "personnalité", "description": "Alexis Corbière", "details": "Ancien député de Seine-Saint-Denis, il est une figure historique du parti.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/721210.jpg" },
+    { "id": "Garrido", "group": "LFI", "type": "personnalité", "description": "Raquel Garrido", "details": "Députée de Seine-Saint-Denis, elle est une figure médiatique du parti.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/16/photos/carre/796132.jpg" },
+    { "id": "Hollande", "group": "PS", "type": "personnalité", "description": "François Hollande", "details": "Ancien président de la République française (2012-2017).", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_1654.png" },
+    { "id": "Faure", "group": "PS", "type": "personnalité", "description": "Olivier Faure", "details": "Premier secrétaire du Parti socialiste depuis 2018.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/609332.jpg" },
+    { "id": "Hidalgo", "group": "PS", "type": "personnalité", "description": "Anne Hidalgo", "details": "Maire de Paris.", "imageUrl": "https://img.zeit.de/politik/ausland/2020-06/anne-hidalgo-paris-buergermeisterin/wide__1000x562" },
+    { "id": "Vallaud", "group": "PS", "type": "personnalité", "description": "Boris Vallaud", "details": "Président du groupe socialiste à l'Assemblée nationale.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719930.jpg" },
+    { "id": "Glucksmann", "group": "PS", "type": "personnalité", "description": "Raphaël Glucksmann", "details": "Député européen (Place Publique, Groupe S&D).", "imageUrl": "https://media0.faz.net/ppmedia/aktuell/politik/3471220137/1.9818898/default-retina/raphael-glucksmann.jpg.webp" },
+    { "id": "Bayrou", "group": "MoDem", "type": "personnalité", "description": "François Bayrou", "details": "Président du Mouvement démocrate (MoDem) et maire de Pau, Premier ministre depuis décembre 2024.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg/250px-Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg" },
+    { "id": "Philippe", "group": "Horizons", "type": "personnalité", "description": "Edouard Philippe", "details": "Ancien Premier ministre (2017-2020), maire du Havre et président du parti Horizons.", "imageUrl": "https://lehavre.fr/sites/default/files/styles/original_xxl/public/image/m-le-maire-2024-c-lou-benoist-2.jpg.webp?itok=rI2mQ_o-" },
+    { "id": "Macron", "group": "Renaissance", "type": "personnalité", "description": "Emmanuel Macron", "details": "Emmanuel Macron : Président de la République française depuis 2017.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emmanuel_Macron_2022.png/640px-Emmanuel_Macron_2022.png" },
+    { "id": "Attal", "group": "Renaissance", "type": "personnalité", "description": "Gabriel Attal", "details": "Premier ministre de janvier à juillet 2024.", "imageUrl": "https://www.gavroche-thailande.com/wp-content/uploads/2025/04/Gabriel-Attal.jpg" },
+    { "id": "Borne", "group": "Renaissance", "type": "personnalité", "description": "Elisabeth Borne", "details": "Ancienne Première ministre (2022-2024), Ministre d'État, ministre de l'Éducation nationale, de l'Enseignement supérieur et de la Recherche depuis décembre 2024.", "imageUrl": "https://images.ladepeche.fr/api/v1/images/view/67f67ab94ef26b6ef40626b0/large/image.jpg?v=1" },
+    { "id": "Braun-Pivet", "group": "Renaissance", "type": "personnalité", "description": "Yaël Braun-Pivet", "details": "Présidente de l'Assemblée nationale.", "imageUrl": "https://challenges.fr/static/s3fs-public/2022-06/yael-braun-pivet-elue-presidente-de-l-assemblee.jpg?VersionId=4F_.5WSh9NBfOIDfHTPAlzwl1EE26pNj" },
+    { "id": "Le Pen", "group": "RN", "type": "personnalité", "description": "Marine Le Pen", "details": "Figure emblématique du Rassemblement national, députée du Pas-de-Calais et candidate à la présidentielle en 2022.", "imageUrl": "https://focus.courrierinternational.com/2025/03/31/0/0/2673/1782/1280/0/60/0/8686bd1_ftp-import-images-1-ywtjpsmcmi33-2025-03-31t181218z-1000200403-rc2ioda9krz1-rtrmadp-3-france-politics-lepen.JPG" },
+    { "id": "Bardella", "group": "RN", "type": "personnalité", "description": "Jordan Bardella", "details": "Président du Rassemblement national depuis 2022 et député européen.", "imageUrl": "https://static.euronews.com/articles/stories/08/49/10/76/1440x810_cmsv2_8606eacc-35ea-57d5-96e1-95a750f09d69-8491076.jpg" },
+    { "id": "Odoul", "group": "RN", "type": "personnalité", "description": "Julien Odoul", "details": "Député de l'Yonne et figure montante du Rassemblement national.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795552.jpg" },
+    { "id": "Aliot", "group": "RN", "type": "personnalité", "description": "Louis Aliot", "details": "Maire de Perpignan et premier vice-président du RN.", "imageUrl": "https://beymedias.brightspotcdn.com/dims4/default/278ff59/2147483647/strip/false/crop/5184x3456+0+0/resize/1486x991!/quality/90/?url=http%3A%2F%2Fl-opinion-brightspot.s3.amazonaws.com%2Fd1%2F55%2Ff58c78b54690a26a0a8f35e41b88%2Flouis-aliot-sipa.jpg" },
+    { "id": "Chenu", "group": "RN", "type": "personnalité", "description": "Sébastien Chenu", "details": "Vice-président du RN à l'assemblée et député du Nord", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/720468.jpg" },
+    { "id": "Rachline", "group": "RN", "type": "personnalité", "description": "David Rachline", "details": "Sénateur du Var et directeur de campagne de Marine Le Pen lors de l'élection présidentielle de 2022.", "imageUrl": "https://www.maregionsud.fr/fileadmin/_processed_/8/b/csm_Rachline_2021_OK_a591af6b5c.jpg" },
+    { "id": "Tanguy", "group": "RN", "type": "personnalité", "description": "Jean-Philippe Tanguy", "details": "Député de la Somme.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795778.jpg" },
+    { "id": "JM Le Pen", "group": "FN", "type": "personnalité", "description": "Jean-Marie Le Pen", "details": "Fondateur du Front national (devenu Rassemblement national).", "imageUrl": "https://cdn.prod.www.spiegel.de/images/528bdcc4-4670-4682-8329-9f1b7fa0e089_w960_r1.778_fpx53.98_fpy44.99.jpg" },
+    { "id": "Pecresse", "group": "LR", "type": "personnalité", "description": "Valérie Pécresse", "details": "Présidente du conseil régional d'Île-de-France depuis 2016 et figure du parti Les Républicains.", "imageUrl": "https://www.iledefrance.fr/sites/default/files/2024-10/valerie-pecresse_edito-blanc_web.jpg" },
+    { "id": "Ciotti", "group": "LR", "type": "personnalité", "description": "Eric Ciotti", "details": "Président du parti Les Républicains et député des Alpes-Maritimes.", "imageUrl": "https://www.challenges.fr/_ipx/f_webp&enlarge_true&fit_cover&s_680x420/cha/static/s3fs-public/2022-09/02317438f5a88e4be416e86844ea149228c1a270-jpg.jpg%3FVersionId=5OZ0OBVg7kiDKAMRI8Rhj0oOmKzEscgo" },
+    { "id": "Zemmour", "group": "Reconquete", "type": "personnalité", "description": "Eric Zemmour", "details": "Président du parti Reconquête ! et candidat à l'élection présidentielle de 2022.", "imageUrl": "https://www.francebleu.fr/s3/cruiser-production/2022/03/4f302eee-a5f3-47d0-b18e-7422482cabc0/1200x680_000_9xr4nm.jpg" },
+    { "id": "Marechal", "group": "Reconquete", "type": "personnalité", "description": "Marion Maréchal", "details": "Députée européenne et membre du parti Reconquête !.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg/640px-Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg" },
+    { "id": "Wauquiez", "group": "DR", "type": "personnalité", "description": "Laurent Wauquiez", "details": "Président du groupe La Droite républicaine à l'Assemblée nationale.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/267285.jpg" },
+    { "id": "Bellamy", "group": "DR", "type": "personnalité", "description": "François-Xavier Bellamy", "details": "Député européen et figure du parti Les Républicains.", "imageUrl": "https://media.letelegramme.fr/api/v1/images/view/637d68026c9dfe0c0c57ccaa/web_golden_xl/637d68026c9dfe0c0c57ccaa.1" },
+    { "id": "Retailleau", "group": "DR", "type": "personnalité", "description": "Bruno Retailleau", "details": "Ministre de L'intérieur", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAPfk-qQeuy6okcHstdxE7iLydliQ8jpKwg&s" },
+
+    { "id": "Frontières", "group": "Frontières", "type": "groupe-media", "description": "Frontières", "details": "Média de droite", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiUUYDbeKMOFoHT3HqKK8kT4KC9oB1j_wEzQ&s" },
+    { "id": "Tegner", "group": "Frontières", "type": "personnalité", "description": "Erik Tegnér", "details": "Militant politique d'extrème droite et fondateur du média Frontières", "imageUrl": "https://www.lalettre.fr/fr/utils/imageresize?x=800&web=1&file64=V29ya2Zsb3dcTExBXzE0NTg2LkpQRw==" },
+    { "id": "Florentin", "group": "Frontières", "type": "personnalité", "description": "Jordan Florentin", "details": "Journaliste qui travaille pour le média Frontières", "imageUrl": "https://www.cnews.fr/sites/default/files/styles/image_750_422/public/jordan_florentin_c_est_une_nouvelle_de_claration_de_guerre_qu_a_fait_le_hamas_67b8918c4c422.jpg?h=d518e233&itok=OJewYbZ_" },
+    { "id": "Morice", "group": "Frontières", "type": "personnalité", "description": "Louise Morice", "details": "Journaliste qui travaille pour le média Frontières", "imageUrl": "https://pbs.twimg.com/profile_images/1841096211316486148/no-Xf4uG_200x200.jpg" },
+
+    { "id": "Mediapart", "group": "Mediapart", "type": "groupe-media", "description": "Médiapart", "details": "Média de gauche", "imageUrl": "https://klab.essec.fr/sites/default/files/image_actualites/logo_mediapart.png" },
+
+    { "id": "GI", "group": "Generation Identitaire", "type": "groupe-media", "description": "Génération Identitaire", "details": "Mouvement politique d'extrême droite français, actif de 2012 à 2021", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfnl06JG1XmTV48zPNYS2sV34wMjHW14Dyeg&s" },
+    { "id": "D'Escufon", "group": "Generation Identitaire", "type": "personnalité", "description": "Thais D'Escufon", "details": "Porte-parole du mouvement Génération Identitaire, dissous par le gouvernement français en 2021.", "imageUrl": "https://www.lexpress.fr/resizer/r-z2Lc1mmtPUNPgGUQhOPMqaV4g=/300x0/arc-photo-lexpress/eu-central-1-prod/public/PDJR4O4RTVBC5ADJ3YANRSFVGM.jpg" },
+    { "id": "Rieu", "group": "Generation Identitaire", "type": "personnalité", "description": "Damien Rieu", "details": "Un des principaux fondateurs de Génération Identitaire", "imageUrl": "https://images.rtl.fr/~c/770v513/rtl/www/1484850-damien-riieu.png" }
+
+
+
+
+
+  ],
+  "links": [
+    { "source": "Roussel", "target": "PCF", "strength": 1 },
+            { "source": "Deffontaines", "target": "PCF", "strength": 1},
+
+            { "source": "Poutou", "target": "NPA", "strength": 1 },
+            { "source": "Besancenot", "target": "NPA", "strength": 1 },
+
+            { "source": "Rousseau", "target": "EELV", "strength": 1 },
+            { "source": "Tondelier", "target": "EELV", "strength": 1 },
+            { "source": "Jadot", "target": "EELV", "strength": 1 },
+
+            { "source": "NFP", "target": "PS", "strength": 1 },
+            { "source": "NFP", "target": "LFI", "strength": 1 },
+            { "source": "NFP", "target": "EELV", "strength": 1 },
+            { "source": "NFP", "target": "PCF", "strength": 1 },
+
+            { "source": "Melanchon", "target": "LFI", "strength": 1 },
+            { "source": "Panot", "target": "LFI", "strength": 1 },
+            { "source": "Bompard", "target": "LFI", "strength": 1 },
+            { "source": "Delogu", "target": "LFI", "strength": 1 },
+            { "source": "Aubry", "target": "LFI", "strength": 1 },
+            { "source": "Quatennens", "target": "LFI", "strength": 1 },
+            { "source": "Ruffin", "target": "LFI", "strength": 1 },
+            { "source": "Autain", "target": "LFI", "strength": 1 },
+            { "source": "Garrido", "target": "LFI", "strength": 1 },
+            { "source": "Corbière", "target": "LFI", "strength": 1 },
+
+            { "source": "Hollande", "target": "PS", "strength": 1 },
+            { "source": "Faure", "target": "PS", "strength": 1 },
+            { "source": "Borne", "target": "PS", "strength": 1 },
+            { "source": "Vallaud", "target": "PS", "strength": 1 },
+            { "source": "Glucksmann", "target": "PS", "strength": 1 },
+            { "source": "Hidalgo", "target": "PS", "strength": 1 },
+
+            { "source": "Bayrou", "target": "MoDem", "strength": 1 },
+            { "source": "Bayrou", "target": "Renaissance", "strength": 1 },
+
+            { "source": "Philippe", "target": "Horizons", "strength": 1 },
+            { "source": "Philippe", "target": "Renaissance", "strength": 1 },
+
+            { "source": "Macron", "target": "Renaissance", "strength": 1 },
+            { "source": "Macron", "target": "Hollande", "strength": 1 },
+            { "source": "Attal", "target": "Renaissance", "strength": 1 },
+            { "source": "Borne", "target": "Renaissance", "strength": 1 },
+            { "source": "Braun-Pivet", "target": "Renaissance", "strength": 1 },
+
+            { "source": "Le Pen", "target": "RN", "strength": 1 },
+            { "source": "Bardella", "target": "RN", "strength": 1 },
+            { "source": "Odoul", "target": "RN", "strength": 1 },
+            { "source": "Aliot", "target": "RN", "strength": 1 },
+            { "source": "Chenu", "target": "RN", "strength": 1 },    
+            { "source": "Rachline", "target": "RN", "strength": 1 },
+            { "source": "Tanguy", "target": "RN", "strength": 1 },
+            { "source": "Le Pen", "target": "Ciotti", "strength": 1 },
+
+            { "source": "JM Le Pen", "target": "FN", "strength": 1 },
+            { "source": "JM Le Pen", "target": "Le Pen", "strength": 1 },
+
+            { "source": "Pecresse", "target": "LR", "strength": 1 },
+            { "source": "Ciotti", "target": "LR", "strength": 1 },
+            { "source": "Ciotti", "target": "UDR", "strength": 1 },
+
+
+            { "source": "Zemmour", "target": "Reconquête", "strength": 1 },
+            { "source": "Marechal", "target": "Reconquête", "strength": 1 },
+            { "source": "Marechal", "target": "RN", "strength": 1 },
+
+            { "source": "Wauquiez", "target": "DR", "strength": 1 },
+            { "source": "Bellamy", "target": "DR", "strength": 1 },
+            { "source": "Retailleau", "target": "Bayrou", "strength": 1 },
+            { "source": "Retailleau", "target": "DR", "strength": 1 },
+
+            { "source": "LR", "target": "UDR", "strength": 1 },
+            { "source": "LR", "target": "DR", "strength": 1 },
+
+            { "source": "Frontières", "target": "Tegner", "strength": 1 },
+            { "source": "Frontières", "target": "Florentin", "strength": 1 },
+            { "source": "Frontières", "target": "Morice", "strength": 1 },
+
+            { "source": "GI", "target": "D'Escufon", "strength": 1 },
+            { "source": "GI", "target": "Rieu", "strength": 1 },
+            { "source": "D'Escufon", "target": "Reconquête", "strength": 1 }
+
+
+
+
+  ],
+  "politicalPositions": {
+    "PCF": 0.05,
+    "NPA": 0.03,
+    "LFI": 0.15,
+    "EELV": 0.25,
+    "PS": 0.32,
+    "MoDem": 0.5,
+    "Renaissance": 0.55,
+    "Horizons": 0.6,
+    "LR": 0.75,
+    "DR": 0.8,
+    "UDR": 0.85,
+    "RN": 0.92,
+    "Reconquête": 0.95,
+    "FN": 0.97,
+    "NFP": 0.2,
+    "Frontières": 0.9,
+    "Mediapart": 0.3,
+    "GI": 0.99
+  }
+}
