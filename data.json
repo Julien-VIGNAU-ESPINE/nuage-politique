@@ -84,7 +84,7 @@
     { "id": "Martinez", "group": "CGT", "type": "personnalité", "description": "Philippe Martinez", "details": "Il a été secrétaire général de la Confédération générale du travail (CGT) du 3 février 2015 au 31 mars 2023. ", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/PhilippeMartinez.jpg" },
     { "id": "Messiha", "group": "Reconquete", "type": "personnalité", "description": "Jean Messiha", "details": "Il est un haut fonctionnaire, éditorialiste, homme politique et polémiste d'extrême droite français.", "imageUrl": "https://i.f1g.fr/media/cms/orig/2024/05/05/d8142bfd37bfffc6fbc03455432650e3cab57309787ff82412bb44f4b057f899.jpg" },
     { "id": "Apollon", "group": "Reconquete", "type": "groupe-media", "description": "Intitut Apollon", "details": "L'Institut Apollon, devenu ensuite l'Institut Vivre Français, un cercle de réflexion classé à l'extrême droite.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-2tN2Plt76Z-63FSs1s_2HOlbVpICUGtFA&s" },
-    { "id": "Arnault", "group": "LFI", "type": "personnalité", "description": "Raphaël Arnault", "details": "Raphaël Arnault est un militant d'extrême gauche français, connu pour son engagement au sein du mouvement antifasciste.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/842105.jpg" },
+    { "id": "Arnault", "group": "LFI", "type": "personnalité", "description": "Raphaël Arnault", "details": "Raphaël Arnault est un militant d'extrême gauche français, connu pour son engagement au sein du mouvement antifasciste. Il est le cofondateur de la Jeune Garde antifasciste.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/842105.jpg" },
     { "id": "Jeune Garde", "group": "Jeune Garde", "type": "groupe-media", "description": "Jeune Garde", "details": "La Jeune Garde est une organisation antifasciste française d'extrême gauche, fondée en 2018. ", "imageUrl": "https://lesjours.fr/ressources/res1500/square/people/jeune-garde-antifasciste.jpeg" },
     { "id": "Caron", "group": "LFI", "type": "personnalité", "description": "Aymeric Caron", "details": "Aymeric Caron est un homme politique, journaliste et écrivain français. ", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796090.jpg" },
     { "id": "Europe 1", "group": "Canal +", "type": "groupe-media", "description": "Europe 1", "details": "Europe 1 est une station de radio généraliste française, qui diffuse des programmes d'information, de divertissement et de débats.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdGF5Twruk2iEE0Q2YwstQfC1SFP1NyJhDw&s" },
@@ -93,7 +93,16 @@
     { "id": "LVMH", "group": "LVMH", "type": "groupe-media", "description": "LVMH", "details": "LVMH (Moët Hennessy Louis Vuitton) est un groupe de luxe français.", "imageUrl": "https://images.prismic.io/lvmh-com/ZlncD6WtHYXtT-fA_LVMHRECTANGLE.jpg?auto=format,compress?auto=compress,format" },
     { "id": "Bernard Arnault", "group": "LVMH", "type": "personnalité", "description": "Bernard Arnault", "details": "Bernard Arnault est un homme d'affaires français.", "imageUrl": "https://media.gq-magazin.de/photos/61657e6bfa734fae1109093d/16:9/w_2560%2Cc_limit/GettyImages-962357174.jpg" },
     { "id": "Les Echos", "group": "LVMH", "type": "groupe-media", "description": "Les Echos", "details": "Un quotidien économique et financier de référence en France.", "imageUrl": "https://direct-radio.fr/files/Les-echos.png" },
-    { "id": "Paris Match", "group": "LVMH", "type": "groupe-media", "description": "Paris Match", "details": "Un magazine hebdomadaire d'actualité et de reportages photographiques.", "imageUrl": "https://www.ipmgroup.be/wp-content/uploads/2015/03/pm-pour-ipm-group-2.png" }
+    { "id": "Paris Match", "group": "LVMH", "type": "groupe-media", "description": "Paris Match", "details": "Un magazine hebdomadaire d'actualité et de reportages photographiques.", "imageUrl": "https://www.ipmgroup.be/wp-content/uploads/2015/03/pm-pour-ipm-group-2.png" },
+    { "id": "Salamé", "group": "France Inter", "type": "personnalité", "description": "Léa Salamé", "details": "Elle est une journaliste franco-libanaise.", "imageUrl": "https://www.programme-tv.net/imgre/fit/~2~providerPerson~5c5842a220338d57.jpeg/300x300/quality/80/lea-salame.jpeg" },
+    { "id": "France Inter", "group": "France Inter", "type": "groupe-media", "description": "France Inter", "details": "France Inter est une station de radio publique française, appartenant au groupe Radio France.", "imageUrl": "https://www.radiofrance.fr/s3/cruiser-production/2022/06/047844a2-44aa-4dc0-b72c-c763113c0dc9/1200x680_franceinter-logo-rs.jpg" },
+    { "id": "LO", "group": "LO", "type": "parti", "description": "Lutte Ouvrière", "details": "Lutte Ouvrière (LO) est un parti politique français d'extrême gauche, fondé en 1956 sous le nom d'Union des travailleurs communistes (UTC)", "imageUrl": "https://www.lyoncapitale.fr/wp-content/uploads/2010/03/Les-propositions-de-Lutte-ouvriere-770x433.jpg" },
+    { "id": "Laguiller", "group": "LO", "type": "personnalité", "description": "Arlette Laguiller", "details": "Elle a été la figure emblématique de LO pendant de nombreuses années, en tant que candidate à plusieurs élections présidentielles.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBhfCo7Nu-31oLMVpd2FDbq6U8vW7H1twsXg&s" },
+    { "id": "Arthaud", "group": "LO", "type": "personnalité", "description": "Nathalie Arthaud", "details": "Elle est la porte parole actuel du parti, et a été candidate à plusieurs élections présidentielles.", "imageUrl": "https://static.actu.fr/uploads/2021/06/25405-210601101654737-0.jpg" },
+    { "id": "Valls", "group": "PS", "type": "personnalité", "description": "Manuel Valls", "details": "Il a occupé plusieurs postes importants au sein du gouvernement français.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShU8m3fynxhTYg1YZB4B4_v3-OzT2A5pHb1Q&s" }
+
+
+
 
 
 
@@ -233,7 +242,22 @@
             { "source": "Verdez", "target": "TPMP", "strength": 1 },
             { "source": "Verdez", "target": "Le Parisien", "strength": 1 },
             { "source": "Paris Match", "target": "LVMH", "strength": 1 },
-            { "source": "Les Echos", "target": "LVMH", "strength": 1 }
+            { "source": "Les Echos", "target": "LVMH", "strength": 1 },
+            { "source": "Salamé", "target": "Glucksmann", "strength": 1 },
+            { "source": "France Inter", "target": "Salamé", "strength": 1 },
+            { "source": "France Inter", "target": "Glucksmann", "strength": 1 },
+            { "source": "LO", "target": "Arthaud", "strength": 1 },
+            { "source": "NPA", "target": "Arnault", "strength": 1 },
+
+            { "source": "Valls", "target": "Bayrou", "strength": 1 },
+            { "source": "Valls", "target": "PS", "strength": 1 },
+            { "source": "Valls", "target": "Renaissance", "strength": 1 },
+            { "source": "Valls", "target": "Hollande", "strength": 1 },
+
+
+            { "source": "LO", "target": "Laguiller", "strength": 1 }
+
+
 
 
 
@@ -286,7 +310,9 @@
     "Apollon": 0.9,
     "Jeune Garde": 0.01,
     "Europe 1": 0.5,
-    "LVMH": 0.5
+    "LVMH": 0.5,
+    "France Inter": 0.5,
+    "LO": 0.01
 
 
   }
