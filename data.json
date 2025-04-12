@@ -87,7 +87,17 @@
     { "id": "Arnault", "group": "LFI", "type": "personnalité", "description": "Raphaël Arnault", "details": "Raphaël Arnault est un militant d'extrême gauche français, connu pour son engagement au sein du mouvement antifasciste.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/842105.jpg" },
     { "id": "Jeune Garde", "group": "Jeune Garde", "type": "groupe-media", "description": "Jeune Garde", "details": "La Jeune Garde est une organisation antifasciste française d'extrême gauche, fondée en 2018. ", "imageUrl": "https://lesjours.fr/ressources/res1500/square/people/jeune-garde-antifasciste.jpeg" },
     { "id": "Caron", "group": "LFI", "type": "personnalité", "description": "Aymeric Caron", "details": "Aymeric Caron est un homme politique, journaliste et écrivain français. ", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796090.jpg" },
-    { "id": "Europe 1", "group": "Canal +", "type": "groupe-media", "description": "Europe 1", "details": "Europe 1 est une station de radio généraliste française, qui diffuse des programmes d'information, de divertissement et de débats.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdGF5Twruk2iEE0Q2YwstQfC1SFP1NyJhDw&s" }
+    { "id": "Europe 1", "group": "Canal +", "type": "groupe-media", "description": "Europe 1", "details": "Europe 1 est une station de radio généraliste française, qui diffuse des programmes d'information, de divertissement et de débats.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdGF5Twruk2iEE0Q2YwstQfC1SFP1NyJhDw&s" },
+    { "id": "Verdez", "group": "TPMP", "type": "personnalité", "description": "Giles Verdez", "details": "Gilles Verdez est un journaliste et chroniqueur de télévision français.", "imageUrl": "https://i.f1g.fr/media/cms/768x1024_cropupscale/2024/11/15/e2c2ab2c1c3ef97618fc420023c5e6358c089e57f9919163f581d5cdb3f0c932.jpg" },
+    { "id": "Le Parisien", "group": "LVMH", "type": "groupe-media", "description": "Le Parisien", "details": "Le Parisien est un journal quotidien régional français.", "imageUrl": "https://yt3.googleusercontent.com/MPxr1LgLDFiXS049jClDKNbtp_wUzvsmtmVkUqKLpIr0vJPiBJOPA7rZiVW2Z0G0bdxLrR2z=s160-c-k-c0x00ffffff-no-rj" },
+    { "id": "LVMH", "group": "LVMH", "type": "groupe-media", "description": "LVMH", "details": "LVMH (Moët Hennessy Louis Vuitton) est un groupe de luxe français.", "imageUrl": "https://images.prismic.io/lvmh-com/ZlncD6WtHYXtT-fA_LVMHRECTANGLE.jpg?auto=format,compress?auto=compress,format" },
+    { "id": "Bernard Arnault", "group": "LVMH", "type": "personnalité", "description": "Bernard Arnault", "details": "Bernard Arnault est un homme d'affaires français.", "imageUrl": "https://media.gq-magazin.de/photos/61657e6bfa734fae1109093d/16:9/w_2560%2Cc_limit/GettyImages-962357174.jpg" },
+    { "id": "Les Echos", "group": "LVMH", "type": "groupe-media", "description": "Les Echos", "details": "Un quotidien économique et financier de référence en France.", "imageUrl": "https://direct-radio.fr/files/Les-echos.png" },
+    { "id": "Paris Match", "group": "LVMH", "type": "groupe-media", "description": "Paris Match", "details": "Un magazine hebdomadaire d'actualité et de reportages photographiques.", "imageUrl": "https://www.ipmgroup.be/wp-content/uploads/2015/03/pm-pour-ipm-group-2.png" }
+
+
+
+
 
 
 
@@ -216,7 +226,18 @@
             { "source": "Caron", "target": "LFI", "strength": 1 },
             { "source": "Caron", "target": "Canal +", "strength": 1 },
             { "source": "Caron", "target": "Europe 1", "strength": 1 },
-            { "source": "Europe 1", "target": "Canal +", "strength": 1 }
+            { "source": "Europe 1", "target": "Canal +", "strength": 1 },
+            { "source": "Le Parisien", "target": "LVMH", "strength": 1 },
+            { "source": "LVMH", "target": "Bernard Arnault", "strength": 1 },
+            { "source": "Verdez", "target": "LFI", "strength": 1 },
+            { "source": "Verdez", "target": "TPMP", "strength": 1 },
+            { "source": "Verdez", "target": "Le Parisien", "strength": 1 },
+            { "source": "Paris Match", "target": "LVMH", "strength": 1 },
+            { "source": "Les Echos", "target": "LVMH", "strength": 1 }
+
+
+
+
 
 
 
@@ -264,7 +285,8 @@
     "CGT": 0.3,
     "Apollon": 0.9,
     "Jeune Garde": 0.01,
-    "Europe 1": 0.5
+    "Europe 1": 0.5,
+    "LVMH": 0.5
 
 
   }
