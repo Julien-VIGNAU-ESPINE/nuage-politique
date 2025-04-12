@@ -85,7 +85,11 @@
     { "id": "Messiha", "group": "Reconquete", "type": "personnalité", "description": "Jean Messiha", "details": "Il est un haut fonctionnaire, éditorialiste, homme politique et polémiste d'extrême droite français.", "imageUrl": "https://i.f1g.fr/media/cms/orig/2024/05/05/d8142bfd37bfffc6fbc03455432650e3cab57309787ff82412bb44f4b057f899.jpg" },
     { "id": "Apollon", "group": "Reconquete", "type": "groupe-media", "description": "Intitut Apollon", "details": "L'Institut Apollon, devenu ensuite l'Institut Vivre Français, un cercle de réflexion classé à l'extrême droite.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-2tN2Plt76Z-63FSs1s_2HOlbVpICUGtFA&s" },
     { "id": "Arnault", "group": "LFI", "type": "personnalité", "description": "Raphaël Arnault", "details": "Raphaël Arnault est un militant d'extrême gauche français, connu pour son engagement au sein du mouvement antifasciste.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/842105.jpg" },
-    { "id": "Jeune Garde", "group": "Jeune Garde", "type": "groupe-media", "description": "Jeune Garde", "details": "La Jeune Garde est une organisation antifasciste française d'extrême gauche, fondée en 2018. ", "imageUrl": "https://lesjours.fr/ressources/res1500/square/people/jeune-garde-antifasciste.jpeg" }
+    { "id": "Jeune Garde", "group": "Jeune Garde", "type": "groupe-media", "description": "Jeune Garde", "details": "La Jeune Garde est une organisation antifasciste française d'extrême gauche, fondée en 2018. ", "imageUrl": "https://lesjours.fr/ressources/res1500/square/people/jeune-garde-antifasciste.jpeg" },
+    { "id": "Caron", "group": "LFI", "type": "personnalité", "description": "Aymeric Caron", "details": "Aymeric Caron est un homme politique, journaliste et écrivain français. ", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796090.jpg" },
+    { "id": "Europe 1", "group": "Canal +", "type": "groupe-media", "description": "Europe 1", "details": "Europe 1 est une station de radio généraliste française, qui diffuse des programmes d'information, de divertissement et de débats.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdGF5Twruk2iEE0Q2YwstQfC1SFP1NyJhDw&s" }
+
+
 
 
 
@@ -208,7 +212,14 @@
             { "source": "Messiha", "target": "Reconquête", "strength": 1 },
 
             { "source": "Arnault", "target": "LFI", "strength": 1 },
-            { "source": "Arnault", "target": "Jeune Garde", "strength": 1 }
+            { "source": "Arnault", "target": "Jeune Garde", "strength": 1 },
+            { "source": "Caron", "target": "LFI", "strength": 1 },
+            { "source": "Caron", "target": "Canal +", "strength": 1 },
+            { "source": "Caron", "target": "Europe 1", "strength": 1 },
+            { "source": "Europe 1", "target": "Canal +", "strength": 1 }
+
+
+
 
 
 
@@ -252,7 +263,8 @@
     "E&R": 0.9,
     "CGT": 0.3,
     "Apollon": 0.9,
-    "Jeune Garde": 0.01
+    "Jeune Garde": 0.01,
+    "Europe 1": 0.5
 
 
   }
