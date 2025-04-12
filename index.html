@@ -119,8 +119,6 @@
                     tooltip.transition().duration(200).style("opacity", .9);
                     tooltip.html(`
                         <h3>${d.description}</h3>
-                        <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
-                        <p><strong>Tendance:</strong> ${d.group.charAt(0).toUpperCase() + d.group.slice(1)}</p>
                         <p>${d.details}</p>
                     `)
                         .style("left", (event.pageX + 10) + "px")

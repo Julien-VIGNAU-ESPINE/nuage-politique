@@ -58,17 +58,26 @@
     { "id": "Wauquiez", "group": "DR", "type": "personnalité", "description": "Laurent Wauquiez", "details": "Président du groupe La Droite républicaine à l'Assemblée nationale.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/267285.jpg" },
     { "id": "Bellamy", "group": "DR", "type": "personnalité", "description": "François-Xavier Bellamy", "details": "Député européen et figure du parti Les Républicains.", "imageUrl": "https://media.letelegramme.fr/api/v1/images/view/637d68026c9dfe0c0c57ccaa/web_golden_xl/637d68026c9dfe0c0c57ccaa.1" },
     { "id": "Retailleau", "group": "DR", "type": "personnalité", "description": "Bruno Retailleau", "details": "Ministre de L'intérieur", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAPfk-qQeuy6okcHstdxE7iLydliQ8jpKwg&s" },
-
     { "id": "Frontières", "group": "Frontières", "type": "groupe-media", "description": "Frontières", "details": "Média de droite", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiUUYDbeKMOFoHT3HqKK8kT4KC9oB1j_wEzQ&s" },
     { "id": "Tegner", "group": "Frontières", "type": "personnalité", "description": "Erik Tegnér", "details": "Militant politique d'extrème droite et fondateur du média Frontières", "imageUrl": "https://www.lalettre.fr/fr/utils/imageresize?x=800&web=1&file64=V29ya2Zsb3dcTExBXzE0NTg2LkpQRw==" },
     { "id": "Florentin", "group": "Frontières", "type": "personnalité", "description": "Jordan Florentin", "details": "Journaliste qui travaille pour le média Frontières", "imageUrl": "https://www.cnews.fr/sites/default/files/styles/image_750_422/public/jordan_florentin_c_est_une_nouvelle_de_claration_de_guerre_qu_a_fait_le_hamas_67b8918c4c422.jpg?h=d518e233&itok=OJewYbZ_" },
     { "id": "Morice", "group": "Frontières", "type": "personnalité", "description": "Louise Morice", "details": "Journaliste qui travaille pour le média Frontières", "imageUrl": "https://pbs.twimg.com/profile_images/1841096211316486148/no-Xf4uG_200x200.jpg" },
-
     { "id": "Mediapart", "group": "Mediapart", "type": "groupe-media", "description": "Médiapart", "details": "Média de gauche", "imageUrl": "https://klab.essec.fr/sites/default/files/image_actualites/logo_mediapart.png" },
-
     { "id": "GI", "group": "Generation Identitaire", "type": "groupe-media", "description": "Génération Identitaire", "details": "Mouvement politique d'extrême droite français, actif de 2012 à 2021", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfnl06JG1XmTV48zPNYS2sV34wMjHW14Dyeg&s" },
     { "id": "D'Escufon", "group": "Generation Identitaire", "type": "personnalité", "description": "Thais D'Escufon", "details": "Porte-parole du mouvement Génération Identitaire, dissous par le gouvernement français en 2021.", "imageUrl": "https://www.lexpress.fr/resizer/r-z2Lc1mmtPUNPgGUQhOPMqaV4g=/300x0/arc-photo-lexpress/eu-central-1-prod/public/PDJR4O4RTVBC5ADJ3YANRSFVGM.jpg" },
-    { "id": "Rieu", "group": "Generation Identitaire", "type": "personnalité", "description": "Damien Rieu", "details": "Un des principaux fondateurs de Génération Identitaire", "imageUrl": "https://images.rtl.fr/~c/770v513/rtl/www/1484850-damien-riieu.png" }
+    { "id": "Rieu", "group": "Generation Identitaire", "type": "personnalité", "description": "Damien Rieu", "details": "Un des principaux fondateurs de Génération Identitaire", "imageUrl": "https://images.rtl.fr/~c/770v513/rtl/www/1484850-damien-riieu.png" },
+    { "id": "Generation Z", "group": "Generation Z", "type": "groupe-media", "description": "Génération Z", "details": "Le mouvement « Génération Z » est le mouvement de jeunesse du parti Reconquête !.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx59YwM9k1MNj6mzOVK0oV2i-51k4-awmV7w&s" },
+    { "id": "Rigault", "group": "Generation Z", "type": "personnalité", "description": "Stanislas Rigault", "details": "Stanislas Rigault est une personnalité politique française, connu pour avoir lancé le mouvement Generation Z", "imageUrl": "https://images.midilibre.fr/api/v1/images/view/62507477bf40bb2c5d0e0976/large/image.jpg?v=1" },
+    { "id": "TPMP", "group": "TPMP", "type": "groupe-media", "description": "Touche pas à mon poste", "details": "« Touche pas à mon poste ! » (TPMP) est une émission de télévision française diffusée en direct sur C8 et animée par Cyril Hanouna", "imageUrl": "https://static1.purepeople.com/articles/3/46/38/43/@/6678790-logo-de-l-emission-touche-pas-a-mon-pos-580x0-2.jpg" },
+    { "id": "Hanouna", "group": "TPMP", "type": "personnalité", "description": "Cyril Hanouna", "details": "Cyril Hanouna est une figure incontournable du paysage audiovisuel français. Animateur, producteur, et homme d'affaires, il est surtout connu pour son émission « Touche pas à mon poste ! » (TPMP), diffusée sur C8.", "imageUrl": "https://sf2.closermag.fr/wp-content/uploads/closermag/2023/06/cyril-hanouna.jpg" },
+    { "id": "Boyard", "group": "LFI", "type": "personnalité", "description": "Louis Boyard", "details": " Il est député de la 3e circonscription du Val-de-Marne depuis 2022 et membre de la direction de La France insoumise (LFI). Il s'est fait connaitre sur TPMP", "imageUrl": "https://images.rtl.fr/~c/2000v2000/rtl/www/1570057-louis-boyard-lors-d-une-marche-contre-la-reforme-des-retraites.jpg" },
+    { "id": "C8", "group": "Canal +", "type": "groupe-media", "description": "C8", "details": "C8 est une chaîne de télévision généraliste française qui fait partie du groupe Canal+.", "imageUrl": "https://app.ladn-data.eu/storage/uploads/companies/d142120b-4b24-4a59-a753-0c00dd39ca63.jpg" },
+    { "id": "CNews", "group": "Canal +", "type": "groupe-media", "description": "CNews", "details": "CNews est une chaîne de télévision française d'information en continu, appartenant au groupe Canal+.", "imageUrl": "https://cdn6.aptoide.com/imgs/7/e/3/7e34615dfd349555f4031e9b33e3d197_icon.png" },
+    { "id": "Canal +", "group": "Canal +", "type": "groupe-media", "description": "Canal +", "details": "Le Groupe Canal+ est un acteur majeur du paysage audiovisuel français et international. Depuis 2014, le Groupe Canal+ est une filiale de Vivendi, un conglomérat contrôlé par le groupe Bolloré.", "imageUrl": "https://cdn.worldvectorlogo.com/logos/canal.svg" },
+    { "id": "Bolloré", "group": "Bolloré", "type": "personnalité", "description": "Vincent Bolloré", "details": "Il est connu pour être à la tête du groupe Bolloré, un conglomérat diversifié présent dans les domaines des transports, de la logistique, des médias et de la communication.", "imageUrl": "https://images.tagesschau.de/image/cebb9951-7c81-49f4-8d95-537b87df9183/AAABlgqB7dQ/AAABkZLrr6A/original/vincent-bollore-101.jpg" }
+
+
+
 
 
 
@@ -156,7 +165,21 @@
 
             { "source": "GI", "target": "D'Escufon", "strength": 1 },
             { "source": "GI", "target": "Rieu", "strength": 1 },
-            { "source": "D'Escufon", "target": "Reconquête", "strength": 1 }
+            { "source": "D'Escufon", "target": "Reconquête", "strength": 1 },
+
+            { "source": "Generation Z", "target": "Rigault", "strength": 1 },
+            { "source": "Rigault", "target": "Reconquête", "strength": 1 },
+
+            { "source": "Boyard", "target": "TPMP", "strength": 1 },
+            { "source": "Boyard", "target": "LFI", "strength": 1 },
+            { "source": "Hanouna", "target": "TPMP", "strength": 1 },
+            { "source": "TPMP", "target": "C8", "strength": 1 },
+            { "source": "C8", "target": "Canal +", "strength": 1 },
+            { "source": "CNews", "target": "Canal +", "strength": 1 },
+            { "source": "Bolloré", "target": "Canal +", "strength": 1 }
+
+
+
 
 
 
@@ -180,6 +203,13 @@
     "NFP": 0.2,
     "Frontières": 0.9,
     "Mediapart": 0.3,
-    "GI": 0.99
+    "GI": 0.99,
+    "Generation Z": 0.9,
+    "TPMP": 0.6,
+    "C8": 0.6,
+    "CNews": 0.8,
+    "Canal +": 0.6
+
+
   }
 }
