@@ -99,7 +99,13 @@
     { "id": "LO", "group": "LO", "type": "parti", "description": "Lutte Ouvrière", "details": "Lutte Ouvrière (LO) est un parti politique français d'extrême gauche, fondé en 1956 sous le nom d'Union des travailleurs communistes (UTC)", "imageUrl": "https://www.lyoncapitale.fr/wp-content/uploads/2010/03/Les-propositions-de-Lutte-ouvriere-770x433.jpg" },
     { "id": "Laguiller", "group": "LO", "type": "personnalité", "description": "Arlette Laguiller", "details": "Elle a été la figure emblématique de LO pendant de nombreuses années, en tant que candidate à plusieurs élections présidentielles.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBhfCo7Nu-31oLMVpd2FDbq6U8vW7H1twsXg&s" },
     { "id": "Arthaud", "group": "LO", "type": "personnalité", "description": "Nathalie Arthaud", "details": "Elle est la porte parole actuel du parti, et a été candidate à plusieurs élections présidentielles.", "imageUrl": "https://static.actu.fr/uploads/2021/06/25405-210601101654737-0.jpg" },
-    { "id": "Valls", "group": "PS", "type": "personnalité", "description": "Manuel Valls", "details": "Il a occupé plusieurs postes importants au sein du gouvernement français.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShU8m3fynxhTYg1YZB4B4_v3-OzT2A5pHb1Q&s" }
+    { "id": "Valls", "group": "PS", "type": "personnalité", "description": "Manuel Valls", "details": "Il a occupé plusieurs postes importants au sein du gouvernement français.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShU8m3fynxhTYg1YZB4B4_v3-OzT2A5pHb1Q&s" },
+    { "id": "Fakir", "group": "Fakir", "type": "groupe-media", "description": "Fakir", "details": "Fakir est un journal indépendant et alternatif fondé en 1999 par François Ruffin.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsX9cm-A5TTyC4DT9JKiCIGiI6Kh-5ivFO5Q&s" },
+    { "id": "ARCOM", "group": "ARCOM", "type": "groupe-media", "description": "ARCOM", "details": "L'Autorité de régulation de la communication audiovisuelle et numérique (Arcom) est une autorité publique indépendante française.", "imageUrl": "https://pbs.twimg.com/profile_images/1476830201522933787/hXT9vlKR_400x400.jpg" },
+    { "id": "Hamon", "group": "PS", "type": "personnalité", "description": "Benoit Hamon", "details": " Il a occupé plusieurs fonctions ministérielles et a été candidat à l'élection présidentielle de 2017. En juin 2023, il est désigné comme membre du conseil d'administration de l'Arcom.", "imageUrl": "https://www2.assemblee-nationale.fr/static/tribun/14/photos/590032.jpg" }
+    
+
+
 
 
 
@@ -248,14 +254,16 @@
             { "source": "France Inter", "target": "Glucksmann", "strength": 1 },
             { "source": "LO", "target": "Arthaud", "strength": 1 },
             { "source": "NPA", "target": "Arnault", "strength": 1 },
-
             { "source": "Valls", "target": "Bayrou", "strength": 1 },
             { "source": "Valls", "target": "PS", "strength": 1 },
             { "source": "Valls", "target": "Renaissance", "strength": 1 },
             { "source": "Valls", "target": "Hollande", "strength": 1 },
+            { "source": "LO", "target": "Laguiller", "strength": 1 },
+            { "source": "Fakir", "target": "Ruffin", "strength": 1 },
+            { "source": "Hamon", "target": "PS", "strength": 1 },
+            { "source": "Hamon", "target": "ARCOM", "strength": 1 }
 
 
-            { "source": "LO", "target": "Laguiller", "strength": 1 }
 
 
 
@@ -312,7 +320,9 @@
     "Europe 1": 0.5,
     "LVMH": 0.5,
     "France Inter": 0.5,
-    "LO": 0.01
+    "LO": 0.01,
+    "Fakir": 0.01,
+    "ARCOM": 0.5
 
 
   }
