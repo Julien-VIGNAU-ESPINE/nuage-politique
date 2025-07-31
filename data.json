@@ -110,7 +110,12 @@
     { "id": "Villepin", "group": "UMP", "type": "personnalité", "description": "Dominique de Villepin", "details": " Il est Premier ministre du 31 mai 2005 au 17 mai 2007.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg/250px-Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg" },
     { "id": "RPR", "group": "RPR", "type": "parti", "description": "RPR", "details": "Le Rassemblement pour la République est un parti politique français ayant existé entre 1976 et 2002.", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/8/8f/Logo_RPR.svg" },
     { "id": "UDF", "group": "UDF", "type": "parti", "description": "UDF", "details": "L'Union pour la démocratie française (UDF) est un parti politique français regroupant plusieurs partis de centre droit", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/thumb/5/5e/Logo_udf.png/250px-Logo_udf.png" },
+    { "id": "PG", "group": "PG", "type": "parti", "description": "PG", "details": "Le Parti de gauche (abrégé en PG) est un parti politique français classé à gauche, fondé le 1er février 2009", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Parti_de_Gauche_drapeau.svg" },
+    { "id": "FNC", "group": "FNC", "type": "parti", "description": "FNC", "details": "Le Front national des combattants (abrégé en FNC) est un parti politique français fondé en 1957 par Jean-Marie Le Pen.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Logo_Front_National_%28ann%C3%A9e_1945%29.png" },
     { "id": "EPR", "group": "EPR", "type": "coalition", "description": "EPR", "details": "Ensemble pour la République (EPR), est une coalition de partis politiques français", "imageUrl": "https://pbs.twimg.com/profile_images/1853805497423425536/bbWMmAgM_400x400.jpg" },
+    { "id": "Barnier", "group": "LR", "type": "personnalité", "description": "Michel Barnier", "details": "Plusieurs fois ministre et commissaire européen, négociateur en chef du Brexit pour l'Union européenne, il est Premier ministre français du 5 septembre au 13 décembre 2024.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Barnier_Portrait.jpg/250px-Barnier_Portrait.jpg" },
+    { "id": "Coquerel", "group": "LFI", "type": "personnalité", "description": "Eric Coquerel", "details": "Président de la commission des Finances de l’Assemblée nationale", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eric_Coquerel_en_2017.jpg/250px-Eric_Coquerel_en_2017.jpg" },
+    { "id": "Laffin", "group": "FNC", "type": "personnalité", "description": "André Laffin", "details": "André Laffin est le grand père maternel de Clémentine Autain", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Andr%C3%A9_Laffin.jpg" },
     { "id": "Obono", "group": "LFI", "type": "personnalité", "description": "Danièle Obono", "details": " Elle est élue députée dans la 17e circonscription de Paris.", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_721960.png" }
     
 
@@ -284,6 +289,16 @@
             { "source": "EPR", "target": "Horizons", "strength": 1 },
             { "source": "EPR", "target": "Bayrou", "strength": 1 },
             { "source": "EPR", "target": "Macron", "strength": 1 },
+            { "source": "Barnier", "target": "EPR", "strength": 1 },
+            { "source": "Barnier", "target": "LR", "strength": 1 },
+            { "source": "Melanchon", "target": "PS", "strength": 1 },
+            { "source": "Melanchon", "target": "PG", "strength": 1 },
+            { "source": "Coquerel", "target": "PG", "strength": 1 },
+            { "source": "Coquerel", "target": "LFI", "strength": 1 },
+            { "source": "Autain", "target": "PCF", "strength": 1 },
+            { "source": "FNC", "target": "JM Le Pen", "strength": 1 },
+            { "source": "Laffin", "target": "Autain", "strength": 0.1 },
+            { "source": "FNC", "target": "Laffin", "strength": 1 },
             { "source": "Obono", "target": "LFI", "strength": 1 }
 
 
@@ -351,6 +366,8 @@
     "LO": 0.01,
     "Fakir": 0.01,
     "EPR": 0.5,
+    "PG": 0.2,
+    "FNC": 1.5,
     "ARCOM": 0.5
 
 
