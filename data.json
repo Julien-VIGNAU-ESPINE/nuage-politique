@@ -102,7 +102,16 @@
     { "id": "Valls", "group": "PS", "type": "personnalité", "description": "Manuel Valls", "details": "Il a occupé plusieurs postes importants au sein du gouvernement français.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShU8m3fynxhTYg1YZB4B4_v3-OzT2A5pHb1Q&s" },
     { "id": "Fakir", "group": "Fakir", "type": "groupe-media", "description": "Fakir", "details": "Fakir est un journal indépendant et alternatif fondé en 1999 par François Ruffin.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsX9cm-A5TTyC4DT9JKiCIGiI6Kh-5ivFO5Q&s" },
     { "id": "ARCOM", "group": "ARCOM", "type": "groupe-media", "description": "ARCOM", "details": "L'Autorité de régulation de la communication audiovisuelle et numérique (Arcom) est une autorité publique indépendante française.", "imageUrl": "https://pbs.twimg.com/profile_images/1476830201522933787/hXT9vlKR_400x400.jpg" },
-    { "id": "Hamon", "group": "PS", "type": "personnalité", "description": "Benoit Hamon", "details": " Il a occupé plusieurs fonctions ministérielles et a été candidat à l'élection présidentielle de 2017. En juin 2023, il est désigné comme membre du conseil d'administration de l'Arcom.", "imageUrl": "https://www2.assemblee-nationale.fr/static/tribun/14/photos/590032.jpg" }
+    { "id": "Hamon", "group": "PS", "type": "personnalité", "description": "Benoit Hamon", "details": " Il a occupé plusieurs fonctions ministérielles et a été candidat à l'élection présidentielle de 2017. En juin 2023, il est désigné comme membre du conseil d'administration de l'Arcom.", "imageUrl": "https://www2.assemblee-nationale.fr/static/tribun/14/photos/590032.jpg" },
+    { "id": "Mansouri", "group": "UDR", "type": "personnalité", "description": "Hanane Mansouri", "details": "Elle est élue députée le 7 juillet 2024 dans la huitième circonscription de l'Isère.", "imageUrl": "https://cdn-s-www.ledauphine.com/images/C5B27188-2267-4687-B7D9-B96C1EC9BCE8/NW_raw/hanane-mansouri-photo-dr-1718800128.jpg" },
+    { "id": "Sarkozy", "group": "LR", "type": "personnalité", "description": "Nicolas Sarkozy", "details": "Il est président de la République française du 16 mai 2007 au 15 mai 2012.", "imageUrl": "https://www.conseil-constitutionnel.fr/sites/default/files/styles/portrait_page_membre_mobile/public/2018-06/SARKOZY%20Nicolas.jpg.webp?itok=C0EuUiBs" },
+    { "id": "UMP", "group": "UMP", "type": "parti", "description": "UMP", "details": "L'Union pour un mouvement populaire est un parti politique français classé du centre droit à la droite de l'échiquier politique.", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/thumb/9/90/Logo_de_l%27UMP.svg/1200px-Logo_de_l%27UMP.svg.png" },
+    { "id": "Chirac", "group": "RPR", "type": "personnalité", "description": "Jacques Chirac", "details": "Il est président de la République de 1995 à 2007.", "imageUrl": "https://www.aulnay-sous-bois.fr/wp-content/uploads/2019/09/Jacques-Chirac.png" },
+    { "id": "Villepin", "group": "UMP", "type": "personnalité", "description": "Dominique de Villepin", "details": " Il est Premier ministre du 31 mai 2005 au 17 mai 2007.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg/250px-Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg" },
+    { "id": "RPR", "group": "RPR", "type": "parti", "description": "RPR", "details": "Le Rassemblement pour la République est un parti politique français ayant existé entre 1976 et 2002.", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/8/8f/Logo_RPR.svg" },
+    { "id": "UDF", "group": "UDF", "type": "parti", "description": "UDF", "details": "L'Union pour la démocratie française (UDF) est un parti politique français regroupant plusieurs partis de centre droit", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/thumb/5/5e/Logo_udf.png/250px-Logo_udf.png" },
+    { "id": "EPR", "group": "EPR", "type": "coalition", "description": "EPR", "details": "Ensemble pour la République (EPR), est une coalition de partis politiques français", "imageUrl": "https://pbs.twimg.com/profile_images/1853805497423425536/bbWMmAgM_400x400.jpg" },
+    { "id": "Obono", "group": "LFI", "type": "personnalité", "description": "Danièle Obono", "details": " Elle est élue députée dans la 17e circonscription de Paris.", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_721960.png" }
     
 
 
@@ -261,7 +270,23 @@
             { "source": "LO", "target": "Laguiller", "strength": 1 },
             { "source": "Fakir", "target": "Ruffin", "strength": 1 },
             { "source": "Hamon", "target": "PS", "strength": 1 },
-            { "source": "Hamon", "target": "ARCOM", "strength": 1 }
+            { "source": "Hamon", "target": "ARCOM", "strength": 1 },
+            { "source": "Mansouri", "target": "UDR", "strength": 1 },
+            { "source": "Sarkozy", "target": "LR", "strength": 1 },
+            { "source": "Sarkozy", "target": "UMP", "strength": 1 },
+            { "source": "Chirac", "target": "RPR", "strength": 1 },
+            { "source": "Chirac", "target": "UDR", "strength": 1 },
+            { "source": "Chirac", "target": "UDF", "strength": 1 },
+            { "source": "Bayrou", "target": "UDF", "strength": 1 },
+            { "source": "Villepin", "target": "UMP", "strength": 1 },
+            { "source": "EPR", "target": "Renaissance", "strength": 1 },
+            { "source": "EPR", "target": "MoDem", "strength": 1 },
+            { "source": "EPR", "target": "Horizons", "strength": 1 },
+            { "source": "EPR", "target": "Bayrou", "strength": 1 },
+            { "source": "EPR", "target": "Macron", "strength": 1 },
+            { "source": "Obono", "target": "LFI", "strength": 1 }
+
+
 
 
 
@@ -298,8 +323,11 @@
     "Renaissance": 0.55,
     "Horizons": 0.6,
     "LR": 0.75,
+    "UMP": 0.75,
+    "RPR": 0.75,
     "DR": 0.8,
     "UDR": 0.85,
+    "UDF": 0.55,
     "RN": 0.92,
     "Reconquête": 0.95,
     "FN": 0.97,
@@ -322,6 +350,7 @@
     "France Inter": 0.5,
     "LO": 0.01,
     "Fakir": 0.01,
+    "EPR": 0.5,
     "ARCOM": 0.5
 
 
