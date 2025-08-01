@@ -112,10 +112,16 @@
     { "id": "UDF", "group": "UDF", "type": "parti", "description": "UDF", "details": "L'Union pour la démocratie française (UDF) est un parti politique français regroupant plusieurs partis de centre droit", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/thumb/5/5e/Logo_udf.png/250px-Logo_udf.png" },
     { "id": "PG", "group": "PG", "type": "parti", "description": "PG", "details": "Le Parti de gauche (abrégé en PG) est un parti politique français classé à gauche, fondé le 1er février 2009", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Parti_de_Gauche_drapeau.svg" },
     { "id": "FNC", "group": "FNC", "type": "parti", "description": "FNC", "details": "Le Front national des combattants (abrégé en FNC) est un parti politique français fondé en 1957 par Jean-Marie Le Pen.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Logo_Front_National_%28ann%C3%A9e_1945%29.png" },
+    { "id": "LCR", "group": "LCR", "type": "parti", "description": "LCR", "details": "La Ligue communiste révolutionnaire (LCR) est un parti politique français d'extrême gauche", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Logo_LCR_rouge.png/120px-Logo_LCR_rouge.png" },
     { "id": "EPR", "group": "EPR", "type": "coalition", "description": "EPR", "details": "Ensemble pour la République (EPR), est une coalition de partis politiques français", "imageUrl": "https://pbs.twimg.com/profile_images/1853805497423425536/bbWMmAgM_400x400.jpg" },
     { "id": "Barnier", "group": "LR", "type": "personnalité", "description": "Michel Barnier", "details": "Plusieurs fois ministre et commissaire européen, négociateur en chef du Brexit pour l'Union européenne, il est Premier ministre français du 5 septembre au 13 décembre 2024.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Barnier_Portrait.jpg/250px-Barnier_Portrait.jpg" },
     { "id": "Coquerel", "group": "LFI", "type": "personnalité", "description": "Eric Coquerel", "details": "Président de la commission des Finances de l’Assemblée nationale", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eric_Coquerel_en_2017.jpg/250px-Eric_Coquerel_en_2017.jpg" },
     { "id": "Laffin", "group": "FNC", "type": "personnalité", "description": "André Laffin", "details": "André Laffin est le grand père maternel de Clémentine Autain", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Andr%C3%A9_Laffin.jpg" },
+    { "id": "Mercier", "group": "LO", "type": "personnalité", "description": "Jean-Pierre Mercier", "details": "Il est un syndicaliste et militant politique français d'extrême gauche.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Jean-Pierre_Mercier_%28LO%29_19-05-2024.jpg/250px-Jean-Pierre_Mercier_%28LO%29_19-05-2024.jpg" },
+    { "id": "Plenel", "group": "PCF", "type": "personnalité", "description": "Edwy Plenel", "details": "Il est un journaliste politique français.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/SCAL2207071330.jpg/330px-SCAL2207071330.jpg" },
+    { "id": "Niel", "group": "Le Monde", "type": "personnalité", "description": "Xavier Niel", "details": "Il est un homme d'affaires milliardaire français.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Xavier_Niel004.jpg/330px-Xavier_Niel004.jpg" },
+    { "id": "Pigasse", "group": "Le Monde", "type": "personnalité", "description": "Matthieu Pigasse", "details": "Matthieu Pigasse, né le 25 mai 1968 à Clichy (France), est un homme d'affaires français.", "imageUrl": "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2024/09/09/node_1500208/60612304/public/2024/09/09/25446701.jpeg?itok=mWkAwV-h1725887876" },
+    { "id": "Le Monde", "group": "Le Monde", "type": "groupe-media", "description": "Le Monde", "details": "Se voulant journal « de référence », il est régulièrement considéré comme tel, y compris à l'étrange", "imageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_m_z27vtP0odK2Y5z7t_2P1AsICnAPgezngWJaPKb7vREI=s900-c-k-c0x00ffffff-no-rj" },
     { "id": "Obono", "group": "LFI", "type": "personnalité", "description": "Danièle Obono", "details": " Elle est élue députée dans la 17e circonscription de Paris.", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_721960.png" }
     
 
@@ -299,6 +305,21 @@
             { "source": "FNC", "target": "JM Le Pen", "strength": 1 },
             { "source": "Laffin", "target": "Autain", "strength": 0.1 },
             { "source": "FNC", "target": "Laffin", "strength": 1 },
+            { "source": "Mercier", "target": "LO", "strength": 1 },
+            { "source": "Mercier", "target": "PCF", "strength": 1 },
+            { "source": "Mercier", "target": "PS", "strength": 1 },
+            { "source": "Mercier", "target": "CGT", "strength": 1 },
+            { "source": "Arthaud", "target": "PCF", "strength": 1 },
+            { "source": "Tegner", "target": "FN", "strength": 1 },
+            { "source": "Tegner", "target": "UMP", "strength": 1 },
+            { "source": "Plenel", "target": "Mediapart", "strength": 1 },
+            { "source": "Plenel", "target": "LCR", "strength": 1 },
+            { "source": "Plenel", "target": "Le Monde", "strength": 1 },
+            { "source": "Niel", "target": "Le Monde", "strength": 1 },
+            { "source": "Pigasse", "target": "Le Monde", "strength": 1 },
+            { "source": "Pigasse", "target": "PS", "strength": 1 },
+            { "source": "NPA", "target": "LCR", "strength": 1 },
+            { "source": "CGT", "target": "LCR", "strength": 1 },
             { "source": "Obono", "target": "LFI", "strength": 1 }
 
 
@@ -368,6 +389,8 @@
     "EPR": 0.5,
     "PG": 0.2,
     "FNC": 1.5,
+    "LCR": 0.01,
+    "Le Monde": 0.5,
     "ARCOM": 0.5
 
 
