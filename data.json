@@ -121,8 +121,10 @@
     { "id": "Plenel", "group": "PCF", "type": "personnalité", "description": "Edwy Plenel", "details": "Il est un journaliste politique français.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/SCAL2207071330.jpg/330px-SCAL2207071330.jpg" },
     { "id": "Niel", "group": "Le Monde", "type": "personnalité", "description": "Xavier Niel", "details": "Il est un homme d'affaires milliardaire français.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Xavier_Niel004.jpg/330px-Xavier_Niel004.jpg" },
     { "id": "Pigasse", "group": "Le Monde", "type": "personnalité", "description": "Matthieu Pigasse", "details": "Matthieu Pigasse, né le 25 mai 1968 à Clichy (France), est un homme d'affaires français.", "imageUrl": "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2024/09/09/node_1500208/60612304/public/2024/09/09/25446701.jpeg?itok=mWkAwV-h1725887876" },
+    { "id": "Bousquet", "group": "FN", "type": "personnalité", "description": "Pierre Bousquet", "details": "Soldat de la Waffen-SS au sein de la division SS Charlemagne devenu une personnalité de l’extrême droite française, il est le premier trésorier du Front national", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Pierre_Bousquet.jpg" },
+    { "id": "Gaultier", "group": "FN", "type": "personnalité", "description": "Léon Gaultier", "details": "Il  est un ancien membre de la Waffen-SS et collaborationniste français. Il est l'un des membres fondateurs du Front national", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Gaultier_leon.jpg" },
     { "id": "Le Monde", "group": "Le Monde", "type": "groupe-media", "description": "Le Monde", "details": "Se voulant journal « de référence », il est régulièrement considéré comme tel, y compris à l'étrange", "imageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_m_z27vtP0odK2Y5z7t_2P1AsICnAPgezngWJaPKb7vREI=s900-c-k-c0x00ffffff-no-rj" },
-    { "id": "Obono", "group": "LFI", "type": "personnalité", "description": "Danièle Obono", "details": " Elle est élue députée dans la 17e circonscription de Paris.", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_721960.png" }
+    { "id": "Obono", "group": "LFI", "type": "personnalité", "description": "Danièle Obono", "details": "Elle est élue députée dans la 17e circonscription de Paris.", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_721960.png" }
     
 
 
@@ -176,6 +178,7 @@
             { "source": "Autain", "target": "LFI", "strength": 1 },
             { "source": "Garrido", "target": "LFI", "strength": 1 },
             { "source": "Corbière", "target": "LFI", "strength": 1 },
+            { "source": "Gaultier", "target": "FN", "strength": 1 },
 
             { "source": "Hollande", "target": "PS", "strength": 1 },
             { "source": "Faure", "target": "PS", "strength": 1 },
@@ -221,6 +224,7 @@
             { "source": "Bellamy", "target": "DR", "strength": 1 },
             { "source": "Retailleau", "target": "Bayrou", "strength": 1 },
             { "source": "Retailleau", "target": "DR", "strength": 1 },
+            { "source": "Bousquet", "target": "FN", "strength": 1 },
 
             { "source": "LR", "target": "UDR", "strength": 1 },
             { "source": "LR", "target": "DR", "strength": 1 },
