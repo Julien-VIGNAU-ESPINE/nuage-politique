@@ -1,0 +1,510 @@
+const politicalData = {
+  "nodes": [
+    { "id": "PCF", "group": "extrême-gauche", "type": "parti", "description": "Parti Communiste Français", "details": "Parti historique de la gauche fondé en 1920", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPkDQ3Kd5U4xUxNkWKo48yT5XXn4CuItIG-g&s" },
+    { "id": "NPA", "group": "extrême-gauche", "type": "parti", "description": "Nouveau Parti Anticapitaliste", "details": "Le Nouveau Parti anticapitaliste est un parti politique français d'extrême gauche créé en février 2009", "imageUrl": "https://lanticapitaliste.org/sites/default/files/styles/pour_facebook/public/nouveau-logo-npa_carre_rouge.png?itok=VqJFTrMz" },
+    { "id": "LFI", "group": "gauche", "type": "parti", "description": "La France Insoumise", "details": "Parti de gauche fondé en 2016, porté sur la justice sociale et l'écologie", "imageUrl": "https://pbs.twimg.com/profile_images/1892318031235239936/MnBiwA46_400x400.jpg" },
+    { "id": "EELV", "group": "écologie", "type": "parti", "description": "Europe Écologie Les Verts", "details": "Principal parti écologiste français fondé en 2010", "imageUrl": "https://cf.eelv.fr/files/2020/03/LOGO_EELV_BLANC-1024x547.jpg" },
+    { "id": "PS", "group": "centre-gauche", "type": "parti", "description": "Parti Socialiste", "details": "Parti historique de la gauche française fondé en 1969", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Logotipo_del_PS.png" },
+    { "id": "MoDem", "group": "centre", "type": "parti", "description": "Mouvement Démocrate", "details": "Parti centriste fondé en 2007 par François Bayrou", "imageUrl": "https://logowik.com/content/uploads/images/modem-20197646.logowik.com.webp" },
+    { "id": "Renaissance", "group": "centre", "type": "parti", "description": "Renaissance", "details": "Parti présidentiel fondé en 2016 sous le nom d'En Marche !", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Renaissance-logotype-officiel.jpg" },
+    { "id": "Horizons", "group": "centre", "type": "parti", "description": "Horizons", "details": "Parti fondé par Édouard Philippe en 2021", "imageUrl": "https://horizonsleparti.fr/wp-content/uploads/2021/11/banniere_1200x675.png" },
+    { "id": "LR", "group": "droite", "type": "parti", "description": "Les Républicains", "details": "Principal parti de la droite républicaine fondé en 2015", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Logo-Les-R%C3%A9publicains-2024.jpg/1280px-Logo-Les-R%C3%A9publicains-2024.jpg" },
+    { "id": "DR", "group": "droite", "type": "parti", "description": "Droite Républicaine", "details": "La Droite Républicaine est un groupe majoritairement composé d'ancients membres des Républicains", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjiJxOad_ifvXqVYiP08yo6iMx6GsSHsFigA&s" },
+    { "id": "UDR", "group": "droite", "type": "parti", "description": "Les Républicains", "details": "L'Union des droites pour la République est un parti politique français d'extrême droite fondé par Éric Ciotti en 2012. Il a pris son nom actuel en 2024", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxu1FAm8jXB-hg9MBqWvTJX8wnz0BKhw8qg&s" },
+    { "id": "RN", "group": "extrême-droite", "type": "parti", "description": "Rassemblement National", "details": "Parti d'extrême-droite fondé en 1972 sous le nom de Front National", "imageUrl": "https://focus.huffingtonpost.fr/2022/07/24/0/0/630/548/385/334/75/0/66d6ccd_1658701693772-5c92b12b3b0000a6076ddfc3.jpeg" },
+    { "id": "Reconquête", "group": "extrême-droite", "type": "parti", "description": "Reconquête !", "details": "Parti d'extrême-droite fondé par Éric Zemmour en 2021", "imageUrl": "https://yannickmasse.com/68-large_default/pochoir-reconquete-zemmour-lepen.jpg" },
+    { "id": "FN", "group": "extrême-droite", "type": "parti", "description": "Front National", "details": "Parti d'extrême-droite fondé par Jean-Marie Le Pen en 1972", "imageUrl": "https://pbs.twimg.com/profile_images/1002613717564100609/Qp8ToZ3b_400x400.jpg" },
+    { "id": "NFP", "group": "gauche", "type": "coalition", "description": "Nouveau Front populaire", "details": "Nouveau Front populaire (NFP) est une alliance de partis politiques de gauche en France, formée en juin 2024 en vue des élections législatives anticipées.", "imageUrl": "https://ensemble-mouvement.com/wp-content/uploads/2024/06/Logo-NFP-800x600-1.jpg" },
+    { "id": "Roussel", "group": "PCF", "type": "personnalité", "description": "Fabien Roussel", "details": "Secrétaire national du PCF depuis 2018", "imageUrl": "https://s2.qwant.com/thumbr/474x315/d/f/cdd5a23707e5fa3dbde4828865f496e7cd3d5189b0fefa9403f8d3b0da8659/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.1nZP7DpaYux5ci02RQ8xugHaE7%26pid%3DApi&q=0&b=1&p=0&a=0" },
+    { "id": "Deffontaines", "group": "PCF", "type": "personnalité", "description": "Léon Deffontaines", "details": "Tête de liste pour les élections européennes 2022", "imageUrl": "https://www.francetvinfo.fr/pictures/dtHlfzjwmzrPajbz3iygIKuTrsw/1200x900/2023/09/15/leon-deffontaines-6504bcbcefb56991049719.jpg" },
+    { "id": "Poutou", "group": "NPA", "type": "personnalité", "description": "Philippe Poutou", "details": "Philippe Poutou est un ancien candidat du Nouveau Parti Anticapitaliste", "imageUrl": "https://s1.qwant.com/thumbr/474x543/1/b/daed9a6689e3b3cf1c37f52a362faf6ecd7d2430f34c8dee89d37698bb72de/th.jpg?u=https%3A%2F%2Ftse.mm.bing.net%2Fth%3Fid%3DOIP.9scF831T0cMoQGPGxIXqmwHaIf%26pid%3DApi&q=0&b=1&p=0&a=0" },
+    { "id": "Besancenot", "group": "NPA", "type": "personnalité", "description": "Oliver Besancenot", "details": "Ancien facteur, il a été le porte-parole de la Ligue communiste révolutionnaire (LCR), l'organisation qui a précédé le NPA. Il reste une figure influente au sein du parti.", "imageUrl": "https://www.radiofrance.fr/s3/cruiser-production-eu3/2017/09/260ec564-0046-4606-956e-5141e780717e/640x340_besancenot.jpg" },
+    { "id": "Rousseau", "group": "EELV", "type": "personnalité", "description": "Sandrine Rousseau", "details": "placeholder", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795076.jpg" },
+    { "id": "Tondelier", "group": "EELV", "type": "personnalité", "description": "Marine Tondelier", "details": "Secrétaire nationale d'Europe Écologie Les Verts (EÉLV) depuis 2022.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/20210819_tondelier.m-cr3.jpg/640px-20210819_tondelier.m-cr3.jpg" },
+    { "id": "Jadot", "group": "EELV", "type": "personnalité", "description": "Yannick Jadot", "details": "Député européen et figure d'Europe Écologie Les Verts (EÉLV), candidat à la présidentielle en 2022.", "imageUrl": "https://images.rtl.fr/~c/770v513/rtl/www/1482921-yannick-jadot-le-7-janvier-2022.jpg" },
+    { "id": "Melanchon", "group": "LFI", "type": "personnalité", "description": "Jean-Luc Melenchon", "details": "Fondateur de La France insoumise (LFI)", "imageUrl": "https://lafranceinsoumise.fr/wp-content/uploads/2020/09/Jean_Luc_MELENCHON_in_the_European_Parliament_in_Strasbourg_2016_cropped-scaled-e1599038504130-1024x1024.jpg" },
+    { "id": "Panot", "group": "LFI", "type": "personnalité", "description": "Mathilde Panot", "details": "Présidente du groupe La France insoumise à l'Assemblée nationale depuis 2021", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/720892.jpg" },
+    { "id": "Bompard", "group": "LFI", "type": "personnalité", "description": "Manuel Bompard", "details": "Coordinateur de La France insoumise (LFI) et député des Bouches-du-Rhône", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793444.jpg" },
+    { "id": "Delogu", "group": "LFI", "type": "personnalité", "description": "Sébastien Delogu", "details": "Député de la France insoumise des Bouches-du-Rhône depuis 2022", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/793464.jpg" },
+    { "id": "Aubry", "group": "LFI", "type": "personnalité", "description": "Manon Aubry", "details": "Députée européenne La France insoumise (LFI), co-présidente du groupe de la Gauche au Parlement européen.", "imageUrl": "https://yt3.googleusercontent.com/KS32MjHWQ3IaKpbi6GAFplarScvjbXVT0zax4hTFkjQirUlGzRM-B13Xr8p_yviOL6J5OKIOow=s900-c-k-c0x00ffffff-no-rj" },
+    { "id": "Quatennens", "group": "LFI", "type": "personnalité", "description": "Adrien Quatennens", "details": "Député du Nord, il est connu pour ses interventions à l'Assemblée nationale sur les questions économiques et sociales.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/16/photos/carre/720422.jpg" },
+    { "id": "Autain", "group": "LFI", "type": "personnalité", "description": "Clémentine Autain", "details": "Députée de Seine-Saint-Denis, elle est engagée sur les questions féministes et sociales.", "imageUrl": "https://static.actu.fr/uploads/2021/06/clementine-autain-01.jpg" },
+    { "id": "Ruffin", "group": "LFI", "type": "personnalité", "description": "François Ruffin", "details": "Député de la Somme, il est connu pour ses interventions percutantes et ses reportages documentaires.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/722142.jpg" },
+    { "id": "Corbière", "group": "LFI", "type": "personnalité", "description": "Alexis Corbière", "details": "Ancien député de Seine-Saint-Denis, il est une figure historique du parti.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/721210.jpg" },
+    { "id": "Garrido", "group": "LFI", "type": "personnalité", "description": "Raquel Garrido", "details": "Députée de Seine-Saint-Denis, elle est une figure médiatique du parti.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/16/photos/carre/796132.jpg" },
+    { "id": "Hollande", "group": "PS", "type": "personnalité", "description": "François Hollande", "details": "Ancien président de la République française (2012-2017).", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_1654.png" },
+    { "id": "Faure", "group": "PS", "type": "personnalité", "description": "Olivier Faure", "details": "Premier secrétaire du Parti socialiste depuis 2018.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/609332.jpg" },
+    { "id": "Hidalgo", "group": "PS", "type": "personnalité", "description": "Anne Hidalgo", "details": "Maire de Paris.", "imageUrl": "https://img.zeit.de/politik/ausland/2020-06/anne-hidalgo-paris-buergermeisterin/wide__1000x562" },
+    { "id": "Vallaud", "group": "PS", "type": "personnalité", "description": "Boris Vallaud", "details": "Président du groupe socialiste à l'Assemblée nationale.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/719930.jpg" },
+    { "id": "Glucksmann", "group": "PS", "type": "personnalité", "description": "Raphaël Glucksmann", "details": "Député européen (Place Publique, Groupe S&D).", "imageUrl": "https://media0.faz.net/ppmedia/aktuell/politik/3471220137/1.9818898/default-retina/raphael-glucksmann.jpg.webp" },
+    { "id": "Bayrou", "group": "MoDem", "type": "personnalité", "description": "François Bayrou", "details": "Président du Mouvement démocrate (MoDem) et maire de Pau, Premier ministre depuis décembre 2024.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg/250px-Fran%C3%A7ois_Bayrou_%28L%C3%A9gislatives_2024%29.jpg" },
+    { "id": "Philippe", "group": "Horizons", "type": "personnalité", "description": "Edouard Philippe", "details": "Ancien Premier ministre (2017-2020), maire du Havre et président du parti Horizons.", "imageUrl": "https://lehavre.fr/sites/default/files/styles/original_xxl/public/image/m-le-maire-2024-c-lou-benoist-2.jpg.webp?itok=rI2mQ_o-" },
+    { "id": "Macron", "group": "Renaissance", "type": "personnalité", "description": "Emmanuel Macron", "details": "Emmanuel Macron : Président de la République française depuis 2017.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emmanuel_Macron_2022.png/640px-Emmanuel_Macron_2022.png" },
+    { "id": "Attal", "group": "Renaissance", "type": "personnalité", "description": "Gabriel Attal", "details": "Premier ministre de janvier à juillet 2024.", "imageUrl": "https://www.gavroche-thailande.com/wp-content/uploads/2025/04/Gabriel-Attal.jpg" },
+    { "id": "Borne", "group": "Renaissance", "type": "personnalité", "description": "Elisabeth Borne", "details": "Ancienne Première ministre (2022-2024), Ministre d'État, ministre de l'Éducation nationale, de l'Enseignement supérieur et de la Recherche depuis décembre 2024.", "imageUrl": "https://images.ladepeche.fr/api/v1/images/view/67f67ab94ef26b6ef40626b0/large/image.jpg?v=1" },
+    { "id": "Braun-Pivet", "group": "Renaissance", "type": "personnalité", "description": "Yaël Braun-Pivet", "details": "Présidente de l'Assemblée nationale.", "imageUrl": "https://challenges.fr/static/s3fs-public/2022-06/yael-braun-pivet-elue-presidente-de-l-assemblee.jpg?VersionId=4F_.5WSh9NBfOIDfHTPAlzwl1EE26pNj" },
+    { "id": "Le Pen", "group": "RN", "type": "personnalité", "description": "Marine Le Pen", "details": "Figure emblématique du Rassemblement national, députée du Pas-de-Calais et candidate à la présidentielle en 2022.", "imageUrl": "https://focus.courrierinternational.com/2025/03/31/0/0/2673/1782/1280/0/60/0/8686bd1_ftp-import-images-1-ywtjpsmcmi33-2025-03-31t181218z-1000200403-rc2ioda9krz1-rtrmadp-3-france-politics-lepen.JPG" },
+    { "id": "Bardella", "group": "RN", "type": "personnalité", "description": "Jordan Bardella", "details": "Président du Rassemblement national depuis 2022 et député européen.", "imageUrl": "https://static.euronews.com/articles/stories/08/49/10/76/1440x810_cmsv2_8606eacc-35ea-57d5-96e1-95a750f09d69-8491076.jpg" },
+    { "id": "Odoul", "group": "RN", "type": "personnalité", "description": "Julien Odoul", "details": "Député de l'Yonne et figure montante du Rassemblement national.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795552.jpg" },
+    { "id": "Aliot", "group": "RN", "type": "personnalité", "description": "Louis Aliot", "details": "Maire de Perpignan et premier vice-président du RN.", "imageUrl": "https://beymedias.brightspotcdn.com/dims4/default/278ff59/2147483647/strip/false/crop/5184x3456+0+0/resize/1486x991!/quality/90/?url=http%3A%2F%2Fl-opinion-brightspot.s3.amazonaws.com%2Fd1%2F55%2Ff58c78b54690a26a0a8f35e41b88%2Flouis-aliot-sipa.jpg" },
+    { "id": "Chenu", "group": "RN", "type": "personnalité", "description": "Sébastien Chenu", "details": "Vice-président du RN à l'assemblée et député du Nord", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/720468.jpg" },
+    { "id": "Rachline", "group": "RN", "type": "personnalité", "description": "David Rachline", "details": "Sénateur du Var et directeur de campagne de Marine Le Pen lors de l'élection présidentielle de 2022.", "imageUrl": "https://www.maregionsud.fr/fileadmin/_processed_/8/b/csm_Rachline_2021_OK_a591af6b5c.jpg" },
+    { "id": "Tanguy", "group": "RN", "type": "personnalité", "description": "Jean-Philippe Tanguy", "details": "Député de la Somme.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/795778.jpg" },
+    { "id": "JM Le Pen", "group": "FN", "type": "personnalité", "description": "Jean-Marie Le Pen", "details": "Fondateur du Front national (devenu Rassemblement national).", "imageUrl": "https://cdn.prod.www.spiegel.de/images/528bdcc4-4670-4682-8329-9f1b7fa0e089_w960_r1.778_fpx53.98_fpy44.99.jpg" },
+    { "id": "Pecresse", "group": "LR", "type": "personnalité", "description": "Valérie Pécresse", "details": "Présidente du conseil régional d'Île-de-France depuis 2016 et figure du parti Les Républicains.", "imageUrl": "https://www.iledefrance.fr/sites/default/files/2024-10/valerie-pecresse_edito-blanc_web.jpg" },
+    { "id": "Ciotti", "group": "LR", "type": "personnalité", "description": "Eric Ciotti", "details": "Président du parti Les Républicains et député des Alpes-Maritimes.", "imageUrl": "https://www.challenges.fr/_ipx/f_webp&enlarge_true&fit_cover&s_680x420/cha/static/s3fs-public/2022-09/02317438f5a88e4be416e86844ea149228c1a270-jpg.jpg%3FVersionId=5OZ0OBVg7kiDKAMRI8Rhj0oOmKzEscgo" },
+    { "id": "Zemmour", "group": "Reconquete", "type": "personnalité", "description": "Eric Zemmour", "details": "Président du parti Reconquête ! et candidat à l'élection présidentielle de 2022.", "imageUrl": "https://www.francebleu.fr/s3/cruiser-production/2022/03/4f302eee-a5f3-47d0-b18e-7422482cabc0/1200x680_000_9xr4nm.jpg" },
+    { "id": "Marechal", "group": "Reconquete", "type": "personnalité", "description": "Marion Maréchal", "details": "Députée européenne et membre du parti Reconquête !.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg/640px-Marion_Mar%C3%A9chal%2825614980787%29_%28cropped%29.jpg" },
+    { "id": "Wauquiez", "group": "DR", "type": "personnalité", "description": "Laurent Wauquiez", "details": "Président du groupe La Droite républicaine à l'Assemblée nationale.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/267285.jpg" },
+    { "id": "Bellamy", "group": "DR", "type": "personnalité", "description": "François-Xavier Bellamy", "details": "Député européen et figure du parti Les Républicains.", "imageUrl": "https://media.letelegramme.fr/api/v1/images/view/637d68026c9dfe0c0c57ccaa/web_golden_xl/637d68026c9dfe0c0c57ccaa.1" },
+    { "id": "Retailleau", "group": "DR", "type": "personnalité", "description": "Bruno Retailleau", "details": "Ministre de L'intérieur", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAPfk-qQeuy6okcHstdxE7iLydliQ8jpKwg&s" },
+    { "id": "Frontières", "group": "Frontières", "type": "groupe-media", "description": "Frontières", "details": "Média de droite", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiUUYDbeKMOFoHT3HqKK8kT4KC9oB1j_wEzQ&s" },
+    { "id": "Tegner", "group": "Frontières", "type": "personnalité", "description": "Erik Tegnér", "details": "Militant politique d'extrème droite et fondateur du média Frontières", "imageUrl": "https://www.lalettre.fr/fr/utils/imageresize?x=800&web=1&file64=V29ya2Zsb3dcTExBXzE0NTg2LkpQRw==" },
+    { "id": "Florentin", "group": "Frontières", "type": "personnalité", "description": "Jordan Florentin", "details": "Journaliste qui travaille pour le média Frontières", "imageUrl": "https://www.cnews.fr/sites/default/files/styles/image_750_422/public/jordan_florentin_c_est_une_nouvelle_de_claration_de_guerre_qu_a_fait_le_hamas_67b8918c4c422.jpg?h=d518e233&itok=OJewYbZ_" },
+    { "id": "Morice", "group": "Frontières", "type": "personnalité", "description": "Louise Morice", "details": "Journaliste qui travaille pour le média Frontières", "imageUrl": "https://pbs.twimg.com/profile_images/1841096211316486148/no-Xf4uG_200x200.jpg" },
+    { "id": "Mediapart", "group": "Mediapart", "type": "groupe-media", "description": "Médiapart", "details": "Média de gauche", "imageUrl": "https://klab.essec.fr/sites/default/files/image_actualites/logo_mediapart.png" },
+    { "id": "GI", "group": "Generation Identitaire", "type": "groupe-media", "description": "Génération Identitaire", "details": "Mouvement politique d'extrême droite français, actif de 2012 à 2021", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfnl06JG1XmTV48zPNYS2sV34wMjHW14Dyeg&s" },
+    { "id": "D'Escufon", "group": "Generation Identitaire", "type": "personnalité", "description": "Thais D'Escufon", "details": "Porte-parole du mouvement Génération Identitaire, dissous par le gouvernement français en 2021.", "imageUrl": "https://www.lexpress.fr/resizer/r-z2Lc1mmtPUNPgGUQhOPMqaV4g=/300x0/arc-photo-lexpress/eu-central-1-prod/public/PDJR4O4RTVBC5ADJ3YANRSFVGM.jpg" },
+    { "id": "Rieu", "group": "Generation Identitaire", "type": "personnalité", "description": "Damien Rieu", "details": "Un des principaux fondateurs de Génération Identitaire", "imageUrl": "https://images.rtl.fr/~c/770v513/rtl/www/1484850-damien-riieu.png" },
+    { "id": "Generation Z", "group": "Generation Z", "type": "groupe-media", "description": "Génération Z", "details": "Le mouvement « Génération Z » est le mouvement de jeunesse du parti Reconquête !.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx59YwM9k1MNj6mzOVK0oV2i-51k4-awmV7w&s" },
+    { "id": "Rigault", "group": "Generation Z", "type": "personnalité", "description": "Stanislas Rigault", "details": "Stanislas Rigault est une personnalité politique française, connu pour avoir lancé le mouvement Generation Z", "imageUrl": "https://images.midilibre.fr/api/v1/images/view/62507477bf40bb2c5d0e0976/large/image.jpg?v=1" },
+    { "id": "TPMP", "group": "TPMP", "type": "groupe-media", "description": "Touche pas à mon poste", "details": "« Touche pas à mon poste ! » (TPMP) est une émission de télévision française diffusée en direct sur C8 et animée par Cyril Hanouna", "imageUrl": "https://static1.purepeople.com/articles/3/46/38/43/@/6678790-logo-de-l-emission-touche-pas-a-mon-pos-580x0-2.jpg" },
+    { "id": "Hanouna", "group": "TPMP", "type": "personnalité", "description": "Cyril Hanouna", "details": "Cyril Hanouna est une figure incontournable du paysage audiovisuel français. Animateur, producteur, et homme d'affaires, il est surtout connu pour son émission « Touche pas à mon poste ! » (TPMP), diffusée sur C8.", "imageUrl": "https://sf2.closermag.fr/wp-content/uploads/closermag/2023/06/cyril-hanouna.jpg" },
+    { "id": "Boyard", "group": "LFI", "type": "personnalité", "description": "Louis Boyard", "details": " Il est député de la 3e circonscription du Val-de-Marne depuis 2022 et membre de la direction de La France insoumise (LFI). Il s'est fait connaitre sur TPMP", "imageUrl": "https://images.rtl.fr/~c/2000v2000/rtl/www/1570057-louis-boyard-lors-d-une-marche-contre-la-reforme-des-retraites.jpg" },
+    { "id": "C8", "group": "Canal +", "type": "groupe-media", "description": "C8", "details": "C8 est une chaîne de télévision généraliste française qui fait partie du groupe Canal+.", "imageUrl": "https://app.ladn-data.eu/storage/uploads/companies/d142120b-4b24-4a59-a753-0c00dd39ca63.jpg" },
+    { "id": "CNews", "group": "Canal +", "type": "groupe-media", "description": "CNews", "details": "CNews est une chaîne de télévision française d'information en continu, appartenant au groupe Canal+.", "imageUrl": "https://cdn6.aptoide.com/imgs/7/e/3/7e34615dfd349555f4031e9b33e3d197_icon.png" },
+    { "id": "Canal +", "group": "Canal +", "type": "groupe-media", "description": "Canal +", "details": "Le Groupe Canal+ est un acteur majeur du paysage audiovisuel français et international. Depuis 2014, le Groupe Canal+ est une filiale de Vivendi, un conglomérat contrôlé par le groupe Bolloré.", "imageUrl": "https://cdn.worldvectorlogo.com/logos/canal.svg" },
+    { "id": "Bolloré", "group": "Bolloré", "type": "personnalité", "description": "Vincent Bolloré", "details": "Il est connu pour être à la tête du groupe Bolloré, un conglomérat diversifié présent dans les domaines des transports, de la logistique, des médias et de la communication.", "imageUrl": "https://images.tagesschau.de/image/cebb9951-7c81-49f4-8d95-537b87df9183/AAABlgqB7dQ/AAABkZLrr6A/original/vincent-bollore-101.jpg" },
+    { "id": "Lapierre", "group": "Lapierre", "type": "personnalité", "description": "Vincent Lapierre", "details": "Vincent Lapierre est un vidéaste et militant d'extrême droite français.", "imageUrl": "https://yt3.googleusercontent.com/UQjc7h0v5dAF1Q2kAjqH6XSU39AxOBpXcOErSwnzyHalP520Li4975cL4mBGjNS1_SC6A3Krbg=s900-c-k-c0x00ffffff-no-rj" },
+    { "id": "LMPT", "group": "LMPT", "type": "groupe-media", "description": "Le Média Pour Tous", "details": "Le Média Pour Tous est un média en ligne français qui se présente comme un média d'information et d'opinion.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS38826MGunC_UZU9VT_H4CMgB82_pP_xRm6Q&s" },
+    { "id": "Soral", "group": "Soral", "type": "personnalité", "description": "Alain Soral", "details": "Alain Soral, figure controversée, est connu pour ses propos antisémites et d'extrême droite.", "imageUrl": "https://www.radiofrance.fr/s3/cruiser-production/2018/06/7d75f5d3-012e-4a71-a574-b13a20d19034/1200x680_000_par2521679.jpg" },
+    { "id": "E&R", "group": "E&R", "type": "groupe-media", "description": "Egalité & Réconciliation", "details": "Égalité et Réconciliation (E&R) est une association politique française fondée en 2007 par Alain Soral.", "imageUrl": "https://m.media-amazon.com/images/I/A1qtdo3uUAL.png" },
+    { "id": "CGT", "group": "CGT", "type": "groupe-media", "description": "Confédération générale du travail", "details": "La Confédération générale du travail (CGT) est l'un des principaux syndicats français, connu pour son rôle historique dans la défense des droits des travailleurs.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO-dcdzfF1OtrvrOFNsnfmPvlziCVj4vF-OA&s" },
+    { "id": "Binet", "group": "CGT", "type": "personnalité", "description": "Sophie Binet ", "details": "Secrétaire générale de la CGT depuis 2023, première femme à occuper ce poste.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Huma2023SophieBinet_2.jpg" },
+    { "id": "Martinez", "group": "CGT", "type": "personnalité", "description": "Philippe Martinez", "details": "Il a été secrétaire général de la Confédération générale du travail (CGT) du 3 février 2015 au 31 mars 2023. ", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/PhilippeMartinez.jpg" },
+    { "id": "Messiha", "group": "Reconquete", "type": "personnalité", "description": "Jean Messiha", "details": "Il est un haut fonctionnaire, éditorialiste, homme politique et polémiste d'extrême droite français.", "imageUrl": "https://i.f1g.fr/media/cms/orig/2024/05/05/d8142bfd37bfffc6fbc03455432650e3cab57309787ff82412bb44f4b057f899.jpg" },
+    { "id": "Apollon", "group": "Reconquete", "type": "groupe-media", "description": "Intitut Apollon", "details": "L'Institut Apollon, devenu ensuite l'Institut Vivre Français, un cercle de réflexion classé à l'extrême droite.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-2tN2Plt76Z-63FSs1s_2HOlbVpICUGtFA&s" },
+    { "id": "Arnault", "group": "LFI", "type": "personnalité", "description": "Raphaël Arnault", "details": "Raphaël Arnault est un militant d'extrême gauche français, connu pour son engagement au sein du mouvement antifasciste. Il est le cofondateur de la Jeune Garde antifasciste.", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/842105.jpg" },
+    { "id": "Jeune Garde", "group": "Jeune Garde", "type": "groupe-media", "description": "Jeune Garde", "details": "La Jeune Garde est une organisation antifasciste française d'extrême gauche, fondée en 2018. ", "imageUrl": "https://lesjours.fr/ressources/res1500/square/people/jeune-garde-antifasciste.jpeg" },
+    { "id": "Caron", "group": "LFI", "type": "personnalité", "description": "Aymeric Caron", "details": "Aymeric Caron est un homme politique, journaliste et écrivain français. ", "imageUrl": "https://www.assemblee-nationale.fr/dyn/static/tribun/17/photos/carre/796090.jpg" },
+    { "id": "Europe 1", "group": "Canal +", "type": "groupe-media", "description": "Europe 1", "details": "Europe 1 est une station de radio généraliste française, qui diffuse des programmes d'information, de divertissement et de débats.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdGF5Twruk2iEE0Q2YwstQfC1SFP1NyJhDw&s" },
+    { "id": "Verdez", "group": "TPMP", "type": "personnalité", "description": "Giles Verdez", "details": "Gilles Verdez est un journaliste et chroniqueur de télévision français.", "imageUrl": "https://i.f1g.fr/media/cms/768x1024_cropupscale/2024/11/15/e2c2ab2c1c3ef97618fc420023c5e6358c089e57f9919163f581d5cdb3f0c932.jpg" },
+    { "id": "Le Parisien", "group": "LVMH", "type": "groupe-media", "description": "Le Parisien", "details": "Le Parisien est un journal quotidien régional français.", "imageUrl": "https://yt3.googleusercontent.com/MPxr1LgLDFiXS049jClDKNbtp_wUzvsmtmVkUqKLpIr0vJPiBJOPA7rZiVW2Z0G0bdxLrR2z=s160-c-k-c0x00ffffff-no-rj" },
+    { "id": "LVMH", "group": "LVMH", "type": "groupe-media", "description": "LVMH", "details": "LVMH (Moët Hennessy Louis Vuitton) est un groupe de luxe français.", "imageUrl": "https://images.prismic.io/lvmh-com/ZlncD6WtHYXtT-fA_LVMHRECTANGLE.jpg?auto=format,compress?auto=compress,format" },
+    { "id": "Bernard Arnault", "group": "LVMH", "type": "personnalité", "description": "Bernard Arnault", "details": "Bernard Arnault est un homme d'affaires français.", "imageUrl": "https://media.gq-magazin.de/photos/61657e6bfa734fae1109093d/16:9/w_2560%2Cc_limit/GettyImages-962357174.jpg" },
+    { "id": "Les Echos", "group": "LVMH", "type": "groupe-media", "description": "Les Echos", "details": "Un quotidien économique et financier de référence en France.", "imageUrl": "https://direct-radio.fr/files/Les-echos.png" },
+    { "id": "Paris Match", "group": "LVMH", "type": "groupe-media", "description": "Paris Match", "details": "Un magazine hebdomadaire d'actualité et de reportages photographiques.", "imageUrl": "https://www.ipmgroup.be/wp-content/uploads/2015/03/pm-pour-ipm-group-2.png" },
+    { "id": "Salamé", "group": "France Inter", "type": "personnalité", "description": "Léa Salamé", "details": "Elle est une journaliste franco-libanaise.", "imageUrl": "https://www.programme-tv.net/imgre/fit/~2~providerPerson~5c5842a220338d57.jpeg/300x300/quality/80/lea-salame.jpeg" },
+    { "id": "France Inter", "group": "France Inter", "type": "groupe-media", "description": "France Inter", "details": "France Inter est une station de radio publique française, appartenant au groupe Radio France.", "imageUrl": "https://www.radiofrance.fr/s3/cruiser-production/2022/06/047844a2-44aa-4dc0-b72c-c763113c0dc9/1200x680_franceinter-logo-rs.jpg" },
+    { "id": "LO", "group": "LO", "type": "parti", "description": "Lutte Ouvrière", "details": "Lutte Ouvrière (LO) est un parti politique français d'extrême gauche, fondé en 1956 sous le nom d'Union des travailleurs communistes (UTC)", "imageUrl": "https://www.lyoncapitale.fr/wp-content/uploads/2010/03/Les-propositions-de-Lutte-ouvriere-770x433.jpg" },
+    { "id": "Laguiller", "group": "LO", "type": "personnalité", "description": "Arlette Laguiller", "details": "Elle a été la figure emblématique de LO pendant de nombreuses années, en tant que candidate à plusieurs élections présidentielles.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBhfCo7Nu-31oLMVpd2FDbq6U8vW7H1twsXg&s" },
+    { "id": "Arthaud", "group": "LO", "type": "personnalité", "description": "Nathalie Arthaud", "details": "Elle est la porte parole actuel du parti, et a été candidate à plusieurs élections présidentielles.", "imageUrl": "https://static.actu.fr/uploads/2021/06/25405-210601101654737-0.jpg" },
+    { "id": "Valls", "group": "PS", "type": "personnalité", "description": "Manuel Valls", "details": "Il a occupé plusieurs postes importants au sein du gouvernement français.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShU8m3fynxhTYg1YZB4B4_v3-OzT2A5pHb1Q&s" },
+    { "id": "Fakir", "group": "Fakir", "type": "groupe-media", "description": "Fakir", "details": "Fakir est un journal indépendant et alternatif fondé en 1999 par François Ruffin.", "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsX9cm-A5TTyC4DT9JKiCIGiI6Kh-5ivFO5Q&s" },
+    { "id": "ARCOM", "group": "ARCOM", "type": "groupe-media", "description": "ARCOM", "details": "L'Autorité de régulation de la communication audiovisuelle et numérique (Arcom) est une autorité publique indépendante française.", "imageUrl": "https://pbs.twimg.com/profile_images/1476830201522933787/hXT9vlKR_400x400.jpg" },
+    { "id": "Hamon", "group": "PS", "type": "personnalité", "description": "Benoit Hamon", "details": " Il a occupé plusieurs fonctions ministérielles et a été candidat à l'élection présidentielle de 2017. En juin 2023, il est désigné comme membre du conseil d'administration de l'Arcom.", "imageUrl": "https://www2.assemblee-nationale.fr/static/tribun/14/photos/590032.jpg" },
+    { "id": "Mansouri", "group": "UDR", "type": "personnalité", "description": "Hanane Mansouri", "details": "Elle est élue députée le 7 juillet 2024 dans la huitième circonscription de l'Isère.", "imageUrl": "https://cdn-s-www.ledauphine.com/images/C5B27188-2267-4687-B7D9-B96C1EC9BCE8/NW_raw/hanane-mansouri-photo-dr-1718800128.jpg" },
+    { "id": "Sarkozy", "group": "LR", "type": "personnalité", "description": "Nicolas Sarkozy", "details": "Il est président de la République française du 16 mai 2007 au 15 mai 2012.", "imageUrl": "https://www.conseil-constitutionnel.fr/sites/default/files/styles/portrait_page_membre_mobile/public/2018-06/SARKOZY%20Nicolas.jpg.webp?itok=C0EuUiBs" },
+    { "id": "UMP", "group": "UMP", "type": "parti", "description": "UMP", "details": "L'Union pour un mouvement populaire est un parti politique français classé du centre droit à la droite de l'échiquier politique.", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/thumb/9/90/Logo_de_l%27UMP.svg/1200px-Logo_de_l%27UMP.svg.png" },
+    { "id": "Chirac", "group": "RPR", "type": "personnalité", "description": "Jacques Chirac", "details": "Il est président de la République de 1995 à 2007.", "imageUrl": "https://www.aulnay-sous-bois.fr/wp-content/uploads/2019/09/Jacques-Chirac.png" },
+    { "id": "Villepin", "group": "UMP", "type": "personnalité", "description": "Dominique de Villepin", "details": " Il est Premier ministre du 31 mai 2005 au 17 mai 2007.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg/250px-Dominique_de_Villepin_20100330_Salon_du_livre_de_Paris_2_cropped.jpg" },
+    { "id": "RPR", "group": "RPR", "type": "parti", "description": "RPR", "details": "Le Rassemblement pour la République est un parti politique français ayant existé entre 1976 et 2002.", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/8/8f/Logo_RPR.svg" },
+    { "id": "UDF", "group": "UDF", "type": "parti", "description": "UDF", "details": "L'Union pour la démocratie française (UDF) est un parti politique français regroupant plusieurs partis de centre droit", "imageUrl": "https://upload.wikimedia.org/wikipedia/fr/thumb/5/5e/Logo_udf.png/250px-Logo_udf.png" },
+    { "id": "PG", "group": "PG", "type": "parti", "description": "PG", "details": "Le Parti de gauche (abrégé en PG) est un parti politique français classé à gauche, fondé le 1er février 2009", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Parti_de_Gauche_drapeau.svg" },
+    { "id": "FNC", "group": "FNC", "type": "parti", "description": "FNC", "details": "Le Front national des combattants (abrégé en FNC) est un parti politique français fondé en 1957 par Jean-Marie Le Pen.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Logo_Front_National_%28ann%C3%A9e_1945%29.png" },
+    { "id": "LCR", "group": "LCR", "type": "parti", "description": "LCR", "details": "La Ligue communiste révolutionnaire (LCR) est un parti politique français d'extrême gauche", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Logo_LCR_rouge.png/120px-Logo_LCR_rouge.png" },
+    { "id": "EPR", "group": "EPR", "type": "coalition", "description": "EPR", "details": "Ensemble pour la République (EPR), est une coalition de partis politiques français", "imageUrl": "https://pbs.twimg.com/profile_images/1853805497423425536/bbWMmAgM_400x400.jpg" },
+    { "id": "Barnier", "group": "LR", "type": "personnalité", "description": "Michel Barnier", "details": "Plusieurs fois ministre et commissaire européen, négociateur en chef du Brexit pour l'Union européenne, il est Premier ministre français du 5 septembre au 13 décembre 2024.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Barnier_Portrait.jpg/250px-Barnier_Portrait.jpg" },
+    { "id": "Coquerel", "group": "LFI", "type": "personnalité", "description": "Eric Coquerel", "details": "Président de la commission des Finances de l’Assemblée nationale", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eric_Coquerel_en_2017.jpg/250px-Eric_Coquerel_en_2017.jpg" },
+    { "id": "Laffin", "group": "FNC", "type": "personnalité", "description": "André Laffin", "details": "André Laffin est le grand père maternel de Clémentine Autain", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Andr%C3%A9_Laffin.jpg" },
+    { "id": "Mercier", "group": "LO", "type": "personnalité", "description": "Jean-Pierre Mercier", "details": "Il est un syndicaliste et militant politique français d'extrême gauche.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Jean-Pierre_Mercier_%28LO%29_19-05-2024.jpg/250px-Jean-Pierre_Mercier_%28LO%29_19-05-2024.jpg" },
+    { "id": "Plenel", "group": "PCF", "type": "personnalité", "description": "Edwy Plenel", "details": "Il est un journaliste politique français.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/SCAL2207071330.jpg/330px-SCAL2207071330.jpg" },
+    { "id": "Niel", "group": "Le Monde", "type": "personnalité", "description": "Xavier Niel", "details": "Il est un homme d'affaires milliardaire français.", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Xavier_Niel004.jpg/330px-Xavier_Niel004.jpg" },
+    { "id": "Pigasse", "group": "Le Monde", "type": "personnalité", "description": "Matthieu Pigasse", "details": "Matthieu Pigasse, né le 25 mai 1968 à Clichy (France), est un homme d'affaires français.", "imageUrl": "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2024/09/09/node_1500208/60612304/public/2024/09/09/25446701.jpeg?itok=mWkAwV-h1725887876" },
+    { "id": "Bousquet", "group": "FN", "type": "personnalité", "description": "Pierre Bousquet", "details": "Soldat de la Waffen-SS au sein de la division SS Charlemagne devenu une personnalité de l’extrême droite française, il est le premier trésorier du Front national", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Pierre_Bousquet.jpg" },
+    { "id": "Gaultier", "group": "FN", "type": "personnalité", "description": "Léon Gaultier", "details": "Il  est un ancien membre de la Waffen-SS et collaborationniste français. Il est l'un des membres fondateurs du Front national", "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Gaultier_leon.jpg" },
+    { "id": "Le Monde", "group": "Le Monde", "type": "groupe-media", "description": "Le Monde", "details": "Se voulant journal « de référence », il est régulièrement considéré comme tel, y compris à l'étrange", "imageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_m_z27vtP0odK2Y5z7t_2P1AsICnAPgezngWJaPKb7vREI=s900-c-k-c0x00ffffff-no-rj" },
+    { "id": "Obono", "group": "LFI", "type": "personnalité", "description": "Danièle Obono", "details": "Elle est élue députée dans la 17e circonscription de Paris.", "imageUrl": "https://datan.fr/assets/imgs/deputes_original/depute_721960.png" }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ],
+  "links": [
+    { "source": "Roussel", "target": "PCF", "strength": 1 },
+            { "source": "Deffontaines", "target": "PCF", "strength": 1},
+
+            { "source": "Poutou", "target": "NPA", "strength": 1 },
+            { "source": "Besancenot", "target": "NPA", "strength": 1 },
+
+            { "source": "Rousseau", "target": "EELV", "strength": 1 },
+            { "source": "Tondelier", "target": "EELV", "strength": 1 },
+            { "source": "Jadot", "target": "EELV", "strength": 1 },
+
+            { "source": "NFP", "target": "PS", "strength": 1 },
+            { "source": "NFP", "target": "LFI", "strength": 1 },
+            { "source": "NFP", "target": "EELV", "strength": 1 },
+            { "source": "NFP", "target": "PCF", "strength": 1 },
+
+            { "source": "Melanchon", "target": "LFI", "strength": 1 },
+            { "source": "Panot", "target": "LFI", "strength": 1 },
+            { "source": "Bompard", "target": "LFI", "strength": 1 },
+            { "source": "Delogu", "target": "LFI", "strength": 1 },
+            { "source": "Aubry", "target": "LFI", "strength": 1 },
+            { "source": "Quatennens", "target": "LFI", "strength": 1 },
+            { "source": "Ruffin", "target": "LFI", "strength": 1 },
+            { "source": "Autain", "target": "LFI", "strength": 1 },
+            { "source": "Garrido", "target": "LFI", "strength": 1 },
+            { "source": "Corbière", "target": "LFI", "strength": 1 },
+            { "source": "Gaultier", "target": "FN", "strength": 1 },
+
+            { "source": "Hollande", "target": "PS", "strength": 1 },
+            { "source": "Faure", "target": "PS", "strength": 1 },
+            { "source": "Borne", "target": "PS", "strength": 1 },
+            { "source": "Vallaud", "target": "PS", "strength": 1 },
+            { "source": "Glucksmann", "target": "PS", "strength": 1 },
+            { "source": "Hidalgo", "target": "PS", "strength": 1 },
+
+            { "source": "Bayrou", "target": "MoDem", "strength": 1 },
+            { "source": "Bayrou", "target": "Renaissance", "strength": 1 },
+
+            { "source": "Philippe", "target": "Horizons", "strength": 1 },
+            { "source": "Philippe", "target": "Renaissance", "strength": 1 },
+
+            { "source": "Macron", "target": "Renaissance", "strength": 1 },
+            { "source": "Macron", "target": "Hollande", "strength": 1 },
+            { "source": "Attal", "target": "Renaissance", "strength": 1 },
+            { "source": "Borne", "target": "Renaissance", "strength": 1 },
+            { "source": "Braun-Pivet", "target": "Renaissance", "strength": 1 },
+
+            { "source": "Le Pen", "target": "RN", "strength": 1 },
+            { "source": "Bardella", "target": "RN", "strength": 1 },
+            { "source": "Odoul", "target": "RN", "strength": 1 },
+            { "source": "Aliot", "target": "RN", "strength": 1 },
+            { "source": "Chenu", "target": "RN", "strength": 1 },    
+            { "source": "Rachline", "target": "RN", "strength": 1 },
+            { "source": "Tanguy", "target": "RN", "strength": 1 },
+            { "source": "Le Pen", "target": "Ciotti", "strength": 1 },
+
+            { "source": "JM Le Pen", "target": "FN", "strength": 1 },
+            { "source": "JM Le Pen", "target": "Le Pen", "strength": 1 },
+
+            { "source": "Pecresse", "target": "LR", "strength": 1 },
+            { "source": "Ciotti", "target": "LR", "strength": 1 },
+            { "source": "Ciotti", "target": "UDR", "strength": 1 },
+
+
+            { "source": "Zemmour", "target": "Reconquête", "strength": 1 },
+            { "source": "Marechal", "target": "Reconquête", "strength": 1 },
+            { "source": "Marechal", "target": "RN", "strength": 1 },
+
+            { "source": "Wauquiez", "target": "DR", "strength": 1 },
+            { "source": "Bellamy", "target": "DR", "strength": 1 },
+            { "source": "Retailleau", "target": "Bayrou", "strength": 1 },
+            { "source": "Retailleau", "target": "DR", "strength": 1 },
+            { "source": "Bousquet", "target": "FN", "strength": 1 },
+
+            { "source": "LR", "target": "UDR", "strength": 1 },
+            { "source": "LR", "target": "DR", "strength": 1 },
+
+            { "source": "Frontières", "target": "Tegner", "strength": 1 },
+            { "source": "Frontières", "target": "Florentin", "strength": 1 },
+            { "source": "Frontières", "target": "Morice", "strength": 1 },
+
+            { "source": "GI", "target": "D'Escufon", "strength": 1 },
+            { "source": "GI", "target": "Rieu", "strength": 1 },
+            { "source": "Reconquête", "target": "Rieu", "strength": 1 },
+            { "source": "D'Escufon", "target": "Reconquête", "strength": 1 },
+
+            { "source": "Generation Z", "target": "Rigault", "strength": 1 },
+            { "source": "Rigault", "target": "Reconquête", "strength": 1 },
+
+            { "source": "Boyard", "target": "TPMP", "strength": 1 },
+            { "source": "Boyard", "target": "LFI", "strength": 1 },
+            { "source": "Hanouna", "target": "TPMP", "strength": 1 },
+            { "source": "TPMP", "target": "C8", "strength": 1 },
+            { "source": "C8", "target": "Canal +", "strength": 1 },
+            { "source": "CNews", "target": "Canal +", "strength": 1 },
+            { "source": "CNews", "target": "Zemmour", "strength": 1 },
+            { "source": "Bolloré", "target": "Canal +", "strength": 1 },
+
+            { "source": "Lapierre", "target": "LMPT", "strength": 1 },
+            { "source": "Lapierre", "target": "Soral", "strength": 1 },
+            { "source": "Soral", "target": "E&R", "strength": 1 },
+
+            { "source": "Binet", "target": "CGT", "strength": 1 },
+            { "source": "Martinez", "target": "CGT", "strength": 1 },
+
+            { "source": "Apollon", "target": "Messiha", "strength": 1 },
+            { "source": "Messiha", "target": "Reconquête", "strength": 1 },
+
+            { "source": "Arnault", "target": "LFI", "strength": 1 },
+            { "source": "Arnault", "target": "Jeune Garde", "strength": 1 },
+            { "source": "Caron", "target": "LFI", "strength": 1 },
+            { "source": "Caron", "target": "Canal +", "strength": 1 },
+            { "source": "Caron", "target": "Europe 1", "strength": 1 },
+            { "source": "Europe 1", "target": "Canal +", "strength": 1 },
+            { "source": "Le Parisien", "target": "LVMH", "strength": 1 },
+            { "source": "LVMH", "target": "Bernard Arnault", "strength": 1 },
+            { "source": "Verdez", "target": "LFI", "strength": 1 },
+            { "source": "Verdez", "target": "TPMP", "strength": 1 },
+            { "source": "Verdez", "target": "Le Parisien", "strength": 1 },
+            { "source": "Paris Match", "target": "LVMH", "strength": 1 },
+            { "source": "Les Echos", "target": "LVMH", "strength": 1 },
+            { "source": "Salamé", "target": "Glucksmann", "strength": 1 },
+            { "source": "France Inter", "target": "Salamé", "strength": 1 },
+            { "source": "France Inter", "target": "Glucksmann", "strength": 1 },
+            { "source": "LO", "target": "Arthaud", "strength": 1 },
+            { "source": "NPA", "target": "Arnault", "strength": 1 },
+            { "source": "Valls", "target": "Bayrou", "strength": 1 },
+            { "source": "Valls", "target": "PS", "strength": 1 },
+            { "source": "Valls", "target": "Renaissance", "strength": 1 },
+            { "source": "Valls", "target": "Hollande", "strength": 1 },
+            { "source": "LO", "target": "Laguiller", "strength": 1 },
+            { "source": "Fakir", "target": "Ruffin", "strength": 1 },
+            { "source": "Hamon", "target": "PS", "strength": 1 },
+            { "source": "Hamon", "target": "ARCOM", "strength": 1 },
+            { "source": "Mansouri", "target": "UDR", "strength": 1 },
+            { "source": "Sarkozy", "target": "LR", "strength": 1 },
+            { "source": "Sarkozy", "target": "UMP", "strength": 1 },
+            { "source": "Chirac", "target": "RPR", "strength": 1 },
+            { "source": "Chirac", "target": "UDR", "strength": 1 },
+            { "source": "Chirac", "target": "UDF", "strength": 1 },
+            { "source": "Bayrou", "target": "UDF", "strength": 1 },
+            { "source": "Villepin", "target": "UMP", "strength": 1 },
+            { "source": "EPR", "target": "Renaissance", "strength": 1 },
+            { "source": "EPR", "target": "MoDem", "strength": 1 },
+            { "source": "EPR", "target": "Horizons", "strength": 1 },
+            { "source": "EPR", "target": "Bayrou", "strength": 1 },
+            { "source": "EPR", "target": "Macron", "strength": 1 },
+            { "source": "Barnier", "target": "EPR", "strength": 1 },
+            { "source": "Barnier", "target": "LR", "strength": 1 },
+            { "source": "Melanchon", "target": "PS", "strength": 1 },
+            { "source": "Melanchon", "target": "PG", "strength": 1 },
+            { "source": "Coquerel", "target": "PG", "strength": 1 },
+            { "source": "Coquerel", "target": "LFI", "strength": 1 },
+            { "source": "Autain", "target": "PCF", "strength": 1 },
+            { "source": "FNC", "target": "JM Le Pen", "strength": 1 },
+            { "source": "Laffin", "target": "Autain", "strength": 0.1 },
+            { "source": "FNC", "target": "Laffin", "strength": 1 },
+            { "source": "Mercier", "target": "LO", "strength": 1 },
+            { "source": "Mercier", "target": "PCF", "strength": 1 },
+            { "source": "Mercier", "target": "PS", "strength": 1 },
+            { "source": "Mercier", "target": "CGT", "strength": 1 },
+            { "source": "Arthaud", "target": "PCF", "strength": 1 },
+            { "source": "Tegner", "target": "FN", "strength": 1 },
+            { "source": "Tegner", "target": "UMP", "strength": 1 },
+            { "source": "Plenel", "target": "Mediapart", "strength": 1 },
+            { "source": "Plenel", "target": "LCR", "strength": 1 },
+            { "source": "Plenel", "target": "Le Monde", "strength": 1 },
+            { "source": "Niel", "target": "Le Monde", "strength": 1 },
+            { "source": "Pigasse", "target": "Le Monde", "strength": 1 },
+            { "source": "Pigasse", "target": "PS", "strength": 1 },
+            { "source": "NPA", "target": "LCR", "strength": 1 },
+            { "source": "CGT", "target": "LCR", "strength": 1 },
+            { "source": "Obono", "target": "LFI", "strength": 1 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+  ],
+  "politicalPositions": {
+    "PCF": 0.05,
+    "NPA": 0.03,
+    "LFI": 0.15,
+    "EELV": 0.25,
+    "PS": 0.32,
+    "MoDem": 0.5,
+    "Renaissance": 0.55,
+    "Horizons": 0.6,
+    "LR": 0.75,
+    "UMP": 0.75,
+    "RPR": 0.75,
+    "DR": 0.8,
+    "UDR": 0.85,
+    "UDF": 0.55,
+    "RN": 0.92,
+    "Reconquête": 0.95,
+    "FN": 0.97,
+    "NFP": 0.2,
+    "Frontières": 0.9,
+    "Mediapart": 0.3,
+    "GI": 0.99,
+    "Generation Z": 0.9,
+    "TPMP": 0.6,
+    "C8": 0.6,
+    "CNews": 0.8,
+    "Canal +": 0.6,
+    "LMPT": 0.8,
+    "E&R": 0.9,
+    "CGT": 0.3,
+    "Apollon": 0.9,
+    "Jeune Garde": 0.01,
+    "Europe 1": 0.5,
+    "LVMH": 0.5,
+    "France Inter": 0.5,
+    "LO": 0.01,
+    "Fakir": 0.01,
+    "EPR": 0.5,
+    "PG": 0.2,
+    "FNC": 1.5,
+    "LCR": 0.01,
+    "Le Monde": 0.5,
+    "ARCOM": 0.5
+
+
+  }
+};
+const pendingData = {
+  "nodes": [
+    {
+      "id": "Darmanin",
+      "group": "Renaissance",
+      "type": "personnalité",
+      "description": "Gérald Darmanin",
+      "details": "Ex-ministre de l'Intérieur sous Emmanuel Macron et député du Nord.",
+      "imageUrl": "images/darmanin.jpg"
+    },
+    {
+      "id": "Dati",
+      "group": "LR",
+      "type": "personnalité",
+      "description": "Rachida Dati",
+      "details": "Ministre de la Culture, ancienne Garde des Sceaux de Nicolas Sarkozy et maire du 7e arrondissement de Paris.",
+      "imageUrl": "images/dati.jpg"
+    },
+    {
+      "id": "Le Maire",
+      "group": "Renaissance",
+      "type": "personnalité",
+      "description": "Bruno Le Maire",
+      "details": "Ex-ministre de l'Économie et des Finances, figure de l'aile libérale de la majorité présidentielle.",
+      "imageUrl": "images/lemaire.jpg"
+    },
+    {
+      "id": "Dupond-Moretti",
+      "group": "Renaissance",
+      "type": "personnalité",
+      "description": "Éric Dupond-Moretti",
+      "details": "Ex-ministre de la Justice, garde des Sceaux et ancien avocat pénaliste de renom.",
+      "imageUrl": "images/dupondmoretti.jpg"
+    },
+    {
+      "id": "Guiraud",
+      "group": "LFI",
+      "type": "personnalité",
+      "description": "David Guiraud",
+      "details": "Député La France Insoumise de la 8e circonscription du Nord, très actif dans les débats médiatiques.",
+      "imageUrl": "images/guiraud.jpg"
+    },
+    {
+      "id": "Hayer",
+      "group": "Renaissance",
+      "type": "personnalité",
+      "description": "Valérie Hayer",
+      "details": "Députée européenne Renaissance, présidente du groupe centriste Renew Europe au Parlement européen.",
+      "imageUrl": "images/hayer.jpg"
+    },
+    {
+      "id": "Dupont-Aignan",
+      "group": "droite",
+      "type": "personnalité",
+      "description": "Nicolas Dupont-Aignan",
+      "details": "Président du parti souverainiste Debout la France, député de l'Essonne.",
+      "imageUrl": "images/dupontaignan.jpg"
+    },
+    {
+      "id": "Praud",
+      "group": "Canal +",
+      "type": "personnalité",
+      "description": "Pascal Praud",
+      "details": "Journaliste et animateur de 'L'Heure des Pros' sur CNews, figure marquante des débats d'opinion conservateurs.",
+      "imageUrl": "images/praud.jpg"
+    },
+    {
+      "id": "Ferrari",
+      "group": "Canal +",
+      "type": "personnalité",
+      "description": "Laurence Ferrari",
+      "details": "Journaliste, animatrice de 'Punchline' sur CNews, ancienne présentatrice du JT de 20h de TF1.",
+      "imageUrl": "images/ferrari.jpg"
+    },
+    {
+      "id": "Mabrouk",
+      "group": "Canal +",
+      "type": "personnalité",
+      "description": "Sonia Mabrouk",
+      "details": "Journaliste politique franco-tunisienne, intervieweuse sur CNews et Europe 1.",
+      "imageUrl": "images/mabrouk.jpg"
+    }
+  ],
+  "links": [
+    { "source": "Darmanin", "target": "Macron", "strength": 0.8 },
+    { "source": "Darmanin", "target": "Sarkozy", "strength": 0.7 },
+    { "source": "Darmanin", "target": "Renaissance", "strength": 0.9 },
+    { "source": "Dati", "target": "Sarkozy", "strength": 0.8 },
+    { "source": "Dati", "target": "Macron", "strength": 0.7 },
+    { "source": "Dati", "target": "LR", "strength": 0.6 },
+    { "source": "Le Maire", "target": "Macron", "strength": 0.8 },
+    { "source": "Le Maire", "target": "Renaissance", "strength": 0.9 },
+    { "source": "Dupond-Moretti", "target": "Macron", "strength": 0.8 },
+    { "source": "Dupond-Moretti", "target": "Renaissance", "strength": 0.8 },
+    { "source": "Guiraud", "target": "LFI", "strength": 0.9 },
+    { "source": "Guiraud", "target": "Melanchon", "strength": 0.8 },
+    { "source": "Hayer", "target": "Macron", "strength": 0.8 },
+    { "source": "Hayer", "target": "Renaissance", "strength": 0.9 },
+    { "source": "Dupont-Aignan", "target": "Le Pen", "strength": 0.6 },
+    { "source": "Praud", "target": "Bolloré", "strength": 0.8 },
+    { "source": "Praud", "target": "CNews", "strength": 0.9 },
+    { "source": "Praud", "target": "Hanouna", "strength": 0.6 },
+    { "source": "Ferrari", "target": "Bolloré", "strength": 0.8 },
+    { "source": "Ferrari", "target": "CNews", "strength": 0.9 },
+    { "source": "Mabrouk", "target": "Bolloré", "strength": 0.8 },
+    { "source": "Mabrouk", "target": "CNews", "strength": 0.9 }
+  ]
+};

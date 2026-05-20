@@ -4,83 +4,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartographie politique française</title>
+    <title>Cartographie Politique Française</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="data.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Rechercher...">
-        <button id="search-button">Rechercher</button>
-    </div>
+    <div class="app-container">
+        <!-- Header Bar -->
+        <header class="header-bar">
+            <div class="logo-container">
+                <h1 class="logo">Carto<span>Poli</span></h1>
+                <p class="subtitle">Relations & Influences Politiques Françaises</p>
+            </div>
+            
+            <div class="search-wrapper">
+                <input type="text" id="search-input" class="search-input" placeholder="Rechercher un acteur ou parti...">
+                <button id="search-button" class="search-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </header>
 
-    <div class="filter-container">
-        <button class="filter-button active" data-filter="all">Tous</button>
-        <button class="filter-button" data-filter="parti">Partis</button>
-        <button class="filter-button" data-filter="personnalité">Personnalités</button>
-        <button class="filter-button" data-filter="coalition">Coalitions</button>
-        <button class="filter-button" data-filter="groupe-media">Groupes/Médias</button>
-    </div>
+        <!-- Filters -->
+        <div class="filter-bar">
+            <button class="filter-button active" data-filter="all">Tous</button>
+            <button class="filter-button" data-filter="parti">Partis</button>
+            <button class="filter-button" data-filter="personnalité">Personnalités</button>
+            <button class="filter-button" data-filter="coalition">Coalitions</button>
+            <button class="filter-button" data-filter="groupe-media">Médias & Groupes</button>
+        </div>
 
-    <div class="controls">
-        <button id="reset-zoom">Réinitialiser la vue</button>
-    </div>
+        <!-- Main Visualization Canvas -->
+        <main class="canvas-container">
+            <svg id="network-svg"></svg>
+        </main>
 
-    <svg></svg>
+        <!-- Legend Panel (Bottom-Left) -->
+        <div class="hud-panel legend-panel">
+            <h4>Courants Politiques</h4>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-eg)"></span>
+                    <span>Extrême-Gauche</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-g)"></span>
+                    <span>Gauche</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-eco)"></span>
+                    <span>Écologie</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-cg)"></span>
+                    <span>Centre-Gauche</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-c)"></span>
+                    <span>Centre</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-d)"></span>
+                    <span>Droite</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-ed)"></span>
+                    <span>Extrême-Droite</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: var(--color-coal)"></span>
+                    <span>Coalitions</span>
+                </div>
+                <div class="legend-item" style="grid-column: span 2">
+                    <span class="legend-color" style="background-color: var(--color-media)"></span>
+                    <span>Médias / Groupes d'intérêt</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls (Bottom-Right) -->
+        <div class="hud-panel control-panel">
+            <button id="manage-proposals" class="hud-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                Gérer les propositions
+            </button>
+            <button id="reset-zoom" class="hud-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                Réinitialiser la vue
+            </button>
+        </div>
+
+        <!-- Detail Sidebar (Right-aligned) -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <button id="sidebar-close" class="sidebar-close">&times;</button>
+            </div>
+            <div class="sidebar-body">
+                <div class="profile-avatar-container" id="profile-avatar-container">
+                    <img src="" alt="" class="profile-avatar" id="profile-img">
+                </div>
+                <h2 class="profile-title" id="profile-name">Nom</h2>
+                <div class="profile-badges" id="profile-badges">
+                    <span class="profile-badge badge-type" id="profile-type">Type</span>
+                </div>
+                
+                <p class="profile-description" id="profile-desc">Description courte.</p>
+                
+                <div class="profile-divider"></div>
+                
+                <div class="profile-section">
+                    <h3 class="profile-section-title">À propos</h3>
+                    <p class="profile-details-text" id="profile-details">Informations complémentaires sur cet acteur ou cette organisation.</p>
+                </div>
+                
+                <div class="profile-divider"></div>
+                
+                <div class="profile-section">
+                    <h3 class="profile-section-title">Connexions directes</h3>
+                    <div class="relations-list" id="relations-list">
+                        <!-- Relational links injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Validation Modal Overlay -->
+        <div id="validation-modal" class="modal-overlay">
+            <div class="modal-box">
+                <div class="modal-header-progress" id="modal-progress">Proposition 1 sur 10</div>
+                <h3 class="modal-title">Nouveau profil détecté</h3>
+                
+                <div class="modal-avatar-wrapper" id="modal-avatar-wrapper">
+                    <img src="" alt="" class="modal-avatar" id="modal-avatar-img">
+                </div>
+                
+                <h2 class="modal-node-id" id="modal-actor-name">Nom de l'acteur</h2>
+                
+                <div class="modal-badge-container">
+                    <span class="profile-badge badge-type" id="modal-actor-type">Type</span>
+                </div>
+                
+                <p class="modal-desc" id="modal-actor-desc">Description de la proposition.</p>
+                
+                <div class="modal-details" id="modal-actor-details">Détails de la proposition.</div>
+                
+                <div class="modal-footer-btns">
+                    <button id="modal-btn-reject" class="modal-btn btn-reject">❌ Rejeter</button>
+                    <button id="modal-btn-approve" class="modal-btn btn-approve"> Approuver</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Chargement des données depuis le fichier JSON
-        d3.json('data.json').then(data => {
-            console.log("Données chargées avec succès:", data);
-            const nodes = data.nodes;
-            const links = data.links;
-            const politicalPositions = data.politicalPositions;
+        try {
+            // Statut de validation stocké dans localStorage
+            let validationStatus = JSON.parse(localStorage.getItem('political_map_validation') || '{}');
+
+            // Listes des nœuds et liens approuvés
+            let approvedNodes = [];
+            let approvedLinks = [];
+
+            // Fusion des données de base de data.js avec pendingData
+            if (typeof pendingData !== 'undefined') {
+                pendingData.nodes.forEach(node => {
+                    if (validationStatus[node.id] === 'approved') {
+                        approvedNodes.push(node);
+                    }
+                });
+
+                pendingData.links.forEach(link => {
+                    const sourceId = link.source;
+                    const targetId = link.target;
+                    
+                    // Vérifie que les deux extrémités existent (soit dans le graphe de base, soit dans les validés)
+                    const sourceExists = politicalData.nodes.some(n => n.id === sourceId) || approvedNodes.some(n => n.id === sourceId);
+                    const targetExists = politicalData.nodes.some(n => n.id === targetId) || approvedNodes.some(n => n.id === targetId);
+
+                    if (sourceExists && targetExists) {
+                        const sourcePending = pendingData.nodes.some(n => n.id === sourceId);
+                        const targetPending = pendingData.nodes.some(n => n.id === targetId);
+
+                        // Si l'une des extrémités fait partie des propositions, elle doit être validée
+                        const sourceApproved = !sourcePending || validationStatus[sourceId] === 'approved';
+                        const targetApproved = !targetPending || validationStatus[targetId] === 'approved';
+
+                        if (sourceApproved && targetApproved) {
+                            approvedLinks.push(link);
+                        }
+                    }
+                });
+            }
+
+            // Données fusionnées finales pour D3.js
+            const nodes = [...politicalData.nodes, ...approvedNodes];
+            const links = [...politicalData.links.map(l => ({...l})), ...approvedLinks.map(l => ({...l}))];
+            const politicalPositions = {...politicalData.politicalPositions};
+
+            console.log("Données initialisées. Nœuds actifs:", nodes.length, "Liens actifs:", links.length);
 
             // Configuration des couleurs
             const colors = {
-                "extrême-gauche": "#000", // Rouge foncé
-                "gauche": "#000", // Rouge
-                "centre-gauche": "#000", // Rose
-                "écologie": "#000", // Vert
-                "centre": "#000", // Violet
-                "droite": "#000", // Bleu
-                "extrême-droite": "#000", // Bleu foncé
-                "coalition": "#000", // Orange
-                "groupe-media": "#000" // Marron pour les groupes/médias
+                "extrême-gauche": "var(--color-eg)",
+                "gauche": "var(--color-g)",
+                "centre-gauche": "var(--color-cg)",
+                "écologie": "var(--color-eco)",
+                "centre": "var(--color-c)",
+                "droite": "var(--color-d)",
+                "extrême-droite": "var(--color-ed)",
+                "coalition": "var(--color-coal)",
+                "groupe-media": "var(--color-media)"
             };
 
             const width = window.innerWidth;
             const height = window.innerHeight;
 
             // Initialisation des éléments
-            const svg = d3.select("svg")
+            const svg = d3.select("#network-svg")
                 .attr("width", width)
                 .attr("height", height);
             const g = svg.append("g");
 
-            // Clip path pour les partis, coalitions et groupes/médias (taille 60)
-            svg.append("defs")
-                .append("clipPath")
+            // Définitions de clip paths pour les avatars
+            const defs = svg.append("defs");
+
+            // Clip path pour les partis/coalitions (cercle de rayon 30)
+            defs.append("clipPath")
                 .attr("id", "circle-clip-parti")
                 .append("circle")
                 .attr("r", 30);
 
-            svg.append("defs")
-                .append("clipPath")
-                .attr("id", "square-clip-media")
-                .append("rect")
-                .attr("width", 40)
-                .attr("height", 40)
-                .attr("x", -20)
-                .attr("y", -20);
-
-            // Clip path pour les personnalités (taille 30)
-            svg.append("defs")
-                .append("clipPath")
+            // Clip path pour les personnalités (cercle de rayon 17)
+            defs.append("clipPath")
                 .attr("id", "circle-clip-personnalite")
                 .append("circle")
-                .attr("r", 15);
+                .attr("r", 17);
+
+            // Clip path pour les groupes/médias (carré de 60x60 avec coins arrondis de 8px)
+            defs.append("clipPath")
+                .attr("id", "square-clip-media")
+                .append("rect")
+                .attr("width", 60)
+                .attr("height", 60)
+                .attr("x", -30)
+                .attr("y", -30)
+                .attr("rx", 8)
+                .attr("ry", 8);
 
             const tooltip = d3.select("body").append("div")
                 .attr("class", "tooltip")
@@ -88,25 +259,42 @@
 
             // Configuration du zoom
             const zoom = d3.zoom()
-                .scaleExtent([0.1, 4])
+                .scaleExtent([0.05, 4])
                 .on("zoom", (event) => g.attr("transform", event.transform));
             svg.call(zoom);
 
-            const simulation = d3.forceSimulation(nodes)
-                .force("link", d3.forceLink(links).id(d => d.id).distance(d => 100 / (d.strength || 0.5)).strength(d => d.strength || 0.5))
-                .force("charge", d3.forceManyBody().strength(-500))
-                .force("center", d3.forceCenter(width / 2, height / 2))
-                .force("x", d3.forceX(d => width * (politicalPositions[d.id] || 0.5)).strength(0.2)) // Positionnement politique
-                .force("y", d3.forceY(height / 2).strength(0.1))
-                .force("collision", d3.forceCollide().radius(d => d.type === "personnalité" ? 20 : 40));
+            // Calcul dynamique de la couleur d'un nœud
+            function getNodeColor(d) {
+                if (colors[d.group]) {
+                    return colors[d.group];
+                }
+                // Si c'est une personnalité, on cherche la couleur du parti auquel elle appartient
+                const parentNode = nodes.find(n => n.id === d.group);
+                if (parentNode && colors[parentNode.group]) {
+                    return colors[parentNode.group];
+                }
+                // Valeurs par défaut selon le type
+                if (d.type === "coalition") return colors["coalition"];
+                if (d.type === "groupe-media") return colors["groupe-media"];
+                return "var(--text-secondary)";
+            }
 
-            // Création des liens
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(d => 120 / (d.strength || 0.5)).strength(d => d.strength || 0.5))
+                .force("charge", d3.forceManyBody().strength(-600))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("x", d3.forceX(d => width * (politicalPositions[d.id] || politicalPositions[d.group] || 0.5)).strength(0.25)) // Alignement politique sur l'axe X
+                .force("y", d3.forceY(height / 2).strength(0.1))
+                .force("collision", d3.forceCollide().radius(d => d.type === "personnalité" ? 22 : 45));
+
+            // Création des liens (chemins courbes élégants)
             const link = g.append("g")
-                .selectAll("line")
+                .selectAll("path")
                 .data(links)
-                .join("line")
+                .join("path")
                 .attr("class", "link")
-                .attr("stroke-width", d => Math.max(1, d.strength * 3));
+                .attr("fill", "none")
+                .attr("stroke-width", d => Math.max(1, d.strength * 4.5));
 
             // Création des nœuds
             const node = g.append("g")
@@ -118,10 +306,15 @@
                     highlightConnections(d);
                     tooltip.transition().duration(200).style("opacity", .9);
                     tooltip.html(`
-                        <h3>${d.description}</h3>
-                        <p>${d.details}</p>
+                        <h3>${d.id}</h3>
+                        <p>${d.description || ""}</p>
                     `)
-                        .style("left", (event.pageX + 10) + "px")
+                        .style("left", (event.pageX + 15) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mousemove", function (event) {
+                    tooltip
+                        .style("left", (event.pageX + 15) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })
                 .on("mouseout", function () {
@@ -137,98 +330,68 @@
                     .on("drag", dragged)
                     .on("end", dragended));
 
-            // Ajout des formes ou images aux nœuds
+            // Ajout des avatars et contours colorés aux nœuds
             node.each(function (d) {
                 const element = d3.select(this);
-                const nodeGroup = d.group;
-                const nodeColor = colors[nodeGroup] || "#999";
+                const nodeColor = getNodeColor(d);
+                const size = d.type === "personnalité" ? 34 : 60;
 
-                // Utiliser des images pour tous les types de nœuds
+                // 1. Anneau lumineux de couleur politique en arrière-plan
+                element.append("circle")
+                    .attr("class", "node-glow")
+                    .attr("r", size / 2 + 1.5)
+                    .attr("stroke", nodeColor)
+                    .style("--node-color", nodeColor);
+
+                // 2. Ajout de l'image (si disponible) ou forme géométrique de secours
                 if (d.imageUrl) {
-                    let imageSize = 30; // Taille par défaut pour les personnalités
-                    let clipPathId = "url(#circle-clip-personnalite)"; // Clip path par défaut pour les personnalités
-
-                    if (d.type === "parti" || d.type === "coalition" || d.type === "groupe-media") {
-                        imageSize = 60; // Taille commune pour les trois types
-
-                        if (d.type === "parti") {
-                            clipPathId = "url(#circle-clip-parti)";
-                            element.insert("circle", "image")
-                                .attr("r", 30) // Rayon pour les partis
-                                .attr("fill", nodeColor)
-                                .attr("opacity", 0.7);
-                        } else if (d.type === "coalition") {
-                            clipPathId = "url(#circle-clip-parti)";
-                            element.insert("polygon", "image")
-                                .attr("points", "-30,0 0,-30 30,0 0,30") // Points pour les coalitions
-                                .attr("fill", nodeColor)
-                                .attr("opacity", 0.7);
-                        } else if (d.type === "groupe-media") {
-                            clipPathId = "url(#square-clip-media)"; // Utilise le clip path carré
-                            element.insert("rect", "image")
-                                .attr("width", 40)
-                                .attr("height", 40)
-                                .attr("x", -20)
-                                .attr("y", -20)
-                                .attr("rx", 0) // Pas de coins arrondis
-                                .attr("fill", nodeColor)
-                                .attr("opacity", 0.0);
-                        }
+                    let clipPathId = d.type === "personnalité" ? "url(#circle-clip-personnalite)" : "url(#circle-clip-parti)";
+                    if (d.type === "groupe-media") {
+                        clipPathId = "url(#square-clip-media)";
                     }
 
-                    // Ajout des images aux nœuds
                     element.append("image")
                         .attr("href", d.imageUrl)
-                        .attr("width", imageSize)
-                        .attr("height", imageSize)
-                        .attr("x", -imageSize / 2)
-                        .attr("y", -imageSize / 2)
+                        .attr("width", size)
+                        .attr("height", size)
+                        .attr("x", -size / 2)
+                        .attr("y", -size / 2)
                         .attr("clip-path", clipPathId)
-                        .style("stroke", "white")
-                        .style("stroke-width", "1.5px")
                         .attr("preserveAspectRatio", "xMidYMid slice");
                 } else {
-                    // Fallback pour les nœuds sans image
-                    if (d.type === "parti") {
+                    // Fallback
+                    if (d.type === "parti" || d.type === "coalition") {
                         element.append("circle")
-                            .attr("r", 30) // Taille pour les partis
+                            .attr("r", size / 2)
                             .attr("fill", nodeColor);
-                    } else if (d.type === "coalition") {
-                        element.append("polygon")
-                            .attr("points", "-30,0 0,-30 30,0 0,30") // Taille pour les coalitions
-                            .attr("fill", nodeColor);
-                    } else if (d.type === "personnalité") {
+                    } else {
                         element.append("rect")
-                            .attr("width", 20) // Taille pour les personnalités
-                            .attr("height", 20)
-                            .attr("x", -10)
-                            .attr("y", -10)
-                            .attr("fill", nodeColor);
-                    } else if (d.type === "groupe-media") {
-                        element.append("rect")
-                            .attr("width", 20) // Taille pour les personnalités
-                            .attr("height", 20)
-                            .attr("x", -10)
-                            .attr("y", -10)
+                            .attr("width", size)
+                            .attr("height", size)
+                            .attr("x", -size / 2)
+                            .attr("y", -size / 2)
+                            .attr("rx", d.type === "personnalité" ? size / 2 : 8)
                             .attr("fill", nodeColor);
                     }
                 }
             });
 
-            // Ajout des étiquettes
+            // Ajout des étiquettes textuelles sous les nœuds
             node.append("text")
                 .text(d => d.id)
                 .attr("x", 0)
-                .attr("y", d => d.type === "personnalité" ? 25 : 40)
+                .attr("y", d => d.type === "personnalité" ? 28 : 42)
                 .attr("text-anchor", "middle");
 
-            // Animation de la simulation
+            // Animation et mise à jour des positions
             simulation.on("tick", () => {
-                link
-                    .attr("x1", d => d.source.x)
-                    .attr("y1", d => d.source.y)
-                    .attr("x2", d => d.target.x)
-                    .attr("y2", d => d.target.y);
+                // Chemins courbes élégants entre les nœuds
+                link.attr("d", d => {
+                    const dx = d.target.x - d.source.x;
+                    const dy = d.target.y - d.source.y;
+                    const dr = Math.sqrt(dx * dx + dy * dy) * 1.6;
+                    return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+                });
 
                 node.attr("transform", d => `translate(${d.x},${d.y})`);
             });
@@ -251,12 +414,93 @@
                 d.fy = null;
             }
 
-            // Fonctions utilitaires
+            // Gestion de l'affichage des informations détaillées
+            const sidebar = d3.select("#sidebar");
+            const profileImg = d3.select("#profile-img");
+            const profileName = d3.select("#profile-name");
+            const profileType = d3.select("#profile-type");
+            const profileDesc = d3.select("#profile-desc");
+            const profileDetails = d3.select("#profile-details");
+            const relationsList = d3.select("#relations-list");
+
+            function showNodeDetails(d) {
+                const nodeColor = getNodeColor(d);
+
+                // Applique la couleur politique en bordure et lueur de l'avatar de la fiche
+                d3.select("#profile-avatar-container")
+                    .style("border", `3px solid ${nodeColor}`)
+                    .style("box-shadow", `0 0 15px ${nodeColor}33`);
+
+                if (d.imageUrl) {
+                    profileImg.attr("src", d.imageUrl).style("display", "block");
+                } else {
+                    profileImg.style("display", "none");
+                }
+
+                profileName.text(d.id);
+                profileType.text(d.type)
+                    .style("background-color", `${nodeColor}1a`)
+                    .style("color", nodeColor)
+                    .style("border-color", `${nodeColor}4d`);
+                
+                profileDesc.text(d.description || "Aucune description de présentation disponible.");
+                profileDetails.text(d.details || "Aucun détail complémentaire disponible pour cet acteur.");
+
+                // Recherche et affichage des relations directes
+                relationsList.html("");
+                const nodeRelations = links.filter(l => {
+                    const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                    const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                    return sourceId === d.id || targetId === d.id;
+                });
+
+                if (nodeRelations.length === 0) {
+                    relationsList.append("div")
+                        .style("color", "var(--text-muted)")
+                        .style("font-size", "0.85rem")
+                        .style("text-align", "center")
+                        .style("padding", "15px")
+                        .text("Aucune connexion répertoriée.");
+                } else {
+                    nodeRelations.forEach(r => {
+                        const sourceId = typeof r.source === 'object' ? r.source.id : r.source;
+                        const targetId = typeof r.target === 'object' ? r.target.id : r.target;
+                        const otherNodeId = sourceId === d.id ? targetId : sourceId;
+                        const otherNode = nodes.find(n => n.id === otherNodeId);
+                        
+                        if (otherNode) {
+                            const otherColor = getNodeColor(otherNode);
+                            const item = relationsList.append("div")
+                                .attr("class", "relation-item")
+                                .on("click", (event) => {
+                                    focusNode(otherNode);
+                                    event.stopPropagation();
+                                });
+                            
+                            const left = item.append("div").attr("class", "relation-left");
+                            left.append("span")
+                                .attr("class", "relation-color-dot")
+                                .style("background-color", otherColor);
+                            left.append("span")
+                                .attr("class", "relation-name")
+                                .text(otherNodeId);
+
+                            item.append("span")
+                                .attr("class", "relation-strength")
+                                .text(`Lien: ${r.strength || 0.5}`);
+                        }
+                    });
+                }
+
+                sidebar.classed("open", true);
+            }
+
+            // Fonctions utilitaires de focus et de mise en évidence
             function highlightConnections(d) {
                 const connectedNodes = new Set([d.id]);
-                links.forEach(link => {
-                    const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-                    const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                links.forEach(l => {
+                    const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                    const targetId = typeof l.target === 'object' ? l.target.id : l.target;
                     if (sourceId === d.id) connectedNodes.add(targetId);
                     if (targetId === d.id) connectedNodes.add(sourceId);
                 });
@@ -289,28 +533,48 @@
                         .scale(1.5)
                         .translate(-d.x, -d.y));
                 highlightConnections(d);
+                showNodeDetails(d);
             }
 
-            // Gestion des événements
+            // Gestion du bouton de fermeture de la fiche latérale
+            d3.select("#sidebar-close").on("click", () => {
+                sidebar.classed("open", false);
+                resetHighlight();
+            });
+
+            // Fermer la fiche latérale et réinitialiser la mise en avant en cliquant sur le fond
+            svg.on("click", event => {
+                if (event.target.tagName === "svg" || event.target.id === "network-svg") {
+                    resetHighlight();
+                    sidebar.classed("open", false);
+                }
+            });
+
+            // Réinitialisation du zoom
             d3.select("#reset-zoom").on("click", () => {
                 svg.transition().duration(750)
                     .call(zoom.transform, d3.zoomIdentity);
                 resetHighlight();
+                sidebar.classed("open", false);
             });
 
+            // Barre de recherche
             function search() {
-                const searchTerm = d3.select("#search-input").property("value").toLowerCase();
+                const searchTerm = d3.select("#search-input").property("value").trim().toLowerCase();
                 if (searchTerm.length < 2) {
                     resetHighlight();
+                    sidebar.classed("open", false);
                     return;
                 }
 
                 const foundNode = nodes.find(node =>
                     node.id.toLowerCase().includes(searchTerm) ||
-                    node.description.toLowerCase().includes(searchTerm)
+                    (node.description && node.description.toLowerCase().includes(searchTerm))
                 );
 
-                if (foundNode) focusNode(foundNode);
+                if (foundNode) {
+                    focusNode(foundNode);
+                }
             }
 
             d3.select("#search-button").on("click", search);
@@ -318,6 +582,7 @@
                 if (event.key === "Enter") search();
             });
 
+            // Boutons de filtrage thématique
             d3.selectAll(".filter-button").on("click", function () {
                 const filterValue = this.getAttribute("data-filter");
                 d3.selectAll(".filter-button").classed("active", false);
@@ -334,27 +599,115 @@
                         return (sourceNode && targetNode && (sourceNode.type === filterValue || targetNode.type === filterValue)) ? null : "none";
                     });
                 }
+                
+                // Ferme le panneau lors d'un changement de filtre
+                sidebar.classed("open", false);
+                resetHighlight();
             });
 
-            svg.on("click", event => {
-                if (event.target.tagName === "svg") resetHighlight();
-            });
-
-            // Adaptation au redimensionnement de la fenêtre
+            // Redimensionnement de la fenêtre adaptatif
             window.addEventListener("resize", () => {
                 const newWidth = window.innerWidth;
                 const newHeight = window.innerHeight;
                 svg.attr("width", newWidth).attr("height", newHeight);
                 simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2))
-                    .force("x", d3.forceX(d => newWidth * (politicalPositions[d.id] || 0.5)).strength(0.2))
+                    .force("x", d3.forceX(d => newWidth * (politicalPositions[d.id] || politicalPositions[d.group] || 0.5)).strength(0.25))
                     .force("y", d3.forceY(newHeight / 2).strength(0.1))
                     .alpha(0.3).restart();
             });
 
-        }).catch(error => {
+            // ================= LOGIQUE DE LA FENÊTRE DE VALIDATION =================
+            let queue = [];
+            if (typeof pendingData !== 'undefined') {
+                queue = pendingData.nodes.filter(n => !validationStatus[n.id]);
+            }
+
+            let currentIndex = 0;
+            const modal = d3.select("#validation-modal");
+            const modalProgress = d3.select("#modal-progress");
+            const modalAvatarWrapper = d3.select("#modal-avatar-wrapper");
+            const modalAvatarImg = d3.select("#modal-avatar-img");
+            const modalActorName = d3.select("#modal-actor-name");
+            const modalActorType = d3.select("#modal-actor-type");
+            const modalActorDesc = d3.select("#modal-actor-desc");
+            const modalActorDetails = d3.select("#modal-actor-details");
+
+            function showModalForActor(actor, index, total) {
+                // Utilise la fonction getNodeColor mais avec un fallback
+                let nodeColor = colors[actor.group];
+                if (!nodeColor) {
+                    const parentNode = politicalData.nodes.find(n => n.id === actor.group);
+                    nodeColor = parentNode && colors[parentNode.group] ? colors[parentNode.group] : "var(--text-secondary)";
+                }
+
+                modalProgress.text(`Proposition ${index + 1} sur ${total}`);
+                modalActorName.text(actor.description || actor.id);
+                
+                modalActorType.text(actor.type)
+                    .style("background-color", `${nodeColor}1a`)
+                    .style("color", nodeColor)
+                    .style("border-color", `${nodeColor}4d`);
+                
+                modalActorDesc.text(actor.details || "Aucun détail.");
+                modalActorDetails.html(`<strong>Identifiant technique :</strong> ${actor.id}<br><strong>Groupe/Parti proposé :</strong> ${actor.group}`);
+
+                modalAvatarWrapper
+                    .style("border", `3px solid ${nodeColor}`)
+                    .style("box-shadow", `0 0 15px ${nodeColor}33`);
+
+                if (actor.imageUrl) {
+                    modalAvatarImg.attr("src", actor.imageUrl).style("display", "block");
+                } else {
+                    modalAvatarImg.style("display", "none");
+                }
+
+                modal.classed("show", true);
+            }
+
+            function nextStep() {
+                currentIndex++;
+                if (currentIndex < queue.length) {
+                    showModalForActor(queue[currentIndex], currentIndex, queue.length);
+                } else {
+                    modal.classed("show", false);
+                    location.reload();
+                }
+            }
+
+            // Clic sur Approuver
+            d3.select("#modal-btn-approve").on("click", () => {
+                if (queue.length === 0 || currentIndex >= queue.length) return;
+                const actor = queue[currentIndex];
+                validationStatus[actor.id] = 'approved';
+                localStorage.setItem('political_map_validation', JSON.stringify(validationStatus));
+                nextStep();
+            });
+
+            // Clic sur Rejeter
+            d3.select("#modal-btn-reject").on("click", () => {
+                if (queue.length === 0 || currentIndex >= queue.length) return;
+                const actor = queue[currentIndex];
+                validationStatus[actor.id] = 'rejected';
+                localStorage.setItem('political_map_validation', JSON.stringify(validationStatus));
+                nextStep();
+            });
+
+            // Lancement de la validation s'il y a des éléments en attente
+            if (queue.length > 0) {
+                currentIndex = 0;
+                showModalForActor(queue[0], 0, queue.length);
+            }
+
+            // Bouton réinitialiser les propositions
+            d3.select("#manage-proposals").on("click", () => {
+                localStorage.removeItem('political_map_validation');
+                location.reload();
+            });
+
+        } catch (error) {
             console.error('Erreur lors du chargement des données:', error);
-            alert("Erreur lors du chargement des données. Vérifiez la console pour plus de détails.");
-        });
+            alert("Erreur lors de l'initialisation de l'application. Vérifiez la console pour plus de détails.");
+        }
     </script>
 </body>
 
